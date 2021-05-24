@@ -6,40 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <style>
-        .container1 {
-            width: 600px;
-            height: 30px;
-            border: 1px solid black;
-            margin: 0 auto;
-        }
-
-        .container2 {
-            width: 600px;
-            height: 300px;
-            border: 1px solid black;
-            margin: 0 auto;
-        }
-    </style>
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
     <a href="register.php">Register</a>
     <br>
-        <div class="container1">
-            <label for="login">Login</label><br>
-        </div>
-    <center>
-        <div class="container2">
-            <form name="form1" method="post" action="login/run">
-                <label for="uname">E-Mail</label>
-                <input type="text" id="user_name" name="user_name"><br><br>
-                <label for="pwd">Password</label>
-                <input type="password" id="password" name="password"><br><br>
-                <input name="submit" type="submit" id="submit" value="Login"><a href="register.php">Forget your
-                    password?</a>
-        </div>
-    </center>
+    <div class="center">
+        <h1>Login</h1><br>
+        <form method="post">
+            <div class="txt_field">
+                <input type="text" required>
+                <label>E-Mail</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" required>
+                <label>Password</label>
+            </div>
+            <div class="pass">Forget your password?</div>
+            <input type="submit" value="Login">
+        </form>
+    </div>
 </body>
 
 </html>
