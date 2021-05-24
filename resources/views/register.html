@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        .container1 {
+            width: 600px;
+            height: 30px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+
+        .container2 {
+            width: 600px;
+            height: 300px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="login.php">Login</a>
+    <br>
+        <div class="container1">
+            <label for="register">Register</label><br>
+        </div>
+    <center>
+        <div class="container2">
+            <form method="post" action="<?php echo URL; ?>register/signup">
+                E-Mail:
+                <input type="text" name="email">
+                <br>
+                Name:
+                <input type="text" name="name">
+                <br>
+                Phone:
+                <input type="text" name="phone">
+                <br>
+                Password:
+                <input type="password" name="password">
+                <br>
+                Confirm Password:
+                <input type="password" name="password">
+                <br><br>
+                <input type="submit" value="Register">
+            </form>
+        </div>
+    </center>
+
+</body>
+
+</html>
