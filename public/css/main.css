@@ -1,0 +1,32 @@
+.frame{
+    height: 100%;
+    margin: 20px;
+    padding: 20px;
+    border-style: solid;
+    text-align: right;
+}
+
+.summary-item{
+    height: 100%;
+    margin: 20px;
+    padding: 20px;
+    text-align: left;
+    align-items: flex-start;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+  }
+
+label{
+    font-weight: bold;
+}
+
+input{
+    margin: 5px;
+}
+
+.navbar-account{
+    text-align: right;
+}

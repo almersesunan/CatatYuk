@@ -1,78 +1,212 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts/main')
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/css/app.css">
-
-    <title>CatatYuk</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-            CatatYuk
-          </a>  
-        </div>
-        <div class="div">
-            <select id="dropdown">
-                <option>Tambah Buku Baru</option>
-                <option value="programmer">Current Book</option>
-                <option value="designer">New Book</option>
-            </select><br>
-        </div>
-    </nav>
+@section('title', 'CatatYuk')
     
-    <ul>
-        <li><a href="#">Book Name</a>
-            <ul>
-                <li><input name="#" type="submit" id="submit" value="Tambah Bisnis Baru"></li>
-            </ul>
-        </li>
-    </ul>
-    <ul>
-        <li><a href="#">Name</a>
-            <ul>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Logout</a></li>
-            </ul>
-        </li>
-    </ul>
-    <ul>
-            <li><a href="#">Menu</a>
-                <ul>
-                    <li><a href="#">Summary</a></li>
-                    <li><a href="#">Pencatatan Kas</a></li>
-                    <li><a href="#">Stok Barang</a></li>
-                    <li><a href="#">Hutang/Piutang</a></li>
-                </ul>
-            </li>
-        </ul>
-        <br>
-        <center>
-            <div class="container">
-                    <a href="#">Download to PDF</a><br>
-                    <label for="uname">Laporan Kas</label><br>
-                    <label for="pwd">Stok Barang</label><br>
-                    <label for="pwd">Hutang</label><br>
-                    <label for="pwd">Piutang</label><br><br>
-            </div>
-        </center>
+@section('container')
+  <div class="frame">
+    <a href="#">Download to PDF</a><br>
+    <div class="summary-item">
+      <label for="uname">Laporan Kas</label><br>
+      <label><input type="radio" name="cashflow" value="pemasukan">Pemasukan</label>
+      <label><input type="radio" name="cashflow" value="pengeluaran">Pengeluaran</label>
+      <div id="cashflowchart"></div>
+    </div>
+    <div class="summary-item">
+      <label for="pwd">Stok Barang</label><br>
+      <div id="stokbarangchart"></div>
+    </div>
+    <div class="summary-item">
+      <label for="pwd">Hutang</label><br>
+      <table style="width:100%">
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Due Date</th>
+          <th>Status</th>
+          <th>Nominal</th>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Smith</td>
+          <td>50</td>
+          <td>Done</td>
+          <td>5000000</td>
+        </tr>
+        <tr>
+          <td>Eve</td>
+          <td>Jackson</td>
+          <td>94</td>
+          <td>Ongoing</td>
+          <td>3000000</td>
+        </tr>
+      </table>
+    </div>
+    <div class="summary-item">
+      <label for="pwd">Piutang</label><br>
+      <table style="width:100%">
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Due Date</th>
+          <th>Status</th>
+          <th>Nominal</th>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Smith</td>
+          <td>50</td>
+          <td>Done</td>
+          <td>5000000</td>
+        </tr>
+        <tr>
+          <td>Eve</td>
+          <td>Jackson</td>
+          <td>94</td>
+          <td>Ongoing</td>
+          <td>3000000</td>
+        </tr>
+      </table>
+    </div>
+  </div>    
+@endsection
 
-    <!-- Optional JavaScript; choose one of the two! -->
+@section('footer')
+    
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+  Highcharts.chart('cashflowchart', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Monthly Average Rainfall'
+    },
+    subtitle: {
+        text: 'Source: WorldClimate.com'
+    },
+    xAxis: {
+        categories: [
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Rainfall (mm)'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Tokyo',
+        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    }, {
+        name: 'New York',
+        data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-    -->
-  </body>
-</html>
+    }, {
+        name: 'London',
+        data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+
+    }, {
+        name: 'Berlin',
+        data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+
+    }]
+  });
+</script>
+
+<script>
+  Highcharts.chart('stokbarangchart', {
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Historic World Population by Region'
+    },
+    subtitle: {
+        text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+    },
+    xAxis: {
+        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+        title: {
+            text: null
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Population (millions)',
+            align: 'high'
+        },
+        labels: {
+            overflow: 'justify'
+        }
+    },
+    tooltip: {
+        valueSuffix: ' millions'
+    },
+    plotOptions: {
+        bar: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'top',
+        x: -40,
+        y: 80,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+        shadow: true
+    },
+    credits: {
+        enabled: false
+    },
+    series: [{
+        name: 'Year 1800',
+        data: [107, 31, 635, 203, 2]
+    }, {
+        name: 'Year 1900',
+        data: [133, 156, 947, 408, 6]
+    }, {
+        name: 'Year 2000',
+        data: [814, 841, 3714, 727, 31]
+    }, {
+        name: 'Year 2016',
+        data: [1216, 1001, 4436, 738, 40]
+    }]
+});
+</script>
+
+@stop
