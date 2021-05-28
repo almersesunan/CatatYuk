@@ -120,7 +120,7 @@
         }
     },
     series: [{
-        name: 'Bulan',
+        name: 'Jumlah',
         data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
 
     }]
@@ -177,10 +177,11 @@
         enabled: false
     },
     series: [{
-        name: 'Nama Barang',
+        name: 'Jumlah',
         data: [107, 31, 635, 203, 2]
     }]
+    
 });
 </script>
 
-@stop
+@endsection
