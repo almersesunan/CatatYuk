@@ -114,7 +114,7 @@
                       </tr>
                   </tbody>
           </table>
-          <br><br><button type="button" class="btn btn-secondary">Tambah Transaksi</button>
+          <br><br><button type="button" class="btn btn-secondary">Tambah Barang</button>
               </div>
             </div>
           </div>
