@@ -25,6 +25,9 @@ Route::get('/cashflow', function () {
     return view('cashflow');
 });
 
+Route::get('/stock', function () {
+    return view('stock');
+});
 
 Auth::routes();
 
