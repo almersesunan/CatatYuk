@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/auth/login');
 });
 
 Route::get('/summary', function () {
@@ -29,6 +29,16 @@ Route::get('/stock', function () {
     return view('stock');
 });
 
+<<<<<<< HEAD
+=======
+Route::get('/feedback', function () {
+    return view('feedback');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+>>>>>>> 95c8dc62def689df77a717f01f5c82e33fbc8846
 
 Auth::routes();
 

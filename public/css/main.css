@@ -1,32 +1,222 @@
-body{
-    background-color: #e3f2fd;
-}
-
-.frame{
-    height: 100%;
-    margin: 20px;
-    padding: 20px;
+.frame {
+    height: 50%;
+    margin: 5px;
+    padding: 5px;
     border-style: solid;
     text-align: right;
+    background-color: rgb(255, 255, 255);
 }
 
-.summary-item{
-    height: 100%;
-    margin: 20px;
-    padding: 20px;
+.summary-item {
+    height: 30%;
+    margin: 3px;
+    padding: 3px;
     text-align: left;
     align-items: flex-start;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid black;
     text-align: center;
-  }
+}
 
-label{
+label {
     font-weight: bold;
 }
 
-input{
+input {
     margin: 5px;
+}
+
+ul.navbar-nav li.profile-dropdown {
+    margin-left: auto;
+    margin-right: 50px;
+}
+ul.navbar-nav li.alerts {
+    margin-left: 75%;
+}
+
+#navbarNavDropdown ul li ul.dropdown-menu {
+    border-radius: 0;
+    border-top-width: 3px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-style: solid;
+    border-color: #0087be;
+    margin-top: 17px;
+    -webkit-box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.175);
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#navbarNavDropdown ul li ul.dropdown-menu {
+    border-bottom: 1px solid #ccc;
+}
+
+#navbarNavDropdown ul li ul.dropdown-menu li a:hover {
+    background-color: #0087be;
+    color: #ffffff;
+    transition: 0.4s;
+}
+#navbarNavDropdown ul li ul.dropdown-menu li a {
+    font-size: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.animate {
+    animation-duration: 0.6s;
+    -webkit-animation-duration: 0.6s;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: scaleY(0);
+        transform-origin: center top 0;
+    }
+
+    100% {
+        transform: scaleY(1);
+        transform-origin: center top 0;
+    }
+}
+
+@-webkit-keyframes slideDown {
+    0% {
+        transform: scaleY(0);
+        transform-origin: center top 0;
+    }
+
+    100% {
+        transform: scaleY(1);
+        transform-origin: center top 0;
+    }
+}
+
+.slideDown {
+    animation-name: slideDown;
+    -webkit-animation-name: slideDown;
+}
+
+footer {
+    height: 5px;
+    line-height: 35px;
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+}
+
+.navbar {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 50px;
+    width: 100%;
+}
+
+body {
+    background: -webkit-linear-gradient(left, #e2e2e2, #bac0c4);
+}
+.contact-form {
+    background: rgb(250, 250, 250);
+    margin-top: 10%;
+    margin-bottom: 5%;
+    width: 70%;
+    -webkit-box-shadow: -1px 9px 27px -8px rgba(104, 39, 115, 1);
+    -moz-box-shadow: -1px 9px 27px -8px rgba(104, 39, 115, 1);
+    box-shadow: -1px 9px 27px -8px rgba(104, 39, 115, 1);
+}
+.contact-form .form-control {
+    border-radius: 1rem;
+}
+.contact-image {
+    text-align: center;
+}
+.contact-image img {
+    border-radius: 6rem;
+    width: 11%;
+    margin-top: -3%;
+    transform: rotate(29deg);
+}
+.contact-form form {
+    padding: 14%;
+}
+.contact-form form .row {
+    margin-bottom: -7%;
+}
+.contact-form h3 {
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+    color: #682773;
+}
+.contact-form .btnContact {
+    width: 50%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #682773;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+.btnContactSubmit {
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #682773;
+    border: none;
+    cursor: pointer;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #ba68c8;
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none;
+}
+
+.profile-button:hover {
+    background: #682773;
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none;
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none;
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer;
+}
+
+.labels {
+    font-size: 11px;
+}
+
+.add-experience:hover {
+    background: #ba68c8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #ba68c8;
+}
+
+.profile {
+    -webkit-box-shadow: -1px 9px 27px -8px rgba(104, 39, 115, 1);
+    -moz-box-shadow: -1px 9px 27px -8px rgba(104, 39, 115, 1);
+    box-shadow: -1px 9px 27px -8px rgba(104, 39, 115, 1);
 }
