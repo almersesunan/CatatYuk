@@ -27,7 +27,7 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src="asd.png" alt="" />
@@ -112,11 +112,7 @@
       
     @yield('container')
 
-
-    @yield('footer')
-
-     <!-- Footer -->
-     <footer class="text-center text-lg-start bg-light text-muted">
+    <footer class="text-center text-lg-start bg-light text-muted">
             <!-- Section: Social media -->
             <section
                 class="
@@ -266,5 +262,10 @@
             </div>
             <!-- Copyright -->
         </footer>
+
+    @yield('footer')
+
+     <!-- Footer -->
+     
   </body>
 </html>
