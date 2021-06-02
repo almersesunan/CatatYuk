@@ -61,9 +61,7 @@
                                 aria-labelledby="navbarDropdownMenuLink"
                             >
                                 <li>
-                                    <a class="dropdown-item" href="#"
-                                        >Tambah Bisnis Baru</a
-                                    >
+                                    <a class="dropdown-item" href="#">+Tambah bisnis baru</a>
                                 </li>
                             </ul>
                         </li>
@@ -112,7 +110,11 @@
       
     @yield('container')
 
-    <footer class="text-center text-lg-start bg-light text-muted">
+
+    @yield('footer')
+
+     <!-- Footer -->
+     <footer class="text-center text-lg-start bg-light text-muted">
             <!-- Section: Social media -->
             <section
                 class="
@@ -262,10 +264,5 @@
             </div>
             <!-- Copyright -->
         </footer>
-
-    @yield('footer')
-
-     <!-- Footer -->
-     
   </body>
 </html>
