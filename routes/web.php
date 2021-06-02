@@ -29,6 +29,10 @@ Route::get('/stock', function () {
     return view('stock');
 });
 
+Route::get('/feedback', function () {
+    return view('feedback');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

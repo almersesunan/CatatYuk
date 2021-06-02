@@ -116,7 +116,7 @@
     @yield('footer')
 
      <!-- Footer -->
-     <footer class="text-center text-lg-start bg-light text-muted footer">
+     <footer class="text-center text-lg-start bg-light text-muted">
             <!-- Section: Social media -->
             <section
                 class="
@@ -266,6 +266,5 @@
             </div>
             <!-- Copyright -->
         </footer>
-        <!-- Footer -->
   </body>
 </html>
