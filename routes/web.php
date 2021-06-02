@@ -29,6 +29,7 @@ Route::get('/stock', function () {
     return view('stock');
 });
 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
