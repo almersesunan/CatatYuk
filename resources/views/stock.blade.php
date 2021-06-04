@@ -1,18 +1,18 @@
 @extends('layouts/main')
 
 @section('title', 'CatatYuk')
-    
+
+
 @section('container')
-<link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-  <div class="frame">
-    <a href="#">Download to PDF</a><br>
+<link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">  
     <div class="summary-item">
-      <label for="pwd">Stok Barang</label><br>
         <body>
           <div class="container">
             <div class="card mt-5">
-              <div class="card-body">
-                <table id="example" class="table table-striped table-bordered" style="width:100%">
+              <div class="card-body" style="border: 4px solid">
+                <table id="table" class="table table-striped table-bordered" style="width:100%">
+                  <a href="#" style="float: right">Download to PDF</a>
+                  <label for="pwd">Stok Barang</label><br>
                   <thead>
                       <tr>
                         <th>Nama Barang</th>
@@ -27,8 +27,8 @@
                           <td>50</td>
                           <td>61</td>
                           <td align="center">
-                            <button id="edit_brg" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                            <button id="edit_brg" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
+                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                             </td>
                       </tr>
                       <tr>
@@ -37,7 +37,7 @@
                           <td>63</td>
                           <td align="center">
                             <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                           </td>
                       </tr>
                       <tr>
@@ -45,8 +45,8 @@
                           <td>100</td>
                           <td>66</td>
                           <td align="center">
-                            <button id="edit_brg" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                            <button id="edit_brg" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
+                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                           </td>
                       </tr>
                       <tr>
@@ -55,7 +55,7 @@
                           <td>22</td>
                           <td align="center">
                             <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                           </td>
                       </tr>
                       <tr>
@@ -64,7 +64,7 @@
                           <td>33</td>
                           <td align="center">
                             <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                           </td>
                       </tr>
                       <tr>
@@ -73,7 +73,7 @@
                           <td>61</td>
                           <td align="center">
                             <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                           </td>
                       </tr>
                       <tr>
@@ -82,7 +82,7 @@
                           <td>59</td>
                           <td align="center">
                             <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                           </td>
                       </tr>
                       <tr>
@@ -91,7 +91,7 @@
                           <td>55</td>
                           <td align="center">
                             <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                           </td>
                       </tr>
                       <tr>
@@ -100,7 +100,7 @@
                           <td>39</td>
                           <td align="center">
                             <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                           </td>
                       </tr>
                       <tr>
@@ -109,7 +109,7 @@
                           <td>23</td>
                           <td align="center">
                             <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                           </td>
                       </tr>
                       <tr>
@@ -118,7 +118,7 @@
                           <td>30</td>
                           <td align="center">
                             <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                           </td>
                         </tr>
                       <tr>
@@ -127,7 +127,7 @@
                           <td>22</td>
                           <td align="center">
                             <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                           </td>
                       </tr>
                       <tr>
@@ -136,7 +136,7 @@
                           <td>36</td>
                           <td align="center">
                             <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                           </td>
                       </tr>
                       <tr>
@@ -145,7 +145,7 @@
                           <td>43</td>
                           <td align="center">
                             <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                           </td>
                       </tr>
                       <tr>
@@ -154,7 +154,7 @@
                           <td>19</td>
                           <td align="center">
                             <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                           </td>
                       </tr>
                   </tbody>
@@ -220,7 +220,6 @@
   </div>
         </div>
             </div>
-          </div>
       
           <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
           <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
@@ -233,15 +232,14 @@
 
           <script>
           $(document).ready(function() {
-              var table = $('#example').DataTable( {
+              var table = $('#table').DataTable( {
               lengthChange: false,
               buttons: ['pdf']
           } );
        
           table.buttons().container()
-              .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+              .appendTo( '#table_wrapper .col-md-6:eq(0)' );
           } );
           </script>
         </body>
 @endsection
-
