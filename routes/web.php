@@ -29,6 +29,10 @@ Route::get('/stock', function () {
     return view('stock');
 });
 
+Route::get('/debt', function () {
+    return view('debt');
+});
+
 Route::get('/feedback', function () {
     return view('feedback');
 });

@@ -4,7 +4,7 @@
 
 
 @section('container')
-<link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">  
+    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">  
     <div class="summary-item">
         <body>
           <div class="container">
@@ -158,11 +158,18 @@
                           </td>
                       </tr>
                   </tbody>
-          </table>
-          <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah">Tambah Barang</button>
+                </table>
+                <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah">Tambah Barang</button>
+              </div>
+            </div>
+          </div>
+        </body>
+    </div>
+
+
 
 <!-- Modal Edit -->
-<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editbarang" aria-hidden="true">
+  <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editbarang" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -170,18 +177,18 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <div class="form-group">
-                <label class="control-label" for="nm_brg">Nama Barang</label>
-                <input type="text" name="nm_brg" class="form-control" id="nm_brng" required>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="mini_brg">Minimum</label>
-                <input type="text" name="mini_brg" class="form-control" id="mini_brng" required>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="stok_brg">Stok Saat Ini</label>
-                <input type="text" name="stok_brg" class="form-control" id="stok_brng" required>
-            </div>
+          <div class="form-group">
+            <label class="control-label" for="nm_brg">Nama Barang</label>
+            <input type="text" name="nm_brg" class="form-control" id="nm_brng" required>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="mini_brg">Minimum</label>
+            <input type="text" name="mini_brg" class="form-control" id="mini_brng" required>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="stok_brg">Stok Saat Ini</label>
+            <input type="text" name="stok_brg" class="form-control" id="stok_brng" required>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary">Simpan</button>
@@ -218,8 +225,6 @@
       </div>
     </div>
   </div>
-        </div>
-            </div>
       
           <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
           <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
@@ -241,5 +246,4 @@
               .appendTo( '#table_wrapper .col-md-6:eq(0)' );
           } );
           </script>
-        </body>
 @endsection
