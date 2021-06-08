@@ -86,13 +86,16 @@
                                 class="dropdown-menu animate slideDown"
                                 aria-labelledby="navbarDropdownMenuLink"
                             >
+                            
                                 <li>
-                                    <a class="dropdown-item" href="#"
-                                        >Profile</a
-                                    >
+                                    <a class="dropdown-item" href="#">
+                                        <i class="far fa-user pt 1">Profile</i>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">Logout</a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-sign-out-alt">Logout</i>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
