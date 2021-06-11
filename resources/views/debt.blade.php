@@ -3,7 +3,7 @@
 @section('title', 'CatatYuk')
 
 @section('container')
-  <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">  
+  <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">   
   <div class="summary-item">
     <body>
       <div class="container">
