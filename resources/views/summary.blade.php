@@ -3,6 +3,7 @@
 @section('title', 'CatatYuk')
     
 @section('container')
+<div class="container all-summary">
   <div class="frame">
     <a href="#">Download to PDF</a><br>
     <div class="summary-item">
@@ -68,9 +69,7 @@
       </table>
     </div>
   </div>    
-@endsection
 
-@section('footer')
     
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
@@ -183,5 +182,10 @@
     
 });
 </script>
+</div>
+
+@endsection
+
+@section('footer')
 
 @endsection
