@@ -107,33 +107,41 @@
     
 
     <!-- Modal Edit Hutang -->
+  <html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
     <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="edithutang" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="ModalEdit">Edit Hutang</h5>
+            <h5 class="modal-title" id="ModalEditHutang">Edit Hutang</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <label class="control-label" for="nm_brg">Nama</label>
-              <input type="text" name="nm_brg" class="form-control" id="nm_brng" required>
+              <label class="control-label" for="NamaHutang">Nama</label>
+              <input type="text" name="NamaHutang" class="form-control" id="NamaHutang" required>
             </div>
             <div class="form-group">
-              <label class="control-label" for="tgl_brg">Tanggal</label>
-              <input type="text" name="tgl_brg" class="form-control" id="tgl_brng" required>
+              <label class="control-label" for="TanggalHutang">Tanggal</label>
+              <input name="TanggalHutang" class="form-control" id="TanggalHutang" required>
             </div>
             <div class="form-group">
-              <label class="control-label" for="jthtmp_brg">Jatuh Tempo</label>
-              <input type="text" name="jthtmp_brg" class="form-control" id="jthtmp_brng" required>
+              <label class="control-label" for="JatuhTempoHutang">Jatuh Tempo</label>
+              <input name="JatuhTempoHutang" class="form-control" id="JatuhTempoHutang" required>
             </div>
             <div class="form-group">
-                <label class="control-label" for="ktr_brg">Keterangan</label>
-                <input type="text" name="ktr_brg" class="form-control" id="ktr_brng" required>
+              <label for="KeteranganHutang">Keterangan</label>
+              <textarea class="form-control" id="KeteranganHutang" rows="3" required></textarea>
             </div>
             <div class="form-group">
-                <label class="control-label" for="jmlh_brg">Jumlah</label>
-                <input type="text" name="jmlh_brg" class="form-control" id="jmlh_brng" required>
+                <label class="control-label" for="JumlahHutang">Jumlah</label>
+                <input type="text" name="JumlahHutang" class="form-control" id="JumlahHutang" required>
             </div>
           </div>
           <div class="modal-footer">
@@ -142,35 +150,48 @@
         </div>
       </div>
     </div>
-
+      <script>
+        $('#TanggalHutang').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'dd-mm-yyyy'
+        });
+      </script>
+      <script>
+        $('#JatuhTempoHutang').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'dd-mm-yyyy'
+        });
+      </script>
+    </body>
     <!-- Modal Edit Piutang -->
+    <body>
     <div class="modal fade" id="edit1" tabindex="-1" aria-labelledby="editpiutang" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="ModalEdit1">Edit Piutang</h5>
+              <h5 class="modal-title" id="ModalEditPiutang">Edit Piutang</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <div class="form-group">
-                <label class="control-label" for="nm_brg">Nama</label>
-                <input type="text" name="nm_brg" class="form-control" id="nm_brng" required>
+                <label class="control-label" for="NamaPiutang">Nama</label>
+                <input name="NamaPiutang" class="form-control" id="NamaPiutang" required>
               </div>
               <div class="form-group">
-                <label class="control-label" for="tgl_brg">Tanggal</label>
-                <input type="text" name="tgl_brg" class="form-control" id="tgl_brng" required>
+                <label class="control-label" for="TanggalPiutang">Tanggal</label>
+                <input type="text" name="TanggalPiutang" class="form-control" id="TanggalPiutang" required>
               </div>
               <div class="form-group">
-                <label class="control-label" for="jthtmp_brg">Jatuh Tempo</label>
-                <input type="text" name="jthtmp_brg" class="form-control" id="jthtmp_brng" required>
+                <label class="control-label" for="JatuhTempoPiutang">Jatuh Tempo</label>
+                <input type="text" name="JatuhTempoPiutang" class="form-control" id="JatuhTempoPiutang" required>
               </div>
               <div class="form-group">
-                  <label class="control-label" for="ktr_brg">Keterangan</label>
-                  <input type="text" name="ktr_brg" class="form-control" id="ktr_brng" required>
+                <label for="KeteranganPiutang">Keterangan</label>
+                <textarea class="form-control" id="KeteranganPiutang" rows="3" required></textarea>
               </div>
               <div class="form-group">
-                  <label class="control-label" for="jmlh_brg">Jumlah</label>
-                  <input type="text" name="jmlh_brg" class="form-control" id="jmlh_brng" required>
+                  <label class="control-label" for="JumlahPiutang">Jumlah</label>
+                  <input type="text" name="JumlahPiutang" class="form-control" id="JumlahPiutang" required>
               </div>
             </div>
             <div class="modal-footer">
@@ -179,35 +200,48 @@
           </div>
         </div>
       </div>
-
+      <script>
+        $('#TanggalPiutang').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'dd-mm-yyyy'
+        });
+    </script>
+    <script>
+      $('#JatuhTempoPiutang').datepicker({
+          uiLibrary: 'bootstrap4',
+          format: 'dd-mm-yyyy'
+      });
+  </script>
+    </body>
     <!-- Modal Tambah Hutang -->
+    <body>
     <div class="modal fade" id="tambah" tabindex="-1" aria-labelledby="tambahhutang" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="ModalTambah">Tambah Hutang</h5>
+            <h5 class="modal-title" id="ModalTambahHutang">Tambah Hutang</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="form-group">
-                <label class="control-label" for="nm_brg">Nama</label>
-                <input type="text" name="nm_brg" class="form-control" id="nm_brng" required>
+                <label class="control-label" for="NamaHutang1">Nama</label>
+                <input type="text" name="NamaHutang1" class="form-control" id="NamaHutang1" required>
               </div>
               <div class="form-group">
-                <label class="control-label" for="tgl_brg">Tanggal</label>
-                <input type="text" name="tgl_brg" class="form-control" id="tgl_brng" required>
+                <label class="control-label" for="TanggalHutang1">Tanggal</label>
+                <input name="TanggalHutang1" class="form-control" id="TanggalHutang1" required>
               </div>
               <div class="form-group">
-                <label class="control-label" for="jthtmp_brg">Jatuh Tempo</label>
-                <input type="text" name="jthtmp_brg" class="form-control" id="jthtmp_brng" required>
+                <label class="control-label" for="JatuhTempoHutang1">Jatuh Tempo</label>
+                <input type="text" name="JatuhTempoHutang1" class="form-control" id="JatuhTempoHutang1" required>
               </div>
               <div class="form-group">
-                  <label class="control-label" for="ktr_brg">Keterangan</label>
-                  <input type="text" name="ktr_brg" class="form-control" id="ktr_brng" required>
+                <label for="KeteranganHutang1">Keterangan</label>
+                <textarea class="form-control" id="KeteranganHutang1" rows="3" required></textarea>
               </div>
               <div class="form-group">
-                  <label class="control-label" for="jmlh_brg">Jumlah</label>
-                  <input type="text" name="jmlh_brg" class="form-control" id="jmlh_brng" required>
+                  <label class="control-label" for="JumlahHutang1">Jumlah</label>
+                  <input type="text" name="JumlahHutang1" class="form-control" id="JumlahHutang1" required>
               </div>
             </div>
             <div class="modal-footer">
@@ -217,44 +251,72 @@
         </div>
       </div>
     </div>
-
+    <script>
+      $('#TanggalHutang1').datepicker({
+          uiLibrary: 'bootstrap4',
+          format: 'dd-mm-yyyy'
+      });
+  </script>
+  <script>
+    $('#JatuhTempoHutang1').datepicker({
+        uiLibrary: 'bootstrap4',
+        format: 'dd-mm-yyyy'
+    });
+</script>
+  </body>
     <!-- Modal Tambah Piutang -->
-    <div class="modal fade" id="tambah1" tabindex="-1" aria-labelledby="tambahpiutang" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="ModalTambah1">Tambah Piutang</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                  <label class="control-label" for="nm_brg">Nama</label>
-                  <input type="text" name="nm_brg" class="form-control" id="nm_brng" required>
-                </div>
-                <div class="form-group">
-                  <label class="control-label" for="tgl_brg">Tanggal</label>
-                  <input type="text" name="tgl_brg" class="form-control" id="tgl_brng" required>
-                </div>
-                <div class="form-group">
-                  <label class="control-label" for="jthtmp_brg">Jatuh Tempo</label>
-                  <input type="text" name="jthtmp_brg" class="form-control" id="jthtmp_brng" required>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="ktr_brg">Keterangan</label>
-                    <input type="text" name="ktr_brg" class="form-control" id="ktr_brng" required>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="jmlh_brg">Jumlah</label>
-                    <input type="text" name="jmlh_brg" class="form-control" id="jmlh_brng" required>
-                </div>
+    <body>
+      <div class="modal fade" id="tambah1" tabindex="-1" aria-labelledby="tambahpiutang" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="ModalTambahPiutang">Tambah Piutang</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Simpan</button>
+              <div class="modal-body">
+                <div class="form-group">
+                    <label class="control-label" for="NamaPiutang1">Nama</label>
+                    <input type="text" name="NamaPiutang1" class="form-control" id="NamaPiutang1" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="TanggalPiutang1">Tanggal</label>
+                    <input name="TanggalPiutang1" class="form-control" id="TanggalPiutang1" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="JatuhTempoPiutang1">Jatuh Tempo</label>
+                    <input type="text" name="JatuhTempoPiutang1" class="form-control" id="JatuhTempoPiutang1" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="KeteranganPiutang1">Keterangan</label>
+                    <textarea class="form-control" id="KeteranganPiutang1" rows="3" required></textarea>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label" for="JumlahPiutang1">Jumlah</label>
+                      <input type="text" name="JumlahPiutang1" class="form-control" id="JumlahPiutang1" required>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">Simpan</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+        <script>
+            $('#TanggalPiutang1').datepicker({
+                uiLibrary: 'bootstrap4',
+                format: 'dd-mm-yyyy'
+            });
+        </script>
+        <script>
+          $('#JatuhTempoPiutang1').datepicker({
+              uiLibrary: 'bootstrap4',
+              format: 'dd-mm-yyyy'
+          });
+      </script>
+      </body>
+</html>
+
       
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>

@@ -3,7 +3,8 @@
 @section('title', 'CatatYuk')
 
 @section('container')
-  <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">  
+  <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+  
   <div class="summary-item">
     <body>
       <div class="container">
@@ -59,78 +60,103 @@
     
 
     <!-- Modal Edit -->
-    <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="edittransaksi" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="ModalEdit">Edit Transaksi</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <label class="control-label" for="tp_brg">Tipe</label>
-              <input type="text" name="tp_brg" class="form-control" id="tp_brng" required>
+  <html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+      <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="edittransaksi" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="ModalEdit">Edit Transaksi</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="form-group">
-              <label class="control-label" for="tgl_brg">Tanggal</label>
-              <input type="text" name="tgl_brg" class="form-control" id="tgl_brng" required>
+            <div class="modal-body">
+              <div class="form-group">
+                <label class="mr-sm-2" for="Tipe">Tipe</label>
+                <select class="custom-select mr-sm-2" id="Tipe">
+                  <option value="1">Pemasukan</option>
+                  <option value="2">Pengeluaran</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="Tanggal">Tanggal</label>
+                <input name="Tanggal" class="form-control" id="Tanggal" required>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="Nominal">Nominal</label>
+                <input type="text" name="Nominal" class="form-control" id="Nominal" required>
+              </div>
+              <div class="form-group">
+                  <label class="control-label" for="Kategori">Kategori</label>
+                  <input type="text" name="Kategori" class="form-control" id="Kategori" required>
+              </div>
+              <form>
+                <div class="form-group">
+                  <label for="BuktiTransaksi">Bukti Transaksi</label>
+                  <input type="file" class="form-control-file" id="BuktiTransaksi">
+                </div>
+              </form>
+              <div class="form-group">
+                <label for="Deskripsi">Deskripsi</label>
+                <textarea class="form-control" id="Deskripsi" rows="3"></textarea>
+              </div>
             </div>
-            <div class="form-group">
-              <label class="control-label" for="nom_brg">Nominal</label>
-              <input type="text" name="nom_brg" class="form-control" id="nom_brng" required>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Simpan</button>
             </div>
-            <div class="form-group">
-                <label class="control-label" for="ktg_brg">Kategori</label>
-                <input type="text" name="ktg_brg" class="form-control" id="ktg_brng" required>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="bukti_brg">Bukti Transaksi</label>
-                <input type="text" name="bukti_brg" class="form-control" id="bukti_brng" required>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="desc_brg">Deskripsi</label>
-                <input type="text" name="desc_brg" class="form-control" id="desc_brng" required>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Simpan</button>
           </div>
         </div>
       </div>
-    </div>
-
+      <script>
+        $('#Tanggal').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'dd-mm-yyyy'
+        });
+      </script>
+    </body>
     <!-- Modal Tambah -->
-    <div class="modal fade" id="tambah" tabindex="-1" aria-labelledby="tambahtransksi" aria-hidden="true">
+    <body>
+      <div class="modal fade" id="tambah" tabindex="-1" aria-labelledby="tambahtransksi" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="ModalTambah">Transaksi</h5>
+            <h5 class="modal-title" id="ModalTambah">Tambah Transaksi</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <label class="control-label" for="nm_brg">Tipe</label>
-              <input type="text" name="nm_brg" class="form-control" id="nm_brng" required>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="tgl_brg">Tanggal</label>
-                <input type="text" name="tgl_brg" class="form-control" id="tgl_brng" required>
-            </div>
-              <div class="form-group">
-                <label class="control-label" for="nom_brg">Nominal</label>
-                <input type="text" name="nom_brg" class="form-control" id="nom_brng" required>
+                <label class="mr-sm-2" for="Tipe1">Tipe</label>
+                <select class="custom-select mr-sm-2" id="Tipe1">
+                  <option value="1">Pemasukan</option>
+                  <option value="2">Pengeluaran</option>
+                </select>
               </div>
               <div class="form-group">
-                <label class="control-label" for="ktg_brg">Kategori</label>
-                <input type="text" name="ktg_brg" class="form-control" id="ktg_brng" required>
+                <label class="control-label" for="TanggalBarang1">Tanggal</label>
+                <input name="TanggalBarang1" class="form-control" id="TanggalBarang1" required>
               </div>
               <div class="form-group">
-                <label class="control-label" for="bukti_brg">Bukti Transaksi</label>
-                <input type="text" name="bukti_brg" class="form-control" id="bukti_brng" required>
+                <label class="control-label" for="NominalBarang1">Nominal</label>
+                <input type="text" name="NominalBarang1" class="form-control" id="NominalBarang1" required>
               </div>
               <div class="form-group">
-                <label class="control-label" for="desc_brg">Deskripsi</label>
-                <input type="text" name="desc_brg" class="form-control" id="desc_brng" required>
+                <label class="control-label" for="KategoriBarang1">Kategori</label>
+                <input type="text" name="KategoriBarang1" class="form-control" id="KategoriBarang1" required>
+              </div>
+              <form>
+                <div class="form-group">
+                  <label for="BuktiTransaksi1">Bukti Transaksi</label>
+                  <input type="file" class="form-control-file" id="BuktiTransaksi1">
+                </div>
+              </form>
+              <div class="form-group">
+                <label for="Deskripsi1">Deskripsi</label>
+                <textarea class="form-control" id="Deskripsi1" rows="3"></textarea>
               </div>
             </div>
             <div class="modal-footer">
@@ -140,7 +166,15 @@
         </div>
       </div>
     </div>
-      
+      <script>
+        $('#TanggalBarang1').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'dd-mm-yyyy'
+        });
+    </script>
+  </body>
+  </html>
+  
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
