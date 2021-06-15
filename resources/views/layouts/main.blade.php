@@ -28,11 +28,11 @@
   <body>
     <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light id="mainNav">
-         <div class="container">
-            <a class="navbar-brand" href="#">Logo</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="container">
+                <a class="navbar-brand" href="#">Logo</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+                    </button>
 
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
@@ -103,27 +103,20 @@
                         </li>
                     </ul>
                 </div>
-            </nav>
+            </div>
+        </nav>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-            crossorigin="anonymous"
-        ></script>
-
-       
+            crossorigin="anonymous">
+        </script>
       
     @yield('container')
-<<<<<<< HEAD
-    <div class="feedback-area" style="padding: 10px; text-align: right; margin-right: 400px">
-        <button type="button" class="btn btn-primary btn-sm" href="#">Send us your feedback.</button>
-=======
-    <div class="feedback-area" style="padding: 10px; text-align: right;"> 
-        <button type="button" class="btn btn-link btn-sm" href="#">Send us your feedback</button>
->>>>>>> 798294faa9c427a4157a24980dedaccfc4061580
+    <div class="feedback-area" style="padding: 10px; text-align: right; margin-right: 200px"> 
+        <button type="button" class="btn btn-link btn-sm" href="#">Send us your feedback !</button>
     </div>
 
     @yield('footer')
-
      <!-- Footer -->
      <div class="container p-4">
      <footer class="text-center text-lg-start bg-light text-muted">
@@ -276,6 +269,6 @@
             </div>
             <!-- Copyright -->
         </footer>
-        </div>
+    </div>
   </body>
 </html>

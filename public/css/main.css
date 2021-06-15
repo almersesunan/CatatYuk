@@ -7,6 +7,11 @@
     background-color: rgb(255, 255, 255);
 }
 
+.feedback-area {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
 .summary-item {
     height: 30%;
     margin: 3px;
