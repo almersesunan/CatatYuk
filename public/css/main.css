@@ -7,6 +7,11 @@
     background-color: rgb(255, 255, 255);
 }
 
+.feedback-area {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
 .summary-item {
     height: 30%;
     margin: 3px;
@@ -211,6 +216,12 @@ footer {
 }
 
 .profile {
+    -webkit-box-shadow: -1px 9px 27px -8px rgba(104, 39, 115, 1);
+    -moz-box-shadow: -1px 9px 27px -8px rgba(104, 39, 115, 1);
+    box-shadow: -1px 9px 27px -8px rgba(104, 39, 115, 1);
+}
+
+.cashflow {
     -webkit-box-shadow: -1px 9px 27px -8px rgba(104, 39, 115, 1);
     -moz-box-shadow: -1px 9px 27px -8px rgba(104, 39, 115, 1);
     box-shadow: -1px 9px 27px -8px rgba(104, 39, 115, 1);
