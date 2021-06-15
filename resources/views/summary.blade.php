@@ -172,7 +172,10 @@
        bar: {
            zones: [{
                value: 10, // Values up to 10 (not including) ...
-                color: 'orangered' // ... have the color blue.
+                color: 'orangered' // ... have the color yellow.
+            },{
+              value: 20,
+               color: 'gold' // Values from 20 (including) and up have the color lightgreen
             },{
                color: 'lightgreen' // Values from 10 (including) and up have the color red
             }]
