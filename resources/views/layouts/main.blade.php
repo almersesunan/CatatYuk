@@ -28,11 +28,20 @@
   <body>
     <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNav">
+<<<<<<< HEAD
             <div class="container">
                 <div class="logo">
                     <a href="https://imgur.com/P1PwqXH"><img src="https://i.imgur.com/P1PwqXHt.png" style="text-indent:-9999px; max-width:100%" /></a>
                 </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+=======
+         <div class="container">
+            <div class="logo">
+                <a href="https://imgur.com/P1PwqXH"><img src="https://i.imgur.com/P1PwqXHt.png" style="text-indent:-9999px; max-width:100%"></a>
+            </div>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+>>>>>>> ee56f6c (border remove)
                 <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -115,8 +124,13 @@
         </script>
       
     @yield('container')
+<<<<<<< HEAD
     <div class="feedback-area" style="padding: 10px; text-align: right; margin-right: 400px">
         <button type="button" class="btn btn-primary btn-sm" href="#">Send us your feedback.</button>
+=======
+    <div class="feedback-area" style="padding: 10px; text-align: right; margin-right: 200px"> 
+        <button type="button" class="btn btn-link btn-sm" href="#">Send us your feedback !</button>
+>>>>>>> ee56f6c (border remove)
     </div>
 
     @yield('footer')

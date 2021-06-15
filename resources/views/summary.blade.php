@@ -4,7 +4,7 @@
     
 @section('container')
 <div class="container all-summary mt-5 mb-5">
-  <div class="frame">
+  <div class="frame" style="border-style: hidden">
     <a href="#">Download to PDF</a><br>
     <div class="summary-item">
       <label for="uname">Laporan Kas</label><br>

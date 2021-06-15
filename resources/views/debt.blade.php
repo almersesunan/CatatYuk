@@ -4,11 +4,11 @@
 
 @section('container')
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">   
-  <div class="summary-item">
+  <div class="summary-item" >
     <body>
-      <div class="container mt-5 mb-5">
-        <div class="card mt-5">
-          <div class="card-body" style="border: 4px solid">
+      <div class="container mt-5 mb-5 debt" >
+        <div class="card mt-5" style="border-style: hidden">
+          <div class="card-body">
             <table id="table" class="table table-striped table-bordered" style="width:100%">
               <a href="#" style="float: right">Download to PDF</a>
               <label for="pwd">Hutang</label><br>

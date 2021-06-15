@@ -9,9 +9,9 @@
     
     <div class="summary-item">
         <body>
-          <div class="container stock-summary mt-5 mb-5">
-            <div class="card mt-5">
-              <div class="card-body" style="border: 4px solid">
+          <div class="container stock-summary mt-5 mb-5" >
+            <div class="card mt-5" style="border-style: hidden">
+              <div class="card-body">
                 <table id="table" class="table table-striped table-bordered" style="width:100%">
                   <a href="#" style="float: right">Download to PDF</a>
                   <label for="pwd">Stok Barang</label><br>
