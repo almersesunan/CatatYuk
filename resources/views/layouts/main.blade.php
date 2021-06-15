@@ -27,20 +27,12 @@
   </head>
   <body>
     <!-- Navbar -->
-<<<<<<< HEAD
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNav">
-         <div class="container">
-            <div class="logo">
-                <a href="https://imgur.com/P1PwqXH"><img src="https://i.imgur.com/P1PwqXHt.png" style="text-indent:-9999px; max-width:100%" /></a>
-            </div>
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-=======
-        <nav class="navbar navbar-expand-lg navbar-light bg-light id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#">Logo</a>
+                <div class="logo">
+                    <a href="https://imgur.com/P1PwqXH"><img src="https://i.imgur.com/P1PwqXHt.png" style="text-indent:-9999px; max-width:100%" /></a>
+                </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
->>>>>>> d48d830f13a5f4736e506519a68f217ecf3a92d0
                 <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -83,7 +75,7 @@
                         </a>
                     </li>
                     
-                        <li class="nav-item dropdown profile-dropdown "> 
+                        <li class="nav-item dropdown profile-dropdown"> 
                                 <a
                                     class="nav-link dropdown-toggle "
                                     href="#"
@@ -122,13 +114,8 @@
         </script>
       
     @yield('container')
-<<<<<<< HEAD
     <div class="feedback-area" style="padding: 10px; text-align: right; margin-right: 400px">
         <button type="button" class="btn btn-primary btn-sm" href="#">Send us your feedback.</button>
-=======
-    <div class="feedback-area" style="padding: 10px; text-align: right; margin-right: 200px"> 
-        <button type="button" class="btn btn-link btn-sm" href="#">Send us your feedback !</button>
->>>>>>> d48d830f13a5f4736e506519a68f217ecf3a92d0
     </div>
 
     @yield('footer')
