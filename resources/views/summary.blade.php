@@ -135,7 +135,7 @@
         text: 'Stok Barang'
     },
     xAxis: {
-        categories: ['Gula', 'Kopi', 'Indomi', 'Kacang Hijau', 'Roti'],
+        categories: ['Gula', 'Kopi', 'Indomi', 'Kacang Hijau', 'Roti', 'Terigu', 'Rokok'],
         title: {
             text: null
         }
@@ -151,14 +151,7 @@
         }
     },
     tooltip: {
-        valueSuffix: ' millions'
-    },
-    plotOptions: {
-        bar: {
-            dataLabels: {
-                enabled: true
-            }
-        }
+        valueSuffix: ' Item(s)'
     },
     legend: {
         layout: 'vertical',
@@ -175,12 +168,22 @@
     credits: {
         enabled: false
     },
+    plotOptions: {
+       bar: {
+           zones: [{
+               value: 10, // Values up to 10 (not including) ...
+                color: 'orangered' // ... have the color blue.
+            },{
+               color: 'lightgreen' // Values from 10 (including) and up have the color red
+            }]
+        }
+    },
     series: [{
         name: 'Jumlah',
-        data: [107, 31, 635, 203, 2]
+        color: 'white',
+        data: [10, 5, 2, 14, 25, 9, 30]
     }]
-    
-});
+  });
 </script>
 </div>
 
