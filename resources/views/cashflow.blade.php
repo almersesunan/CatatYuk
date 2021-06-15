@@ -4,12 +4,12 @@
 
 @section('container')
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-  
+  <body>
   <div class="summary-item">
-    <body>
-      <div class="container">
+
+      <div class="container cashflow">
         <div class="card mt-5">
-          <div class="card-body" style="border: 4px solid">
+          <div class="card-body">
             <table id="table" class="table table-striped table-bordered" style="width:100%">
               <a href="#" style="float: right">Download to PDF</a>
               <label for="pwd">Pencatatan Kas</label><br>
@@ -55,9 +55,8 @@
           </div>
         </div>
       </div>    
-    </body>
   </div>     
-    
+  </body>  
 
     <!-- Modal Edit -->
   <html>

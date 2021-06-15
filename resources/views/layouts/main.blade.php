@@ -120,7 +120,7 @@
     @yield('footer')
 
      <!-- Footer -->
-     <div class="container main-footer">
+     <div class="container p-4">
      <footer class="text-center text-lg-start bg-light text-muted">
             <!-- Section: Social media -->
             <section
