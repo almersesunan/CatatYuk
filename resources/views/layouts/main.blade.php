@@ -27,9 +27,12 @@
   </head>
   <body>
     <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNav">
          <div class="container">
-            <a class="navbar-brand" href="#">Logo</a>
+            <div class="logo">
+                <a href="https://imgur.com/P1PwqXH"><img src="https://i.imgur.com/P1PwqXHt.png" style="text-indent:-9999px; max-width:100%" /></a>
+            </div>
+            
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -113,13 +116,8 @@
        
       
     @yield('container')
-<<<<<<< HEAD
     <div class="feedback-area" style="padding: 10px; text-align: right; margin-right: 400px">
         <button type="button" class="btn btn-primary btn-sm" href="#">Send us your feedback.</button>
-=======
-    <div class="feedback-area" style="padding: 10px; text-align: right;"> 
-        <button type="button" class="btn btn-link btn-sm" href="#">Send us your feedback</button>
->>>>>>> 798294faa9c427a4157a24980dedaccfc4061580
     </div>
 
     @yield('footer')
