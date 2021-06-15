@@ -112,7 +112,7 @@
        
       
     @yield('container')
-    <div class="feedback-area" style="padding: 10px; text-align: right;">
+    <div class="feedback-area" style="padding: 10px; text-align: right; margin-right: 400px">
         <button type="button" class="btn btn-primary btn-sm" href="#">Send us your feedback.</button>
     </div>
 
