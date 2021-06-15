@@ -18,55 +18,137 @@
     </div>
     <div class="summary-item">
       <label for="pwd">Hutang</label><br>
-      <table style="width:100%">
-        <tr>
-          <th>Name</th>
-          <th>Date</th>
-          <th>Due Date</th>
-          <th>Status</th>
-          <th>Nominal</th>
-        </tr>
-        <tr>
-          <td>Jill</td>
-          <td>Smith</td>
-          <td>50</td>
-          <td>Done</td>
-          <td>5000000</td>
-        </tr>
-        <tr>
-          <td>Eve</td>
-          <td>Jackson</td>
-          <td>94</td>
-          <td>Ongoing</td>
-          <td>3000000</td>
-        </tr>
-      </table>
+      <div style="height:200px;overflow:auto;">
+        <table class="table table-sm table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Lend Date</th>
+              <th scope="col">Due Date</th>
+              <th scope="col">Status</th>
+              <th scope="col">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark Otto</td>
+              <td>11 January 2021</td>
+              <td>13 December 2021</td>
+              <td>Ongoing</td>
+              <td>Rp. 12.000.000</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Mark Otto</td>
+              <td>11 January 2021</td>
+              <td>13 December 2021</td>
+              <td>Ongoing</td>
+              <td>Rp. 12.000.000</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Mark Otto</td>
+              <td>11 January 2021</td>
+              <td>13 December 2021</td>
+              <td>Ongoing</td>
+              <td>Rp. 12.000.000</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Mark Otto</td>
+              <td>11 January 2021</td>
+              <td>13 December 2021</td>
+              <td>Ongoing</td>
+              <td>Rp. 12.000.000</td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>Mark Otto</td>
+              <td>11 January 2021</td>
+              <td>13 December 2021</td>
+              <td>Ongoing</td>
+              <td>Rp. 12.000.000</td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>Mark Otto</td>
+              <td>11 January 2021</td>
+              <td>13 December 2021</td>
+              <td>Ongoing</td>
+              <td>Rp. 12.000.000</td>
+            </tr>
+          </tbody>
+        </table>
+       </div>
     </div>
     <div class="summary-item">
       <label for="pwd">Piutang</label><br>
-      <table style="width:100%">
-        <tr>
-          <th>Name</th>
-          <th>Date</th>
-          <th>Due Date</th>
-          <th>Status</th>
-          <th>Nominal</th>
-        </tr>
-        <tr>
-          <td>Jill</td>
-          <td>Smith</td>
-          <td>50</td>
-          <td>Done</td>
-          <td>5000000</td>
-        </tr>
-        <tr>
-          <td>Eve</td>
-          <td>Jackson</td>
-          <td>94</td>
-          <td>Ongoing</td>
-          <td>3000000</td>
-        </tr>
-      </table>
+      <div style="height:200px;overflow:auto;">
+        <table class="table table-sm table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Date</th>
+              <th scope="col">Due Date</th>
+              <th scope="col">Status</th>
+              <th scope="col">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark Otto</td>
+              <td>11 January 2021</td>
+              <td>13 December 2021</td>
+              <td>Ongoing</td>
+              <td>Rp. 12.000.000</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Mark Otto</td>
+              <td>11 January 2021</td>
+              <td>13 December 2021</td>
+              <td>Ongoing</td>
+              <td>Rp. 12.000.000</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Mark Otto</td>
+              <td>11 January 2021</td>
+              <td>13 December 2021</td>
+              <td>Ongoing</td>
+              <td>Rp. 12.000.000</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Mark Otto</td>
+              <td>11 January 2021</td>
+              <td>13 December 2021</td>
+              <td>Ongoing</td>
+              <td>Rp. 12.000.000</td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>Mark Otto</td>
+              <td>11 January 2021</td>
+              <td>13 December 2021</td>
+              <td>Ongoing</td>
+              <td>Rp. 12.000.000</td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>Mark Otto</td>
+              <td>11 January 2021</td>
+              <td>13 December 2021</td>
+              <td>Ongoing</td>
+              <td>Rp. 12.000.000</td>
+            </tr>
+          </tbody>
+        </table>
+       </div>
     </div>
   </div>    
 
