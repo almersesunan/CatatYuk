@@ -175,7 +175,7 @@
             <div class="modal-body">
               <div class="form-group">
                 <label class="control-label" for="NamaPiutang">Nama</label>
-                <input name="NamaPiutang" class="form-control" id="NamaPiutang" required>
+                <input name="NamaPiutang" class="form-control"  id="NamaPiutang" required>
               </div>
               <div class="form-group">
                 <label class="control-label" for="TanggalPiutang">Tanggal</label>
@@ -225,23 +225,23 @@
           <div class="modal-body">
             <div class="form-group">
                 <label class="control-label" for="NamaHutang1">Nama</label>
-                <input type="text" name="NamaHutang1" class="form-control" id="NamaHutang1" required>
+                <input type="text" name="NamaHutang1" placeholder="Masukan Nama" class="form-control" id="NamaHutang1" required>
               </div>
               <div class="form-group">
                 <label class="control-label" for="TanggalHutang1">Tanggal</label>
-                <input name="TanggalHutang1" class="form-control" id="TanggalHutang1" required>
+                <input name="TanggalHutang1" class="form-control" placeholder="dd-mm-yyyy" id="TanggalHutang1" required>
               </div>
               <div class="form-group">
                 <label class="control-label" for="JatuhTempoHutang1">Jatuh Tempo</label>
-                <input type="text" name="JatuhTempoHutang1" class="form-control" id="JatuhTempoHutang1" required>
+                <input type="text" name="JatuhTempoHutang1" class="form-control" placeholder="dd-mm-yyyy" id="JatuhTempoHutang1" required>
               </div>
               <div class="form-group">
                 <label for="KeteranganHutang1">Keterangan</label>
-                <textarea class="form-control" id="KeteranganHutang1" rows="3" required></textarea>
+                <textarea class="form-control" id="KeteranganHutang1" placeholder="Masukan keterangan" rows="3" required></textarea>
               </div>
               <div class="form-group">
                   <label class="control-label" for="JumlahHutang1">Jumlah</label>
-                  <input type="text" name="JumlahHutang1" class="form-control" id="JumlahHutang1" required>
+                  <input type="text" name="JumlahHutang1" class="form-control" placeholder="0,00" id="JumlahHutang1" required>
               </div>
             </div>
             <div class="modal-footer">
@@ -276,23 +276,23 @@
               <div class="modal-body">
                 <div class="form-group">
                     <label class="control-label" for="NamaPiutang1">Nama</label>
-                    <input type="text" name="NamaPiutang1" class="form-control" id="NamaPiutang1" required>
+                    <input type="text" name="NamaPiutang1" class="form-control" placeholder="Masukan nama" id="NamaPiutang1" required>
                   </div>
                   <div class="form-group">
                     <label class="control-label" for="TanggalPiutang1">Tanggal</label>
-                    <input name="TanggalPiutang1" class="form-control" id="TanggalPiutang1" required>
+                    <input name="TanggalPiutang1" class="form-control" placeholder="dd-mm-yyyy" id="TanggalPiutang1" required>
                   </div>
                   <div class="form-group">
                     <label class="control-label" for="JatuhTempoPiutang1">Jatuh Tempo</label>
-                    <input type="text" name="JatuhTempoPiutang1" class="form-control" id="JatuhTempoPiutang1" required>
+                    <input type="text" name="JatuhTempoPiutang1" class="form-control" placeholder="dd-mm-yyyy" id="JatuhTempoPiutang1" required>
                   </div>
                   <div class="form-group">
                     <label for="KeteranganPiutang1">Keterangan</label>
-                    <textarea class="form-control" id="KeteranganPiutang1" rows="3" required></textarea>
+                    <textarea class="form-control" id="KeteranganPiutang1" placeholder="Masukan keterangan" rows="3" required></textarea>
                   </div>
                   <div class="form-group">
                       <label class="control-label" for="JumlahPiutang1">Jumlah</label>
-                      <input type="text" name="JumlahPiutang1" class="form-control" id="JumlahPiutang1" required>
+                      <input type="text" name="JumlahPiutang1" class="form-control" placeholder="0,00" id="JumlahPiutang1" required>
                   </div>
                 </div>
                 <div class="modal-footer">

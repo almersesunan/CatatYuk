@@ -15,8 +15,7 @@
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
             rel="stylesheet"
             integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-            crossorigin="anonymous"
-        />
+            crossorigin="anonymous"/>
         <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="/css/app.css">
@@ -27,25 +26,27 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="asd.png" alt="" />
-                </a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav w-100">
-                        <li class="nav-item dropdown">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light id="mainNav">
+            <div class="container">
+            <a class="navbar-brand" href="#">Logo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Summary <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Kas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Stok</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hutang/Piutang</a>
+                </li>
+                <li class="nav-item dropdown">
                             <a
                                 class="nav-link dropdown-toggle"
                                 aria-current="page"
@@ -58,20 +59,19 @@
                             >
                             <ul
                                 class="dropdown-menu animate slideDown"
-                                aria-labelledby="navbarDropdownMenuLink"
-                            >
+                                aria-labelledby="navbarDropdownMenuLink">
                                 <li>
                                     <a class="dropdown-item" href="#">+Tambah bisnis baru</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item alerts">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-bell"></i>
-                            </a>
-                        </li>
-
-                        <li class="nav-item dropdown profile-dropdown">
+                <li class="nav-item alerts">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-bell"></i>
+                    </a>
+                </li>
+                
+                <li class="nav-item dropdown profile-dropdown"> 
                             <a
                                 class="nav-link dropdown-toggle"
                                 href="#"
@@ -101,8 +101,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-        </nav>
+            </nav>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
