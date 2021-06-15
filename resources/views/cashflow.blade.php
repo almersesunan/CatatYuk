@@ -6,8 +6,7 @@
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
   <body>
   <div class="summary-item">
-
-      <div class="container cashflow">
+      <div class="container cashflow mt-5 mb-5">
         <div class="card mt-5">
           <div class="card-body">
             <table id="table" class="table table-striped table-bordered" style="width:100%">

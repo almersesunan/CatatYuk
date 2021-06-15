@@ -9,7 +9,7 @@
     
     <div class="summary-item">
         <body>
-          <div class="container stock-summary">
+          <div class="container stock-summary mt-5 mb-5">
             <div class="card mt-5">
               <div class="card-body" style="border: 4px solid">
                 <table id="table" class="table table-striped table-bordered" style="width:100%">

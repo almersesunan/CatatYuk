@@ -3,7 +3,7 @@
 @section('title', 'CatatYuk')
     
 @section('container')
-<div class="container all-summary">
+<div class="container all-summary mt-5 mb-5">
   <div class="frame">
     <a href="#">Download to PDF</a><br>
     <div class="summary-item">

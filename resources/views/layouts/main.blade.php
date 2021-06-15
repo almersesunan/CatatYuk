@@ -83,6 +83,7 @@
                                     role="button"
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false"
+                                    style="margin-right: 175px"
                                 >
                                     My Profile
                                 </a>
