@@ -113,8 +113,13 @@
        
       
     @yield('container')
+<<<<<<< HEAD
+    <div class="feedback-area" style="padding: 10px; text-align: right; margin-right: 400px">
+        <button type="button" class="btn btn-primary btn-sm" href="#">Send us your feedback.</button>
+=======
     <div class="feedback-area" style="padding: 10px; text-align: right;"> 
         <button type="button" class="btn btn-link btn-sm" href="#">Send us your feedback</button>
+>>>>>>> 798294faa9c427a4157a24980dedaccfc4061580
     </div>
 
     @yield('footer')
