@@ -84,16 +84,16 @@
                 </select>
               </div>
               <div class="form-group">
-                <label class="control-label" for="Tanggal">Tanggal</label>
-                <input name="Tanggal" class="form-control" id="Tanggal" required>
+                <label class="control-label"  for="Tanggal">Tanggal</label>
+                <input name="Tanggal" class="form-control" placeholder="dd-mm-yyy" id="Tanggal" required>
               </div>
               <div class="form-group">
-                <label class="control-label" for="Nominal">Nominal</label>
-                <input type="text" name="Nominal" class="form-control" id="Nominal" required>
+                <label class="control-label"  for="Nominal">Nominal</label>
+                <input type="text" name="Nominal" class="form-control" placeholder="Rp. 0,00" id="Nominal" required>
               </div>
               <div class="form-group">
-                  <label class="control-label" for="Kategori">Kategori</label>
-                  <input type="text" name="Kategori" class="form-control" id="Kategori" required>
+                  <label class="control-label"  for="Kategori">Kategori</label>
+                  <input type="text" name="Kategori" class="form-control"  placeholder="Makanan" id="Kategori" required>
               </div>
               <form>
                 <div class="form-group">
@@ -138,15 +138,15 @@
               </div>
               <div class="form-group">
                 <label class="control-label" for="TanggalBarang1">Tanggal</label>
-                <input name="TanggalBarang1" class="form-control" id="TanggalBarang1" required>
+                <input name="TanggalBarang1" class="form-control" placeholder="dd-mm-yyyy" id="TanggalBarang1" required>
               </div>
               <div class="form-group">
                 <label class="control-label" for="NominalBarang1">Nominal</label>
-                <input type="text" name="NominalBarang1" class="form-control" id="NominalBarang1" required>
+                <input type="text" name="NominalBarang1" class="form-control" placeholder="Rp. 0,00" id="NominalBarang1" required>
               </div>
               <div class="form-group">
                 <label class="control-label" for="KategoriBarang1">Kategori</label>
-                <input type="text" name="KategoriBarang1" class="form-control" id="KategoriBarang1" required>
+                <input type="text" name="KategoriBarang1" class="form-control" placeholder="Makanan" id="KategoriBarang1" required>
               </div>
               <form>
                 <div class="form-group">

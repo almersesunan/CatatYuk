@@ -28,76 +28,77 @@
   <body>
     <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light id="mainNav">
-            <div class="container">
+         <div class="container">
             <a class="navbar-brand" href="#">Logo</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Summary <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Kas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Stok</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Hutang/Piutang</a>
-                </li>
-                <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                aria-current="page"
-                                href="#"
-                                id="navbarDropdownMenuLink"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                                >Book Name</a
-                            >
-                            <ul
-                                class="dropdown-menu animate slideDown"
-                                aria-labelledby="navbarDropdownMenuLink">
-                                <li>
-                                    <a class="dropdown-item" href="#">+Tambah bisnis baru</a>
-                                </li>
-                            </ul>
-                        </li>
-                <li class="nav-item alerts">
-                    <a class="nav-link" href="#">
-                        <i class="fas fa-bell"></i>
-                    </a>
-                </li>
-                
-                <li class="nav-item dropdown profile-dropdown"> 
-                            <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                id="navbarDropdownMenuLink"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >
-                                My Profile
-                            </a>
-                            <ul
-                                class="dropdown-menu animate slideDown"
-                                aria-labelledby="navbarDropdownMenuLink"
-                            >
-                            
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="far fa-user pt 1">Profile</i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-sign-out-alt">Logout</i>
-                                    </a>
-                                </li>
+
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Summary <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Stok</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Hutang/Piutang</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    aria-current="page"
+                                    href="#"
+                                    id="navbarDropdownMenuLink"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                    >Book Name</a
+                                >
+                                <ul
+                                    class="dropdown-menu animate slideDown"
+                                    aria-labelledby="navbarDropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item" href="#">+Tambah bisnis baru</a>
+                                    </li>
+                                </ul>
+                            </li>
+                    <li class="nav-item alerts">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-bell"></i>
+                        </a>
+                    </li>
+                    
+                        <li class="nav-item dropdown profile-dropdown "> 
+                                <a
+                                    class="nav-link dropdown-toggle "
+                                    href="#"
+                                    id="navbarDropdownMenuLink"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    My Profile
+                                </a>
+                                <ul
+                                    class="dropdown-menu animate slideDown"
+                                    aria-labelledby="navbarDropdownMenuLink"
+                                >
+                                
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="far fa-user pt 1">Profile</i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-sign-out-alt">Logout</i>
+                                        </a>
+                                    </li>
                             </ul>
                         </li>
                     </ul>
@@ -112,13 +113,14 @@
        
       
     @yield('container')
-    <div class="feedback-area" style="padding: 10px; text-align: right;">
-        <button type="button" class="btn btn-primary btn-sm" href="#">Send us your feedback.</button>
+    <div class="feedback-area" style="padding: 10px; text-align: right;"> 
+        <button type="button" class="btn btn-link btn-sm" href="#">Send us your feedback</button>
     </div>
 
     @yield('footer')
 
      <!-- Footer -->
+     <div class="container main-footer">
      <footer class="text-center text-lg-start bg-light text-muted">
             <!-- Section: Social media -->
             <section
@@ -269,5 +271,6 @@
             </div>
             <!-- Copyright -->
         </footer>
+        </div>
   </body>
 </html>
