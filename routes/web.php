@@ -33,12 +33,12 @@ Route::get('/debt', function () {
     return view('debt');
 });
 
-Route::get('/feedback', function () {
-    return view('feedback');
-});
-
 Route::get('/profile', function () {
     return view('profile');
+});
+
+Route::get('/feedback', function () {
+    return view('feedback');
 });
 
 Auth::routes();

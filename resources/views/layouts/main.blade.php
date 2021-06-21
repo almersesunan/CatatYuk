@@ -39,16 +39,16 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Summary <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="summary">Summary <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kas</a>
+                        <a class="nav-link" href="cashflow">Kas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Stok</a>
+                        <a class="nav-link" href="stock">Stok</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Hutang/Piutang</a>
+                        <a class="nav-link" href="debt">Hutang/Piutang</a>
                     </li>
                     <li class="nav-item dropdown">
                                 <a
@@ -93,7 +93,7 @@
                                 >
                                 
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="profile">
                                             <i class="far fa-user pt 1">Profile</i>
                                         </a>
                                     </li>
@@ -115,8 +115,9 @@
         </script>
       
     @yield('container')
-    <div class="feedback-area" style="padding: 10px; text-align: right; margin-right: 200px">
-        <button type="button" class="btn btn-link btn-sm" href="#">Send us your feedback !</button>
+
+    <div class="feedback-area" style="padding: 10px; text-align: right; margin-right: 400px">
+        <a href="feedback"><button type="button" class="btn btn-link btn-sm" >Send us your feedback!</button></a>
     </div>
 
     @yield('footer')

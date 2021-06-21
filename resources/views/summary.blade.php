@@ -8,7 +8,7 @@
     <a href="#">Download to PDF</a><br>
     <div class="summary-item">
       <label for="uname">Laporan Kas</label><br>
-      <label><input type="radio" name="cashflow" value="pemasukan">Pemasukan</label>
+      <label><input type="radio" name="cashflow" value="pemasukan" checked>Pemasukan</label>
       <label><input type="radio" name="cashflow" value="pengeluaran">Pengeluaran</label>
       <div id="cashflowchart"></div>
     </div>
@@ -162,7 +162,9 @@
     title: {
         text: 'Pemasukan'
     },
-
+    credits: {
+        enabled: false
+    },
     xAxis: {
         categories: [
             'Jan',
@@ -188,8 +190,8 @@
     },
     tooltip: {
         headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+        pointFormat: '<tr><td style="color:{series.color};padding:3px">{series.name}: </td>' +
+            '<td style="padding:3px"><b>Rp. {point.y:.2f}</b></td></tr>',
         footerFormat: '</table>',
         shared: true,
         useHTML: true
@@ -201,9 +203,8 @@
         }
     },
     series: [{
-        name: 'Jumlah',
-        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-
+        name: 'Bulan',
+        data: [100000, 150000, 350000, 200000, 440000, 570000, 630000, 550000, 450000, 330000, 720000, 920000]
     }]
   });
 </script>
@@ -254,17 +255,17 @@
        bar: {
            zones: [{
                value: 10, // Values up to 10 (not including) ...
-                color: 'orangered' // ... have the color yellow.
+                color: 'orangered' // ... have the color orangered.
             },{
               value: 20,
-               color: 'gold' // Values from 20 (including) and up have the color lightgreen
+               color: 'gold' // Values from 20 (including) and up have the color gold
             },{
-               color: 'lightgreen' // Values from 10 (including) and up have the color red
+               color: 'lightgreen' // Values from 10 (including) and up have the lightgreen
             }]
         }
     },
     series: [{
-        name: 'Jumlah',
+        name: '',
         color: 'white',
         data: [10, 5, 2, 14, 25, 9, 30]
     }]
