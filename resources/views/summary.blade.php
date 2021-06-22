@@ -18,66 +18,64 @@
     </div>
     <div class="summary-item">
       <label for="pwd">Hutang</label><br>
-      <div style="height:200px;overflow:auto;">
-        <table class="table table-sm table-hover">
+      <div style="height:390px;overflow:auto;">
+        <table id="table-hutang" class="table table-striped table-bordered" style="width:100%">
+          <a href="#" style="float: right">Download to PDF</a>
+          <label for="pwd">Hutang</label><br>
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Lend Date</th>
-              <th scope="col">Due Date</th>
-              <th scope="col">Status</th>
-              <th scope="col">Amount</th>
+              <th>Nama</th>
+              <th>Tanggal</th>
+              <th>Jatuh Tempo</th>
+              <th>Keterangan</th>
+              <th>Jumlah</th>
+              <th>Edit</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row">1</th>
-              <td>Mark Otto</td>
-              <td>11 January 2021</td>
-              <td>13 December 2021</td>
-              <td>Ongoing</td>
-              <td>Rp. 12.000.000</td>
+              <td>Danny</td>
+              <td>4/6/2021</td>
+              <td>7/6/2021</td>
+              <td>Test</td>
+              <td>Rp.1000000</td>
+              <td align="center">
+                <button id="edit_htng" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
+              </td>
             </tr>
             <tr>
-              <th scope="row">2</th>
-              <td>Mark Otto</td>
-              <td>11 January 2021</td>
-              <td>13 December 2021</td>
-              <td>Ongoing</td>
-              <td>Rp. 12.000.000</td>
+                <td>Bagus</td>
+                <td>4/6/2021</td>
+                <td>7/6/2021</td>
+                <td>Test</td>
+                <td>Rp.1000000</td>
+                <td align="center">
+                  <button id="edit_htng" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
+                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
+                </td>
             </tr>
             <tr>
-              <th scope="row">3</th>
-              <td>Mark Otto</td>
-              <td>11 January 2021</td>
-              <td>13 December 2021</td>
-              <td>Ongoing</td>
-              <td>Rp. 12.000.000</td>
+              <td>Tono</td>
+              <td>4/6/2021</td>
+              <td>7/6/2021</td>
+              <td>Test</td>
+              <td>Rp.150000</td>
+              <td align="center">
+                <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
+              </td>
             </tr>
             <tr>
-              <th scope="row">4</th>
-              <td>Mark Otto</td>
-              <td>11 January 2021</td>
-              <td>13 December 2021</td>
-              <td>Ongoing</td>
-              <td>Rp. 12.000.000</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Mark Otto</td>
-              <td>11 January 2021</td>
-              <td>13 December 2021</td>
-              <td>Ongoing</td>
-              <td>Rp. 12.000.000</td>
-            </tr>
-            <tr>
-              <th scope="row">6</th>
-              <td>Mark Otto</td>
-              <td>11 January 2021</td>
-              <td>13 December 2021</td>
-              <td>Ongoing</td>
-              <td>Rp. 12.000.000</td>
+              <td>Tono</td>
+              <td>4/6/2021</td>
+              <td>7/6/2021</td>
+              <td>Test</td>
+              <td>Rp.150000</td>
+              <td align="center">
+                <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -85,73 +83,48 @@
     </div>
     <div class="summary-item">
       <label for="pwd">Piutang</label><br>
-      <div style="height:200px;overflow:auto;">
-        <table class="table table-sm table-hover">
+      <div style="height:390px;overflow:auto;">
+        <table id="table-piutang" class="table table-striped table-bordered" style="width:100%">
+          <a href="#" style="float: right">Download to PDF</a>
+          <label for="pwd">Piutang</label><br>
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Date</th>
-              <th scope="col">Due Date</th>
-              <th scope="col">Status</th>
-              <th scope="col">Amount</th>
+              <th>Nama</th>
+              <th>Tanggal</th>
+              <th>Jatuh Tempo</th>
+              <th>Keterangan</th>
+              <th>Jumlah</th>
+              <th>Edit</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row">1</th>
-              <td>Mark Otto</td>
-              <td>11 January 2021</td>
-              <td>13 December 2021</td>
-              <td>Ongoing</td>
-              <td>Rp. 12.000.000</td>
+              <td>Danny</td>
+              <td>4/6/2021</td>
+              <td>7/6/2021</td>
+              <td>Test</td>
+              <td>Rp.1000000</td>
+              <td align="center">
+                <button id="edit_ptng" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit1"><i class="fa fa-edit"></i> Edit</button>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
+              </td>
             </tr>
             <tr>
-              <th scope="row">2</th>
-              <td>Mark Otto</td>
-              <td>11 January 2021</td>
-              <td>13 December 2021</td>
-              <td>Ongoing</td>
-              <td>Rp. 12.000.000</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Mark Otto</td>
-              <td>11 January 2021</td>
-              <td>13 December 2021</td>
-              <td>Ongoing</td>
-              <td>Rp. 12.000.000</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>Mark Otto</td>
-              <td>11 January 2021</td>
-              <td>13 December 2021</td>
-              <td>Ongoing</td>
-              <td>Rp. 12.000.000</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Mark Otto</td>
-              <td>11 January 2021</td>
-              <td>13 December 2021</td>
-              <td>Ongoing</td>
-              <td>Rp. 12.000.000</td>
-            </tr>
-            <tr>
-              <th scope="row">6</th>
-              <td>Mark Otto</td>
-              <td>11 January 2021</td>
-              <td>13 December 2021</td>
-              <td>Ongoing</td>
-              <td>Rp. 12.000.000</td>
+              <td>Tono</td>
+              <td>4/6/2021</td>
+              <td>7/6/2021</td>
+              <td>Test</td>
+              <td>Rp.150000</td>
+              <td align="center">
+                <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
+              </td>
             </tr>
           </tbody>
         </table>
        </div>
     </div>
   </div>    
-
     
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
@@ -272,6 +245,28 @@
   });
 </script>
 </div>
+
+<!--JANGAN DIAPA APAIN-->
+{{-- <script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="/js/main.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#cashflow').on('change', function(){
+    var n = $(this).val();
+    switch(n)
+    {
+            case '1':
+                  document.getElementById('#show').innerHTML="1st radio button";
+                  break;
+            case '2':
+                  document.getElementById('#show').innerHTML="2nd radio button";
+                  break;
+            case '3':
+                  document.getElementById('#show').innerHTML="3rd radio button";
+                  break;
+        }
+    });
+</script> --}}
 
 @endsection
 

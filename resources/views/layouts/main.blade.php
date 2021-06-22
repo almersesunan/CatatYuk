@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="/css/app.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/home.css">
-
+    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <title>@yield('title')</title>
   </head>
   <body>
@@ -98,7 +98,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="/">
                                             <i class="fas fa-sign-out-alt">Logout</i>
                                         </a>
                                     </li>
