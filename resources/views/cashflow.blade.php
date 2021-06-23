@@ -4,10 +4,6 @@
 
 @section('container')
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-  <body>
-  <div class="summary-item">
-      <div class="container cashflow mt-5 mb-5">
-        <div class="card mt-5" style="border-style: hidden">
           <div class="card-body">
             <table id="table" class="table table-striped table-bordered" style="width:100%">
               <a href="#" style="float: right">Download to PDF</a>
@@ -52,16 +48,13 @@
             </table>
             <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah">Tambah Transaksi</button>
           </div>
-        </div>
-      </div>    
-  </div>     
-  </body>  
 
     <!-- Modal Edit -->
   <html>
     <head>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!--css ini bikin ngerusak tampilan, gatau kenapa-->
+        {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
         <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
         <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     </head>

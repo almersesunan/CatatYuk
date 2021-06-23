@@ -5,12 +5,9 @@
 
 @section('container')
     <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet"> 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+    <!--css ini bikin ngerusak tampilan, gatau kenapa-->
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
     
-    <div class="summary-item">
-        <body>
-          <div class="container stock-summary mt-5 mb-5" >
-            <div class="card mt-5" style="border-style: hidden">
               <div class="card-body">
                 <table id="table" class="table table-striped table-bordered" style="width:100%">
                   <a href="#" style="float: right">Download to PDF</a>
@@ -163,11 +160,7 @@
                 </table>
                 <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah">Tambah Barang</button>
               </div>
-            </div>
-          </div>
-        </body>
-    </div>
-
+            
 
 
 <!-- Modal Edit -->
