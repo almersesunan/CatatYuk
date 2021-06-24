@@ -117,24 +117,24 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="form-group">
-              <label class="control-label" for="NamaHutang">Nama</label>
+            <div class="mb-3">
+              <label class="form-label" for="NamaHutang">Nama</label>
               <input type="text" name="NamaHutang" class="form-control" id="NamaHutang" required>
             </div>
-            <div class="form-group">
-              <label class="control-label" for="TanggalHutang">Tanggal</label>
+            <div class="mb-3">
+              <label class="form-label" for="TanggalHutang">Tanggal</label>
               <input name="TanggalHutang" class="form-control" id="TanggalHutang" required>
             </div>
-            <div class="form-group">
-              <label class="control-label" for="JatuhTempoHutang">Jatuh Tempo</label>
+            <div class="mb-3">
+              <label class="form-label" for="JatuhTempoHutang">Jatuh Tempo</label>
               <input name="JatuhTempoHutang" class="form-control" id="JatuhTempoHutang" required>
             </div>
-            <div class="form-group">
-              <label for="KeteranganHutang">Keterangan</label>
+            <div class="mb-3">
+              <label class="form-label" for="KeteranganHutang">Keterangan</label>
               <textarea class="form-control" id="KeteranganHutang" rows="3" required></textarea>
             </div>
-            <div class="form-group">
-                <label class="control-label" for="JumlahHutang">Jumlah</label>
+            <div class="mb-3">
+                <label class="form-label" for="JumlahHutang">Jumlah</label>
                 <input type="text" name="JumlahHutang" class="form-control" id="JumlahHutang" required>
             </div>
           </div>
@@ -146,13 +146,13 @@
     </div>
       <script>
         $('#TanggalHutang').datepicker({
-            uiLibrary: 'bootstrap4',
+            uiLibrary: 'bootstrap5',
             format: 'dd-mm-yyyy'
         });
       </script>
       <script>
         $('#JatuhTempoHutang').datepicker({
-            uiLibrary: 'bootstrap4',
+            uiLibrary: 'bootstrap5',
             format: 'dd-mm-yyyy'
         });
       </script>
@@ -167,24 +167,24 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <div class="form-group">
-                <label class="control-label" for="NamaPiutang">Nama</label>
+              <div class="mb-3">
+                <label class="form-label" for="NamaPiutang">Nama</label>
                 <input name="NamaPiutang" class="form-control"  id="NamaPiutang" required>
               </div>
-              <div class="form-group">
-                <label class="control-label" for="TanggalPiutang">Tanggal</label>
+              <div class="mb-3">
+                <label class="form-label" for="TanggalPiutang">Tanggal</label>
                 <input type="text" name="TanggalPiutang" class="form-control" id="TanggalPiutang" required>
               </div>
-              <div class="form-group">
-                <label class="control-label" for="JatuhTempoPiutang">Jatuh Tempo</label>
+              <div class="mb-3">
+                <label class="form-label" for="JatuhTempoPiutang">Jatuh Tempo</label>
                 <input type="text" name="JatuhTempoPiutang" class="form-control" id="JatuhTempoPiutang" required>
               </div>
-              <div class="form-group">
-                <label for="KeteranganPiutang">Keterangan</label>
+              <div class="mb-3">
+                <label class="form-label" for="KeteranganPiutang">Keterangan</label>
                 <textarea class="form-control" id="KeteranganPiutang" rows="3" required></textarea>
               </div>
-              <div class="form-group">
-                  <label class="control-label" for="JumlahPiutang">Jumlah</label>
+              <div class="mb-3">
+                  <label class="form-label" for="JumlahPiutang">Jumlah</label>
                   <input type="text" name="JumlahPiutang" class="form-control" id="JumlahPiutang" required>
               </div>
             </div>
@@ -196,13 +196,13 @@
       </div>
       <script>
         $('#TanggalPiutang').datepicker({
-            uiLibrary: 'bootstrap4',
+            uiLibrary: 'bootstrap5',
             format: 'dd-mm-yyyy'
         });
     </script>
     <script>
       $('#JatuhTempoPiutang').datepicker({
-          uiLibrary: 'bootstrap4',
+          uiLibrary: 'bootstrap5',
           format: 'dd-mm-yyyy'
       });
   </script>
@@ -217,24 +217,24 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="form-group">
-                <label class="control-label" for="NamaHutang1">Nama</label>
+            <div class="mb-3">
+                <label class="form-label" for="NamaHutang1">Nama</label>
                 <input type="text" name="NamaHutang1" placeholder="Masukan Nama" class="form-control" id="NamaHutang1" required>
               </div>
-              <div class="form-group">
-                <label class="control-label" for="TanggalHutang1">Tanggal</label>
+              <div class="mb-3">
+                <label class="form-label" for="TanggalHutang1">Tanggal</label>
                 <input name="TanggalHutang1" class="form-control" placeholder="dd-mm-yyyy" id="TanggalHutang1" required>
               </div>
-              <div class="form-group">
-                <label class="control-label" for="JatuhTempoHutang1">Jatuh Tempo</label>
+              <div class="mb-3">
+                <label class="form-label" for="JatuhTempoHutang1">Jatuh Tempo</label>
                 <input type="text" name="JatuhTempoHutang1" class="form-control" placeholder="dd-mm-yyyy" id="JatuhTempoHutang1" required>
               </div>
-              <div class="form-group">
-                <label for="KeteranganHutang1">Keterangan</label>
+              <div class="mb-3">
+                <label class="form-label" for="KeteranganHutang1">Keterangan</label>
                 <textarea class="form-control" id="KeteranganHutang1" placeholder="Masukan keterangan" rows="3" required></textarea>
               </div>
-              <div class="form-group">
-                  <label class="control-label" for="JumlahHutang1">Jumlah</label>
+              <div class="mb-3">
+                  <label class="form-label" for="JumlahHutang1">Jumlah</label>
                   <input type="text" name="JumlahHutang1" class="form-control" placeholder="0,00" id="JumlahHutang1" required>
               </div>
             </div>
@@ -247,13 +247,13 @@
     </div>
     <script>
       $('#TanggalHutang1').datepicker({
-          uiLibrary: 'bootstrap4',
+          uiLibrary: 'bootstrap5',
           format: 'dd-mm-yyyy'
       });
   </script>
   <script>
     $('#JatuhTempoHutang1').datepicker({
-        uiLibrary: 'bootstrap4',
+        uiLibrary: 'bootstrap5',
         format: 'dd-mm-yyyy'
     });
 </script>
@@ -268,24 +268,24 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <div class="form-group">
-                    <label class="control-label" for="NamaPiutang1">Nama</label>
+                <div class="mb-3">
+                    <label class="form-label" for="NamaPiutang1">Nama</label>
                     <input type="text" name="NamaPiutang1" class="form-control" placeholder="Masukan nama" id="NamaPiutang1" required>
                   </div>
-                  <div class="form-group">
-                    <label class="control-label" for="TanggalPiutang1">Tanggal</label>
+                  <div class="mb-3">
+                    <label class="form-label" for="TanggalPiutang1">Tanggal</label>
                     <input name="TanggalPiutang1" class="form-control" placeholder="dd-mm-yyyy" id="TanggalPiutang1" required>
                   </div>
-                  <div class="form-group">
-                    <label class="control-label" for="JatuhTempoPiutang1">Jatuh Tempo</label>
+                  <div class="mb-3">
+                    <label class="form-label" for="JatuhTempoPiutang1">Jatuh Tempo</label>
                     <input type="text" name="JatuhTempoPiutang1" class="form-control" placeholder="dd-mm-yyyy" id="JatuhTempoPiutang1" required>
                   </div>
-                  <div class="form-group">
-                    <label for="KeteranganPiutang1">Keterangan</label>
+                  <div class="mb-3">
+                    <label class="form-label" for="KeteranganPiutang1">Keterangan</label>
                     <textarea class="form-control" id="KeteranganPiutang1" placeholder="Masukan keterangan" rows="3" required></textarea>
                   </div>
-                  <div class="form-group">
-                      <label class="control-label" for="JumlahPiutang1">Jumlah</label>
+                  <div class="mb-3">
+                      <label class="form-label" for="JumlahPiutang1">Jumlah</label>
                       <input type="text" name="JumlahPiutang1" class="form-control" placeholder="0,00" id="JumlahPiutang1" required>
                   </div>
                 </div>
@@ -298,13 +298,13 @@
         </div>
         <script>
             $('#TanggalPiutang1').datepicker({
-                uiLibrary: 'bootstrap4',
+                uiLibrary: 'bootstrap5',
                 format: 'dd-mm-yyyy'
             });
         </script>
         <script>
           $('#JatuhTempoPiutang1').datepicker({
-              uiLibrary: 'bootstrap4',
+              uiLibrary: 'bootstrap5',
               format: 'dd-mm-yyyy'
           });
       </script>

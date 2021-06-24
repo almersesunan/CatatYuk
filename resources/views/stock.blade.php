@@ -172,17 +172,17 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="form-group">
-            <label class="control-label" for="nm_brg">Nama Barang</label>
-            <input type="text" name="nm_brg" class="form-control" id="nm_brng" required>
+          <div class="mb-3">
+            <label class="form-label" for="nm_brg">Nama Barang</label>
+            <input type="text" class="form-control" id="nm_brng" required>
           </div>
-          <div class="form-group">
-            <label class="control-label" for="mini_brg">Minimum</label>
-            <input type="text" name="mini_brg" class="form-control" id="mini_brng" required>
+          <div class="mb-3">
+            <label class="form-label" for="mini_brg">Minimum</label>
+            <input type="text" class="form-control" id="mini_brng" required>
           </div>
-          <div class="form-group">
-            <label class="control-label" for="stok_brg">Stok Saat Ini</label>
-            <input type="text" name="stok_brg" class="form-control" id="stok_brng" required>
+          <div class="mb-3">
+            <label class="form-label" for="stok_brg">Stok Saat Ini</label>
+            <input type="text" class="form-control" id="stok_brng" required>
           </div>
         </div>
         <div class="modal-footer">
@@ -201,17 +201,17 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <div class="form-group">
-                <label class="control-label" for="nm_brg">Nama Barang</label>
-                <input type="text" name="nm_brg" class="form-control" id="nm_brng" required>
+            <div class="mb-3">
+                <label class="form-label" for="nm_brg1">Nama Barang</label>
+                <input type="text" class="form-control" id="nm_brng1" required>
             </div>
-            <div class="form-group">
-                <label class="control-label" for="mini_brg">Minimum</label>
-                <input type="text" name="mini_brg" class="form-control" id="mini_brng" required>
+            <div class="mb-3">
+                <label class="form-label" for="mini_brg1">Minimum</label>
+                <input type="text" class="form-control" id="mini_brng1" required>
             </div>
-            <div class="form-group">
-                <label class="control-label" for="stok_brg">Stok Saat Ini</label>
-                <input type="text" name="stok_brg" class="form-control" id="stok_brng" required>
+            <div class="mb-3">
+                <label class="form-label" for="stok_brg1">Stok Saat Ini</label>
+                <input type="text" class="form-control" id="stok_brng1" required>
             </div>
         </div>
         <div class="modal-footer">
