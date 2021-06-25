@@ -4,7 +4,9 @@
 
 @section('container')
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+  
           <div class="card-body">
+            <h1 class="h2">Cashflow</h1>
             <table id="table" class="table table-striped table-bordered" style="width:100%">
               <a href="#" style="float: right">Download to PDF</a>
               <label for="pwd">Pencatatan Kas</label><br>
