@@ -16,11 +16,6 @@ class PagesController extends Controller
         return view('dashboard');
     }
 
-    public function cashflow()
-    {
-        return view('cashflow');
-    }
-
     public function stock()
     {
         return view('stock');
@@ -35,7 +30,7 @@ class PagesController extends Controller
     {
         return view('profile');
     }
-
+    
     public function feedback()
     {
         return view('feedback');

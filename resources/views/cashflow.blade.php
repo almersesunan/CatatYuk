@@ -22,30 +22,20 @@
                 </tr>
               </thead>
               <tbody>
+                @foreach ($cashflows as $cashflows)
                 <tr>
-                  <td>Pemasukan</td>
-                  <td>6/4/2021</td>
-                  <td>Pakaian</td>
-                  <td>Test</td>
-                  <td>Rp.1000000</td>
-                  <td>-</td>
+                  <td>{{$cashflows->tipe}}</td>
+                  <td>{{$cashflows->tanggal}}</td>
+                  <td>{{$cashflows->kategori}}</td>
+                  <td>{{$cashflows->deskripsi}}</td>
+                  <td>Rp. {{$cashflows->nominal}}</td>
+                  <td>{{$cashflows->buktiTransaksi}}</td>
                   <td align="center">
                     <button id="edit_trs" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
                     <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                   </td>
                 </tr>
-                <tr>
-                  <td>Pengeluaran</td>
-                  <td>6/4/2021</td>
-                  <td>Makanan</td>
-                  <td>Test</td>
-                  <td>Rp.150000</td>
-                  <td>-</td>
-                  <td align="center">
-                    <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                  </td>
-                </tr>
+                @endforeach
               </tbody>
             </table>
             <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah">Tambah Transaksi</button>
