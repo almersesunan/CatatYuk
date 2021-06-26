@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,33 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('/auth/login');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
-
-Route::get('/cashflow', function () {
-    return view('cashflow');
-});
-
-Route::get('/stock', function () {
-    return view('stock');
-});
-
-Route::get('/debt', function () {
-    return view('debt');
-});
-
-Route::get('/profile', function () {
-    return view('profile');
-});
-
-Route::get('/feedback', function () {
-    return view('feedback');
-});
+// PageRoutes
+Route::get('/dashboard', [PagesController::class, 'dashboard']);
+Route::get('/cashflow', [PagesController::class, 'cashflow']);
+Route::get('/stock', [PagesController::class, 'stock']);
+Route::get('/debt', [PagesController::class, 'debt']);
+Route::get('/profile', [PagesController::class, 'profile']);
+Route::get('/feedback', [PagesController::class, 'feedback']);
 
 Auth::routes();
 

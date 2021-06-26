@@ -37,25 +37,25 @@
             <div class="position-sticky pt-3">
               <ul class="nav flex-column">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="dashboard">
+                  <a class="nav-link" aria-current="page" href="{{ url('/dashboard') }}">
                     <span data-feather="bar-chart-2"></span>
                     Dashboard
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="cashflow">
+                  <a class="nav-link" href="{{ url('/cashflow') }}">
                     <span data-feather="file"></span>
                     Cashflow
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="stock">
+                  <a class="nav-link" href="{{ url('/stock') }}">
                     <span data-feather="box"></span>
                     Stock
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="debt">
+                  <a class="nav-link" href="{{ url('/debt') }}">
                     <span data-feather="users"></span>
                     Debt/Credit
                   </a>
@@ -76,7 +76,7 @@
               </h6>
               <ul class="nav flex-column mb-2">
                 <li class="nav-item">
-                  <a class="nav-link" href="profile">
+                  <a class="nav-link" href="{{ url('/profile') }}">
                     <span data-feather="user"></span>
                     Profile
                   </a>

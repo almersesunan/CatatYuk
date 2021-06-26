@@ -1,6 +1,6 @@
 @extends('layouts/main')
 
-@section('title', 'CatatYuk')
+@section('title', 'CatatYuk - Manage Stock')
 
 
 @section('container')

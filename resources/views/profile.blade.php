@@ -1,6 +1,6 @@
 @extends('layouts/main')
 
-@section('title', 'CatatYuk')
+@section('title', 'CatatYuk - Profile')
     
 @section('container')
 <div class="container rounded bg-white mt-5 mb-5 profile">

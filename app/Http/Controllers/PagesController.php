@@ -5,18 +5,39 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 
-class UserController extends Controller
+class PagesController extends Controller
 {
-    /**
-     * Show the profile for a given user.
-     *
-     * @param  int  $id
-     * @return \Illuminate\View\View
-     */
-    public function show($id)
+    public function __invoke()
     {
-        return view('user.profile', [
-            'user' => User::findOrFail($id)
-        ]);
+        // ...
+    }
+    public function dashboard()
+    {
+        return view('dashboard');
+    }
+
+    public function cashflow()
+    {
+        return view('cashflow');
+    }
+
+    public function stock()
+    {
+        return view('stock');
+    }
+
+    public function debt()
+    {
+        return view('debt');
+    }
+
+    public function profile()
+    {
+        return view('profile');
+    }
+
+    public function feedback()
+    {
+        return view('feedback');
     }
 }

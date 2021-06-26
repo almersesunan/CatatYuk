@@ -1,6 +1,6 @@
 @extends('layouts/main')
 
-@section('title', 'CatatYuk')
+@section('title', 'CatatYuk - Cashflow')
 
 @section('container')
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">

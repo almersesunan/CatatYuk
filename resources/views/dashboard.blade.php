@@ -1,6 +1,6 @@
 @extends('layouts/main')
 
-@section('title', 'CatatYuk')
+@section('title', 'CatatYuk - Dashboard')
     
 @section('container')
       <h1 class="h2">Summary</h1>
