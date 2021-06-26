@@ -15,9 +15,9 @@ class CreateStocksTable extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
-            $table->string('namaBarang');
+            $table->string('nama_barang');
             $table->integer('minimum');
-            $table->integer('jumlahSaatIni');
+            $table->integer('jumlah_saat_ini');
             $table->timestamps();
         });
     }

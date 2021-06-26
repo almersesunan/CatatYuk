@@ -29,7 +29,7 @@
                   <td>{{$cashflows->kategori}}</td>
                   <td>{{$cashflows->deskripsi}}</td>
                   <td>Rp. {{$cashflows->nominal}}</td>
-                  <td>{{$cashflows->buktiTransaksi}}</td>
+                  <td>{{$cashflows->bukti_transaksi}}</td>
                   <td align="center">
                     <button id="edit_trs" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
                     <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
