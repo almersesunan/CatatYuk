@@ -22,141 +22,19 @@
                       </tr>
                   </thead>
                   <tbody>
+                      @foreach ($stocks as $stocks)
+
                       <tr>
-                          <td>Sepatu</td>
-                          <td>50</td>
-                          <td>61</td>
+                          <td>{{$stocks->namaBarang}}</td>
+                          <td>{{$stocks->minimum}}</td>
+                          <td>{{$stocks->jumlahSaatIni}}</td>
                           <td align="center">
                             <button id="edit_brg" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
                             <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                             </td>
                       </tr>
-                      <tr>
-                          <td>Sendal</td>
-                          <td>50</td>
-                          <td>63</td>
-                          <td align="center">
-                            <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Air Minum</td>
-                          <td>100</td>
-                          <td>66</td>
-                          <td align="center">
-                            <button id="edit_brg" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Makanan</td>
-                          <td>100</td>
-                          <td>22</td>
-                          <td align="center">
-                            <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Earphone</td>
-                          <td>25</td>
-                          <td>33</td>
-                          <td align="center">
-                            <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Handphone</td>
-                          <td>25</td>
-                          <td>61</td>
-                          <td align="center">
-                            <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Charger</td>
-                          <td>25</td>
-                          <td>59</td>
-                          <td align="center">
-                            <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Gergaji</td>
-                          <td>10</td>
-                          <td>55</td>
-                          <td align="center">
-                            <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Tang</td>
-                          <td>10</td>
-                          <td>39</td>
-                          <td align="center">
-                            <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Kabel</td>
-                          <td>10</td>
-                          <td>23</td>
-                          <td align="center">
-                            <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Kertas</td>
-                          <td>75</td>
-                          <td>30</td>
-                          <td align="center">
-                            <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                          </td>
-                        </tr>
-                      <tr>
-                          <td>Gunting</td>
-                          <td>10</td>
-                          <td>22</td>
-                          <td align="center">
-                            <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Kayu</td>
-                          <td>75</td>
-                          <td>36</td>
-                          <td align="center">
-                            <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Kapas</td>
-                          <td>75</td>
-                          <td>43</td>
-                          <td align="center">
-                            <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Batu</td>
-                          <td>75</td>
-                          <td>19</td>
-                          <td align="center">
-                            <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                          </td>
-                      </tr>
+
+                      @endforeach
                   </tbody>
                 </table>
                 <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah">Tambah Barang</button>

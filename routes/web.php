@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CashflowController;
+use App\Http\Controllers\StockController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ use App\Http\Controllers\CashflowController;
 // PageRoutes
 Route::get('/dashboard', [PagesController::class, 'dashboard']);
 Route::get('/cashflow', [CashflowController::class, 'index']);
-Route::get('/stock', [PagesController::class, 'stock']);
+Route::get('/stock', [StockController::class, 'index']);
 Route::get('/debt', [PagesController::class, 'debt']);
 Route::get('/profile', [PagesController::class, 'profile']);
 Route::get('/feedback', [PagesController::class, 'feedback']);
