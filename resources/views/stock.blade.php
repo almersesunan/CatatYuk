@@ -22,12 +22,12 @@
                       </tr>
                   </thead>
                   <tbody>
-                      @foreach ($stocks as $stocks)
+                      @foreach ($stock as $stock)
 
                       <tr>
-                          <td>{{$stocks->nama_barang}}</td>
-                          <td>{{$stocks->minimum}}</td>
-                          <td>{{$stocks->jumlah_saat_ini}}</td>
+                          <td>{{$stock->nama_barang}}</td>
+                          <td>{{$stock->minimum}}</td>
+                          <td>{{$stock->jumlah_saat_ini}}</td>
                           <td align="center">
                             <button id="edit_brg" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
                             <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>

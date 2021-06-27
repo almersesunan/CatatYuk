@@ -14,8 +14,8 @@ class CashflowController extends Controller
      */
     public function index()
     {
-        $cashflows = Cashflow::all();
-        return view('cashflow', compact('cashflows'));
+        $cashflow = Cashflow::all();
+        return view('cashflow', compact('cashflow'));
     }
 
     /**
