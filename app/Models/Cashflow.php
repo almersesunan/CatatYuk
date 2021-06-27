@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Cashflow extends Model
 {
     use HasFactory;
+    protected $fillable = ['tipe','tanggal','kategori','deskripsi','nominal','bukti_transaksi'];
 }

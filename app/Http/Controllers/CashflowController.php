@@ -36,7 +36,8 @@ class CashflowController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Cashflow::create($request->all());
+        return redirect('/cashflow');
     }
 
     /**

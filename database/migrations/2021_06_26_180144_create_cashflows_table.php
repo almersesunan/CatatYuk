@@ -20,7 +20,7 @@ class CreateCashflowsTable extends Migration
             $table->string('kategori');
             $table->string('deskripsi');
             $table->decimal('nominal', $precision = 10, $scale = 2);
-            $table->string('bukti_transaksi');
+            $table->string('bukti_transaksi')->nullable();
             $table->timestamps();
         });
     }
