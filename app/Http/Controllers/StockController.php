@@ -36,6 +36,12 @@ class StockController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama_barang' => 'required',
+            'minimal' => 'required',
+            'jumlah_saat_ini' => 'required'
+        ]);
+
         Stock::create($request->all());
         return redirect('stock')->with('status','Data Berhasil Ditambahkan!');
     }

@@ -119,7 +119,7 @@
             <div class="modal-body">
               <div class="mb-3">
                 <label class="form-label" for="tipe">Tipe</label>
-                <select name="tipe" class="form-select" aria-label="Default select example">
+                <select name="tipe" class="form-select" aria-label="Default select example" required>
                   <option selected>Choose..</option>
                   <option value="Pemasukan">Pemasukan</option>
                   <option value="Pengeluaran">Pengeluaran</option>
@@ -135,7 +135,7 @@
               </div>
               <div class="mb-3">
                 <label for="deskripsi" class="form-label">Deskripsi</label>
-                <textarea name="deskripsi" class="form-control" id="deskripsi" rows="3"></textarea>
+                <textarea name="deskripsi" class="form-control" id="deskripsi" rows="3" required></textarea>
               </div>
               <div class="mb-3">
                 <label for="nominal" class="form-label">Nominal</label>

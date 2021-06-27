@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cashflow;
 use Illuminate\Http\Request;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class CashflowController extends Controller
 {
@@ -36,6 +37,14 @@ class CashflowController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'tipe' => 'required',
+            'tanggal' => 'required',
+            'kategori' => 'required',
+            'deskripsi' => 'required',
+            'nominal' => 'required'
+        ]);
+
         Cashflow::create($request->all());
         return redirect('cashflow')->with('status','Data Berhasil Ditambahkan!');;
     }
