@@ -60,7 +60,7 @@
             <input type="text" class="form-control" id="mini_brng" required>
           </div>
           <div class="mb-3">
-            <label class="form-label" for="stok_brg">Stok Saat Ini</label>
+            <label class="form-label" for="stok_brg">Jumlah Saat Ini</label>
             <input type="text" class="form-control" id="stok_brng" required>
           </div>
         </div>
@@ -79,23 +79,27 @@
           <h5 class="modal-title" id="ModalTambah">Tambah Barang</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-            <div class="mb-3">
-                <label class="form-label" for="nm_brg1">Nama Barang</label>
-                <input type="text" class="form-control" id="nm_brng1" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="mini_brg1">Minimum</label>
-                <input type="text" class="form-control" id="mini_brng1" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="stok_brg1">Stok Saat Ini</label>
-                <input type="text" class="form-control" id="stok_brng1" required>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Simpan</button>
-        </div>
+
+        <form method="post" action="stock">
+          @csrf
+          <div class="modal-body">
+              <div class="mb-3">
+                  <label class="form-label" for="nama_barang">Nama Barang</label>
+                  <input name="nama_barang" class="form-control" id="nama_barang" required>
+              </div>
+              <div class="mb-3">
+                  <label class="form-label" for="minimum">Minimum</label>
+                  <input name="minimum" type="text" class="form-control" id="minimum" required>
+              </div>
+              <div class="mb-3">
+                  <label class="form-label" for="jumlah_saat_ini">Jumlah Saat Ini</label>
+                  <input name="jumlah_saat_ini" type="text" class="form-control" id="jumlah_saat_ini" required>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
