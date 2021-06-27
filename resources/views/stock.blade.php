@@ -83,21 +83,29 @@
           <h5 class="modal-title" id="ModalTambah">Tambah Barang</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-
-        <form method="post" action="stock">
+        <form method="post" action="stock" id="modal-form">
           @csrf
           <div class="modal-body">
               <div class="mb-3">
                   <label class="form-label" for="nama_barang">Nama Barang</label>
-                  <input name="nama_barang" class="form-control" id="nama_barang" required>
+                  <input name="nama_barang" class="form-control @error('nama_barang') is-invalid @enderror" id="nama_barang" value="{{ old('nama_barang') }}">
+                  @error('nama_barang')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
               </div>
               <div class="mb-3">
                   <label class="form-label" for="minimum">Minimum</label>
-                  <input name="minimum" type="text" class="form-control" id="minimum" required>
+                  <input name="minimum" type="text" class="form-control @error('minimum') is-invalid @enderror" id="minimum" value="{{ old('minimum') }}" >
+                  @error('minimum')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
               </div>
               <div class="mb-3">
                   <label class="form-label" for="jumlah_saat_ini">Jumlah Saat Ini</label>
-                  <input name="jumlah_saat_ini" type="text" class="form-control" id="jumlah_saat_ini" required>
+                  <input name="jumlah_saat_ini" type="text" class="form-control @error('jumlah_saat_ini') is-invalid @enderror" id="jumlah_saat_ini" value="{{ old('jumlah_saat_ini') }}" >
+                  @error('jumlah_saat_ini')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
               </div>
           </div>
           <div class="modal-footer">
@@ -128,9 +136,18 @@
               .appendTo( '#table_wrapper .col-md-6:eq(0)' );
           } );
 
+          // Success Flash FadeOut
           $(document).ready(function(){
             $('.alert-success').fadeIn().delay(5000).fadeOut();
           });
-  
           </script>
+
+          {{-- Hold Modal After Validation Error --}}
+          @if (count($errors) > 0)
+            <script>
+              $( document ).ready(function() {
+              $('#tambah').modal('show');
+              });
+            </script>
+          @endif
 @endsection

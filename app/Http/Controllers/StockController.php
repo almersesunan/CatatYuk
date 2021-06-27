@@ -38,8 +38,8 @@ class StockController extends Controller
     {
         $request->validate([
             'nama_barang' => 'required',
-            'minimal' => 'required',
-            'jumlah_saat_ini' => 'required'
+            'minimum' => 'required|integer|min:0',
+            'jumlah_saat_ini' => 'required|integer|min:0'
         ]);
 
         Stock::create($request->all());

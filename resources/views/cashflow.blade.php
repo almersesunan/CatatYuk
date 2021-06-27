@@ -119,27 +119,42 @@
             <div class="modal-body">
               <div class="mb-3">
                 <label class="form-label" for="tipe">Tipe</label>
-                <select name="tipe" class="form-select" aria-label="Default select example" required>
-                  <option selected>Choose..</option>
+                <select name="tipe" class="form-select @error('tipe') is-invalid @enderror" aria-label="Default select example" value="{{ old('tipe') }}">
+                  <option value="0"selected>Choose..</option>
                   <option value="Pemasukan">Pemasukan</option>
                   <option value="Pengeluaran">Pengeluaran</option>
                 </select>
+                @error('tipe')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="mb-3">
                 <label class="form-label" for="tanggal">Tanggal</label>
-                <input name="tanggal" class="form-control" placeholder="yyyy-mm-dd" id="tanggal" required>
+                <input name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" placeholder="yyyy-mm-dd" id="tanggal" value="{{ old('tanggal') }}">
+                @error('tanggal')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="mb-3">
                 <label for="kategori" class="form-label">Kategori</label>
-                <input name="kategori" type="input" class="form-control" id="kategori" placeholder="Makanan" required>
+                <input name="kategori" type="input" class="form-control @error('kategori') is-invalid @enderror" id="kategori" placeholder="Makanan" value="{{ old('kategori') }}">
+                @error('kategori')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="mb-3">
                 <label for="deskripsi" class="form-label">Deskripsi</label>
-                <textarea name="deskripsi" class="form-control" id="deskripsi" rows="3" required></textarea>
+                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" rows="3" value="{{ old('deskripsi') }}"></textarea>
+                @error('deskripsi')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="mb-3">
                 <label for="nominal" class="form-label">Nominal</label>
-                <input name="nominal" type="input" class="form-control" id="nominal" placeholder="Rp. 0,00" required>
+                <input name="nominal" type="input" class="form-control @error('nominal') is-invalid @enderror" id="nominal" placeholder="Rp. 0" value="{{ old('nominal') }}">
+                @error('nominal')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="mb-3">
                 <label for="bukti_transaksi" class="form-label">Bukti Transaksi</label>
@@ -188,4 +203,12 @@
       $('.alert-success').fadeIn().delay(5000).fadeOut();
     });
   </script>
+  {{-- Hold Modal After Validation Error --}}
+  @if (count($errors) > 0)
+    <script>
+      $( document ).ready(function() {
+      $('#tambah').modal('show');
+      });
+    </script>
+  @endif
 @endsection

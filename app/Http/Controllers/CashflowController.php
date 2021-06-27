@@ -38,11 +38,11 @@ class CashflowController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'tipe' => 'required',
+            'tipe' => 'required|not_in:0',
             'tanggal' => 'required',
             'kategori' => 'required',
             'deskripsi' => 'required',
-            'nominal' => 'required'
+            'nominal' => 'required|integer|min:0'
         ]);
 
         Cashflow::create($request->all());
