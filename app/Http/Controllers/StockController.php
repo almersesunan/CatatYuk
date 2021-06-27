@@ -37,7 +37,7 @@ class StockController extends Controller
     public function store(Request $request)
     {
         Stock::create($request->all());
-        return redirect('stock');
+        return redirect('stock')->with('status','Data Berhasil Ditambahkan!');
     }
 
     /**

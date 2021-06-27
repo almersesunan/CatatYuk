@@ -6,10 +6,14 @@
 @section('container')
     <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet"> 
     <!--css ini bikin ngerusak tampilan, gatau kenapa-->
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
-    
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}   
               <div class="card-body">
                 <h1 class="h2">Manage Stock</h1>
+                @if (session('status'))
+                  <div class="alert alert-success">
+                      {{ session('status') }}
+                  </div>
+                @endif
                 <table id="table" class="table table-striped table-bordered" style="width:100%">
                   <a href="#" style="float: right">Download to PDF</a>
                   <label for="pwd">Stok Barang</label><br>
@@ -31,7 +35,7 @@
                           <td align="center">
                             <button id="edit_brg" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
                             <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                            </td>
+                          </td>
                       </tr>
 
                       @endforeach
@@ -123,5 +127,10 @@
           table.buttons().container()
               .appendTo( '#table_wrapper .col-md-6:eq(0)' );
           } );
+
+          $(document).ready(function(){
+            $('.alert-success').fadeIn().delay(5000).fadeOut();
+          });
+  
           </script>
 @endsection

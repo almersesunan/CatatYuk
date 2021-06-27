@@ -7,6 +7,11 @@
   
           <div class="card-body">
             <h1 class="h2">Cashflow</h1>
+            @if (session('status'))
+              <div class="alert alert-success">
+                  {{ session('status') }}
+              </div>
+            @endif
             <table id="table" class="table table-striped table-bordered" style="width:100%">
               <a href="#" style="float: right">Download to PDF</a>
               <label for="pwd">Pencatatan Kas</label><br>
@@ -178,5 +183,9 @@
     table.buttons().container()
       .appendTo( '#table_wrapper .col-md-6:eq(0)' );
     } );
+
+    $(document).ready(function(){
+      $('.alert-success').fadeIn().delay(5000).fadeOut();
+    });
   </script>
 @endsection
