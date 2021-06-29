@@ -33,6 +33,7 @@ Route::get('/stock', [StockController::class, 'index']);
 Route::post('/stock', [StockController::class, 'store']);
 Route::delete('/stock/{stock}', [StockController::class, 'destroy']);
 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
