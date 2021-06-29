@@ -88,6 +88,7 @@ class StockController extends Controller
      */
     public function destroy(Stock $stock)
     {
-        //
+        Stock::destroy($stock->id);
+        return redirect('stock')->with('status','Data Berhasil Dihapus!');
     }
 }

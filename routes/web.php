@@ -26,10 +26,12 @@ Route::get('/feedback', [PagesController::class, 'feedback']);
 // Cashflow
 Route::get('/cashflow', [CashflowController::class, 'index']);
 Route::post('/cashflow', [CashflowController::class, 'store']);
+Route::delete('/cashflow/{cashflow}', [CashflowController::class, 'destroy']);
 
 // Stock
 Route::get('/stock', [StockController::class, 'index']);
 Route::post('/stock', [StockController::class, 'store']);
+Route::delete('/stock/{stock}', [StockController::class, 'destroy']);
 
 Auth::routes();
 

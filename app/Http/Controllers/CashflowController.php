@@ -46,7 +46,7 @@ class CashflowController extends Controller
         ]);
 
         Cashflow::create($request->all());
-        return redirect('cashflow')->with('status','Data Berhasil Ditambahkan!');;
+        return redirect('cashflow')->with('status','Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -91,6 +91,7 @@ class CashflowController extends Controller
      */
     public function destroy(Cashflow $cashflow)
     {
-        //
+        Cashflow::destroy($cashflow->id);
+        return redirect('cashflow')->with('status','Data Berhasil Dihapus!');
     }
 }
