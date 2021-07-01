@@ -39,15 +39,13 @@ Route::delete('/stock/{stock}', [StockController::class, 'destroy']);
 Route::patch('/stock/{stock}', [StockController::class, 'update']);
 // Route::resource('stock', [StockController::class]);
 
-<<<<<<< HEAD
 // Payable 
 Route::get('/debt', [PayableController::class, 'index']);
 Route::post('/debt', [PayableController::class, 'store']);
 Route::delete('/debt/{payable}', [PayableController::class, 'destroy']);
-=======
+
 //changepassword
 
->>>>>>> bf3b3d1 (-)
 
 
 Auth::routes();
