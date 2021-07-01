@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CashflowController;
+use App\Http\Controllers\PayableController;
+use App\Http\Controllers\ReceivableController;
 use App\Http\Controllers\StockController;
 
 /*
@@ -32,6 +34,11 @@ Route::delete('/cashflow/{cashflow}', [CashflowController::class, 'destroy']);
 Route::get('/stock', [StockController::class, 'index']);
 Route::post('/stock', [StockController::class, 'store']);
 Route::delete('/stock/{stock}', [StockController::class, 'destroy']);
+
+// Payable 
+Route::get('/debt', [PayableController::class, 'index']);
+Route::post('/debt', [PayableController::class, 'store']);
+Route::delete('/debt/{payable}', [PayableController::class, 'destroy']);
 
 
 Auth::routes();

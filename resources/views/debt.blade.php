@@ -5,7 +5,7 @@
 @section('container')
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">   
           <div class="card-body">
-            <h1 class="h2">Loan</h1>
+            <h1 class="h2">Payable</h1>
             <table id="table" class="table table-striped table-bordered" style="width:100%">
               <a href="#" style="float: right">Download to PDF</a>
               <label for="pwd">Hutang</label><br>
@@ -20,41 +20,26 @@
                 </tr>
               </thead>
               <tbody>
+                @foreach ($payable as $payable)
                 <tr>
-                  <td>Danny</td>
-                  <td>4/6/2021</td>
-                  <td>7/6/2021</td>
-                  <td>Test</td>
-                  <td>Rp.1000000</td>
+                  <td>{{$payable->py_name}}</td>
+                  <td>{{$payable->py_date}}</td>
+                  <td>{{$payable->due_date}}</td>
+                  <td>{{$payable->description}}</td>
+                  <td>Rp. {{$payable->py_amount}}</td>
                   <td align="center">
                     <button id="edit_htng" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
-                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
+                    <form action="debt/{{$payable->py_id}}" method="post" class="d-inline">
+                        @method('delete')
+                        @csrf
+                      <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
+                    </form>
                   </td>
                 </tr>
-                <tr>
-                    <td>Bagus</td>
-                    <td>4/6/2021</td>
-                    <td>7/6/2021</td>
-                    <td>Test</td>
-                    <td>Rp.1000000</td>
-                    <td align="center">
-                      <button id="edit_htng" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
-                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                    </td>
-                </tr>
-                <tr>
-                  <td>Tono</td>
-                  <td>4/6/2021</td>
-                  <td>7/6/2021</td>
-                  <td>Test</td>
-                  <td>Rp.150000</td>
-                  <td align="center">
-                    <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                  </td>
-                </tr>
+                @endforeach
               </tbody>
             </table>
+            
             <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah">Tambah Hutang</button>
             <br/><br/><br/><br/>
             <table id="table1" class="table table-striped table-bordered" style="width:100%">
@@ -82,17 +67,6 @@
                       <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                     </td>
                   </tr>
-                  <tr>
-                    <td>Tono</td>
-                    <td>4/6/2021</td>
-                    <td>7/6/2021</td>
-                    <td>Test</td>
-                    <td>Rp.150000</td>
-                    <td align="center">
-                      <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah1">Tambah Piutang</button>
@@ -104,12 +78,10 @@
   <html>
     <head>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <!--css ini bikin ngerusak tampilan, gatau kenapa-->
-        {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
         <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
         <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     </head>
-    <body>
+    
     <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="edithutang" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -117,6 +89,7 @@
             <h5 class="modal-title" id="ModalEditHutang">Edit Hutang</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+          
           <div class="modal-body">
             <div class="mb-3">
               <label class="form-label" for="NamaHutang">Nama</label>
@@ -142,6 +115,7 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-primary">Simpan</button>
           </div>
+        
         </div>
       </div>
     </div>
@@ -157,9 +131,8 @@
             format: 'dd-mm-yyyy'
         });
       </script>
-    </body>
+    
     <!-- Modal Edit Piutang -->
-    <body>
     <div class="modal fade" id="edit1" tabindex="-1" aria-labelledby="editpiutang" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -167,6 +140,7 @@
               <h5 class="modal-title" id="ModalEditPiutang">Edit Piutang</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            
             <div class="modal-body">
               <div class="mb-3">
                 <label class="form-label" for="NamaPiutang">Nama</label>
@@ -192,6 +166,7 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-primary">Simpan</button>
             </div>
+
           </div>
         </div>
       </div>
@@ -200,16 +175,15 @@
             uiLibrary: 'bootstrap5',
             format: 'dd-mm-yyyy'
         });
-    </script>
-    <script>
-      $('#JatuhTempoPiutang').datepicker({
-          uiLibrary: 'bootstrap5',
-          format: 'dd-mm-yyyy'
-      });
-  </script>
-    </body>
+      </script>
+      <script>
+        $('#JatuhTempoPiutang').datepicker({
+            uiLibrary: 'bootstrap5',
+            format: 'dd-mm-yyyy'
+        });
+      </script>
+    
     <!-- Modal Tambah Hutang -->
-    <body>
     <div class="modal fade" id="tambah" tabindex="-1" aria-labelledby="tambahhutang" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -217,50 +191,69 @@
             <h5 class="modal-title" id="ModalTambahHutang">Tambah Hutang</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            <div class="mb-3">
-                <label class="form-label" for="NamaHutang1">Nama</label>
-                <input type="text" name="NamaHutang1" placeholder="Masukan Nama" class="form-control" id="NamaHutang1" required>
+          
+          <form method="post" action="debt">
+            @csrf
+            <div class="modal-body">
+              <div class="mb-3">
+                <label class="form-label" for="py_name">Nama</label>
+                <input type="text" name="py_name" placeholder="Masukan Nama" class="form-control @error('py_name') is-invalid @enderror" id="py_name">
+                @error('py_name')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="mb-3">
-                <label class="form-label" for="TanggalHutang1">Tanggal</label>
-                <input name="TanggalHutang1" class="form-control" placeholder="dd-mm-yyyy" id="TanggalHutang1" required>
+                <label class="form-label" for="py_date">Tanggal</label>
+                <input name="py_date" class="form-control @error('py_date') is-invalid @enderror" placeholder="yyyy-mm-dd" id="py_date">
+                @error('py_date')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="mb-3">
-                <label class="form-label" for="JatuhTempoHutang1">Jatuh Tempo</label>
-                <input type="text" name="JatuhTempoHutang1" class="form-control" placeholder="dd-mm-yyyy" id="JatuhTempoHutang1" required>
+                <label class="form-label" for="due_date">Jatuh Tempo</label>
+                <input type="text" name="due_date" class="form-control @error('due_date') is-invalid @enderror" placeholder="yyyy-mm-dd" id="due_date">
+                @error('due_date')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="mb-3">
-                <label class="form-label" for="KeteranganHutang1">Keterangan</label>
-                <textarea class="form-control" id="KeteranganHutang1" placeholder="Masukan keterangan" rows="3" required></textarea>
+                <label class="form-label" for="description">Keterangan</label>
+                <textarea class="form-control @error('description') is-invalid @enderror" name="description" placeholder="Masukan keterangan" rows="3"></textarea>
+                @error('description')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="mb-3">
-                  <label class="form-label" for="JumlahHutang1">Jumlah</label>
-                  <input type="text" name="JumlahHutang1" class="form-control" placeholder="0,00" id="JumlahHutang1" required>
-              </div>
+                  <label class="form-label" for="py_amount">Jumlah</label>
+                  <input type="text" name="py_amount" class="form-control @error('py_amount') is-invalid @enderror" placeholder="0,00" id="py_amount">
+                  @error('py_amount')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Simpan</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
-          </div>
+          </form>
+          
         </div>
       </div>
     </div>
     <script>
-      $('#TanggalHutang1').datepicker({
+      $('#py_date').datepicker({
           uiLibrary: 'bootstrap5',
-          format: 'dd-mm-yyyy'
+          format: 'yyyy-mm-dd'
       });
-  </script>
-  <script>
-    $('#JatuhTempoHutang1').datepicker({
-        uiLibrary: 'bootstrap5',
-        format: 'dd-mm-yyyy'
-    });
-</script>
-  </body>
+    </script>
+    <script>
+      $('#due_date').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+    </script>
+  
+
     <!-- Modal Tambah Piutang -->
-    <body>
       <div class="modal fade" id="tambah1" tabindex="-1" aria-labelledby="tambahpiutang" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -268,6 +261,7 @@
                 <h5 class="modal-title" id="ModalTambahPiutang">Tambah Piutang</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
+              
               <div class="modal-body">
                 <div class="mb-3">
                     <label class="form-label" for="NamaPiutang1">Nama</label>
@@ -293,7 +287,7 @@
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary">Simpan</button>
                 </div>
-              </div>
+
             </div>
           </div>
         </div>
@@ -309,7 +303,6 @@
               format: 'dd-mm-yyyy'
           });
       </script>
-      </body>
 </html>
 
       
@@ -332,4 +325,12 @@
       .appendTo( '#table_wrapper .col-md-6:eq(0)' );
     } );
   </script>
+  {{-- Hold Modal After Validation Error --}}
+  @if (count($errors) > 0)
+    <script>
+      $( document ).ready(function() {
+      $('#tambah').modal('show');
+      });
+    </script>
+  @endif
 @endsection
