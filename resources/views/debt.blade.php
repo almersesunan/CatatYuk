@@ -1,6 +1,6 @@
 @extends('layouts/main')
 
-@section('title', 'CatatYuk - Loan')
+@section('title', 'CatatYuk - Lending')
 
 @section('container')
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">   
@@ -42,6 +42,7 @@
             
             <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah">Tambah Hutang</button>
             <br/><br/><br/><br/>
+            <h1 class="h2">Receiveable</h1>
             <table id="table1" class="table table-striped table-bordered" style="width:100%">
                 <a href="#" style="float: right">Download to PDF</a>
                 <label for="pwd">Piutang</label><br>

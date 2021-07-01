@@ -20,8 +20,6 @@ use App\Http\Controllers\StockController;
 
 // PageRoutes
 Route::get('/dashboard', [PagesController::class, 'dashboard']);
-
-Route::get('/debt', [PagesController::class, 'debt']);
 Route::get('/profile', [PagesController::class, 'profile']);
 Route::get('/feedback', [PagesController::class, 'feedback']);
 
