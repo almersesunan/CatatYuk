@@ -33,11 +33,11 @@
                           <td>{{$stock->minimum}}</td>
                           <td>{{$stock->jumlah_saat_ini}}</td>
                           <td align="center">
-                            <button id="edit_brg" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
+                            <button id="edit_brg" class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
                             <form action="stock/{{$stock->id}}" method="post" class="d-inline">
                               @method('delete')
                               @csrf
-                              <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
+                              <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure want to delete this data?')"><i class="fa fa-trash"></i> Hapus</button>
                             </form>
                           </td>
                       </tr>
@@ -58,23 +58,38 @@
           <h5 class="modal-title" id="ModalEdit">Edit Barang</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <div class="mb-3">
-            <label class="form-label" for="nm_brg">Nama Barang</label>
-            <input type="text" class="form-control" id="nm_brng" required>
+
+        <form method="post" action="stock/{{$stock->id}}">
+          @method('patch')
+          @csrf
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label" for="nama_barang">Nama Barang</label>
+              <input name="nama_barang" class="form-control @error('nama_barang') is-invalid @enderror" id="nama_barang" value="{{ $stock->nama_barang }}">
+              @error('nama_barang')
+                  <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="minimum">Minimum</label>
+                <input name="minimum" type="text" class="form-control @error('minimum') is-invalid @enderror" id="minimum" value="{{ $stock->minimum }}" >
+                @error('minimum')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="jumlah_saat_ini">Jumlah Saat Ini</label>
+                <input name="jumlah_saat_ini" type="text" class="form-control @error('jumlah_saat_ini') is-invalid @enderror" id="jumlah_saat_ini" value="{{ $stock->jumlah_saat_ini }}" >
+                @error('jumlah_saat_ini')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
           </div>
-          <div class="mb-3">
-            <label class="form-label" for="mini_brg">Minimum</label>
-            <input type="text" class="form-control" id="mini_brng" required>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Simpan</button>
           </div>
-          <div class="mb-3">
-            <label class="form-label" for="stok_brg">Jumlah Saat Ini</label>
-            <input type="text" class="form-control" id="stok_brng" required>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Simpan</button>
-        </div>
+        </form>
+
       </div>
     </div>
   </div>
@@ -90,27 +105,27 @@
         <form method="post" action="stock" id="modal-form">
           @csrf
           <div class="modal-body">
-              <div class="mb-3">
-                  <label class="form-label" for="nama_barang">Nama Barang</label>
-                  <input name="nama_barang" class="form-control @error('nama_barang') is-invalid @enderror" id="nama_barang" value="{{ old('nama_barang') }}">
-                  @error('nama_barang')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-              </div>
-              <div class="mb-3">
-                  <label class="form-label" for="minimum">Minimum</label>
-                  <input name="minimum" type="text" class="form-control @error('minimum') is-invalid @enderror" id="minimum" value="{{ old('minimum') }}" >
-                  @error('minimum')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-              </div>
-              <div class="mb-3">
-                  <label class="form-label" for="jumlah_saat_ini">Jumlah Saat Ini</label>
-                  <input name="jumlah_saat_ini" type="text" class="form-control @error('jumlah_saat_ini') is-invalid @enderror" id="jumlah_saat_ini" value="{{ old('jumlah_saat_ini') }}" >
-                  @error('jumlah_saat_ini')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-              </div>
+            <div class="mb-3">
+                <label class="form-label" for="nama_barang">Nama Barang</label>
+                <input name="nama_barang" class="form-control @error('nama_barang') is-invalid @enderror" id="nama_barang" value="{{ old('nama_barang') }}">
+                @error('nama_barang')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="minimum">Minimum</label>
+                <input name="minimum" type="text" class="form-control @error('minimum') is-invalid @enderror" id="minimum" value="{{ old('minimum') }}" >
+                @error('minimum')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="jumlah_saat_ini">Jumlah Saat Ini</label>
+                <input name="jumlah_saat_ini" type="text" class="form-control @error('jumlah_saat_ini') is-invalid @enderror" id="jumlah_saat_ini" value="{{ old('jumlah_saat_ini') }}" >
+                @error('jumlah_saat_ini')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Simpan</button>

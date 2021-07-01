@@ -42,7 +42,7 @@ class CashflowController extends Controller
             'tanggal' => 'required',
             'kategori' => 'required',
             'deskripsi' => 'required',
-            'nominal' => 'required|integer|min:0'
+            'nominal' => 'required|integer|min:0|max:8'
         ]);
 
         Cashflow::create($request->all());
@@ -80,7 +80,22 @@ class CashflowController extends Controller
      */
     public function update(Request $request, Cashflow $cashflow)
     {
-        //
+        $request->validate([
+            'tipe' => 'required|not_in:0',
+            'tanggal' => 'required',
+            'kategori' => 'required',
+            'deskripsi' => 'required',
+            'nominal' => 'required|integer|min:0|max:8'
+        ]);
+
+        Cashflow::where('id', $cashflow->id)->update([
+            'tipe' => $request->tipe,
+            'tanggal' => $request->tanggal,
+            'kategori' => $request->kategori,
+            'deskripsi' => $request->deskripsi,
+            'nominal' => $request->nominal
+        ]);
+        return redirect('cashflow')->with('status','Data Berhasil Diubah!');
     }
 
     /**
