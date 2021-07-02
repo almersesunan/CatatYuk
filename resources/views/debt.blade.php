@@ -11,6 +11,7 @@
               <label for="pwd">Hutang</label><br>
               <thead>
                 <tr>
+                  <th>Id</th>
                   <th>Nama</th>
                   <th>Tanggal</th>
                   <th>Jatuh Tempo</th>
@@ -22,19 +23,20 @@
               <tbody>
                 @foreach ($payable as $payable)
                 <tr>
+                  <td>{{$payable->py_id}}</td>
                   <td>{{$payable->py_name}}</td>
                   <td>{{$payable->py_date}}</td>
                   <td>{{$payable->due_date}}</td>
                   <td>{{$payable->description}}</td>
-                  <td>Rp. {{$payable->py_amount}}</td>
-                  <td align="center">
-                    <button id="edit_htng" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
-                    <form action="debt/{{$payable->py_id}}" method="post" class="d-inline">
+                  <td>{{$payable->py_amount}}</td>
+                  <td align="center">  
+                    <button class="btn btn-secondary edit"><i class="fa fa-edit"></i> Edit</button>
+                     <form action="payable/{{$payable->py_id}}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
                       <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                    </form>
-                  </td>
+                     </form>
+                    </td>
                 </tr>
                 @endforeach
               </tbody>
@@ -90,47 +92,52 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           
-          <div class="modal-body">
+
+          <form id="form_edit" action="/payable/update" method="POST" enctype="multipart/form-data">
+            @method('put')
+            @csrf 
+          <div class="modal-body" id="modal-edit">
             <div class="mb-3">
-              <label class="form-label" for="NamaHutang">Nama</label>
-              <input type="text" name="NamaHutang" class="form-control" id="NamaHutang" required>
+              <label class="form-label" for="py_name_edit">Nama</label>
+              <input type="text" name="py_name_edit" class="form-control" id="py_name_edit">
             </div>
             <div class="mb-3">
-              <label class="form-label" for="TanggalHutang">Tanggal</label>
-              <input name="TanggalHutang" class="form-control" id="TanggalHutang" required>
+              <label class="form-label" for="py_date_edit">Tanggal</label>
+              <input name="py_date_edit" class="form-control" id="py_date_edit">
             </div>
             <div class="mb-3">
-              <label class="form-label" for="JatuhTempoHutang">Jatuh Tempo</label>
-              <input name="JatuhTempoHutang" class="form-control" id="JatuhTempoHutang" required>
+              <label class="form-label" for="due_date_edit">Jatuh Tempo</label>
+              <input name="due_date_edit" class="form-control" id="due_date_edit">
             </div>
             <div class="mb-3">
-              <label class="form-label" for="KeteranganHutang">Keterangan</label>
-              <textarea class="form-control" id="KeteranganHutang" rows="3" required></textarea>
+              <label class="form-label" for="description_edit">Keterangan</label>
+              <textarea name="description_edit" class="form-control" id="description_edit" rows="3"></textarea>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="JumlahHutang">Jumlah</label>
-                <input type="text" name="JumlahHutang" class="form-control" id="JumlahHutang" required>
+                <label class="form-label" for="py_amount_edit">Jumlah</label>
+                <input type="text" name="py_amount_edit" class="form-control" id="py_amount_edit">
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
           </div>
-        
+          </form>
         </div>
       </div>
     </div>
       <script>
-        $('#TanggalHutang').datepicker({
+        $('#py_date_edit').datepicker({
             uiLibrary: 'bootstrap5',
-            format: 'dd-mm-yyyy'
+            format: 'yyyy-mm-dd'
         });
       </script>
       <script>
-        $('#JatuhTempoHutang').datepicker({
+        $('#due_date_edit').datepicker({
             uiLibrary: 'bootstrap5',
-            format: 'dd-mm-yyyy'
+            format: 'yyyy-mm-dd'
         });
       </script>
+
     
     <!-- Modal Edit Piutang -->
     <div class="modal fade" id="edit1" tabindex="-1" aria-labelledby="editpiutang" aria-hidden="true">
@@ -141,10 +148,11 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             
+            
             <div class="modal-body">
               <div class="mb-3">
                 <label class="form-label" for="NamaPiutang">Nama</label>
-                <input name="NamaPiutang" class="form-control"  id="NamaPiutang" required>
+                <input name="NamaPiutang" class="form-control"  id="NamaPiutang">
               </div>
               <div class="mb-3">
                 <label class="form-label" for="TanggalPiutang">Tanggal</label>
@@ -192,7 +200,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           
-          <form method="post" action="debt">
+          <form method="post" action="payable">
             @csrf
             <div class="modal-body">
               <div class="mb-3">
@@ -320,17 +328,40 @@
       var table = $('#table, #table1').DataTable( {
       lengthChange: false
     } );
+
+    table.on('click', '.edit', function(){
+      
+      $tr = $(this).closest('tr');
+      if ($($tr).hasClass('child')) {
+        $tr = $tr.prev('.parent');
+      }
+
+      var data = table.row($tr).data();
+      console.log(data);
+
+      $('#py_name_edit').val(data[1]);
+      $('#py_date_edit').val(data[2]);
+      $('#due_date_edit').val(data[3]);
+      $('#description_edit').val(data[4]);
+      $('#py_amount_edit').val(data[5]);
+
+      $('#form_edit').attr('action', '/payable/update/'+data[0]);
+      $('#edit').modal('show');
+    });
   
     table.buttons().container()
       .appendTo( '#table_wrapper .col-md-6:eq(0)' );
     } );
+
+    
   </script>
+
   {{-- Hold Modal After Validation Error --}}
-  @if (count($errors) > 0)
+  {{-- @if (count($errors) > 0)
     <script>
       $( document ).ready(function() {
       $('#tambah').modal('show');
       });
     </script>
-  @endif
+  @endif --}}
 @endsection

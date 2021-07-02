@@ -36,9 +36,10 @@ Route::post('/stock', [StockController::class, 'store']);
 Route::delete('/stock/{stock}', [StockController::class, 'destroy']);
 
 // Payable 
-Route::get('/debt', [PayableController::class, 'index']);
-Route::post('/debt', [PayableController::class, 'store']);
-Route::delete('/debt/{payable}', [PayableController::class, 'destroy']);
+Route::get('/payable', [PayableController::class, 'index']);
+Route::post('/payable', [PayableController::class, 'store']);
+Route::put('/payable/update/{id}', [PayableController::class, 'update']);
+Route::delete('/payable/{payable}', [PayableController::class, 'destroy']);
 
 
 Auth::routes();

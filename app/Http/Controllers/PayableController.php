@@ -45,7 +45,7 @@ class PayableController extends Controller
         ]);
 
         Payable::create($request->all());
-        return redirect('debt')->with('status','Data Berhasil Ditambahkan!');
+        return redirect('payable')->with('status','Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -77,9 +77,18 @@ class PayableController extends Controller
      * @param  \App\Models\Payable  $payable
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Payable $payable)
+    public function update(Request $request, $id)
     {
-        //
+
+        $payable = Payable::find($id);
+        $payable->py_name = $request->py_name_edit;
+        $payable->py_date = $request->py_date_edit;
+        $payable->due_date = $request->due_date_edit;
+        $payable->description = $request->description_edit;
+        $payable->py_amount = $request->py_amount_edit;
+        $payable->save();
+        return redirect('payable')->with('status','Data Berhasil Diupdate!');
+
     }
 
     /**
@@ -91,6 +100,6 @@ class PayableController extends Controller
     public function destroy(Payable $payable)
     {
         Payable::destroy($payable->py_id);
-        return redirect('debt')->with('status','Data Berhasil Dihapus!');
+        return redirect('payable')->with('status','Data Berhasil Dihapus!');
     }
 }
