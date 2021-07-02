@@ -19,7 +19,7 @@
     <label><input type="radio" name="cashflow" value="pengeluaran"> Pengeluaran</label>
     <div id="cashflowchart"></div>
     <div id="stokbarangchart"></div>
-    <h2>Loan</h2>
+    <h2>Lending</h2>
     <div class="table-responsive">
       <table id="table-hutang" class="table table-striped table-bordered" style="width:100%">
         <a href="#" style="float: right">Download to PDF</a>

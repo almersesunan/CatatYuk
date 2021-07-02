@@ -16,11 +16,6 @@ class PagesController extends Controller
         return view('dashboard');
     }
 
-    public function debt()
-    {
-        return view('debt');
-    }
-
     public function profile()
     {
         return view('profile');

@@ -20,8 +20,6 @@ use App\Http\Controllers\StockController;
 
 // PageRoutes
 Route::get('/dashboard', [PagesController::class, 'dashboard']);
-
-Route::get('/debt', [PagesController::class, 'debt']);
 Route::get('/profile', [PagesController::class, 'profile']);
 Route::get('/feedback', [PagesController::class, 'feedback']);
 
@@ -29,17 +27,24 @@ Route::get('/feedback', [PagesController::class, 'feedback']);
 Route::get('/cashflow', [CashflowController::class, 'index']);
 Route::post('/cashflow', [CashflowController::class, 'store']);
 Route::delete('/cashflow/{cashflow}', [CashflowController::class, 'destroy']);
+Route::patch('/cashflow/{cashflow}', [CashflowController::class, 'update']);
+// Route::resource('cashflow', [CashflowController::class]);
 
 // Stock
 Route::get('/stock', [StockController::class, 'index']);
 Route::post('/stock', [StockController::class, 'store']);
 Route::delete('/stock/{stock}', [StockController::class, 'destroy']);
+Route::patch('/stock/{stock}', [StockController::class, 'update']);
+// Route::resource('stock', [StockController::class]);
 
 // Payable 
 Route::get('/payable', [PayableController::class, 'index']);
 Route::post('/payable', [PayableController::class, 'store']);
 Route::put('/payable/update/{id}', [PayableController::class, 'update']);
 Route::delete('/payable/{payable}', [PayableController::class, 'destroy']);
+
+//changepassword
+
 
 
 Auth::routes();

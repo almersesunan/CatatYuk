@@ -17,18 +17,20 @@
               <label for="pwd">Pencatatan Kas</label><br>
               <thead>
                 <tr>
+                  <th><input type="checkbox" id="master"></th>
                   <th>Tipe</th>
                   <th>Tanggal</th>
                   <th>Kategori</th>
                   <th>Deskripsi</th>
                   <th>Nominal</th>
                   <th>Bukti Transaksi</th>
-                  <th>Edit</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 @foreach ($cashflow as $cashflow)
                 <tr>
+                  <td><input type="checkbox" class="sub_chk" data-id="{{$cashflow->id}}"></td>
                   <td>{{$cashflow->tipe}}</td>
                   <td>{{$cashflow->tanggal}}</td>
                   <td>{{$cashflow->kategori}}</td>
@@ -36,11 +38,11 @@
                   <td>Rp. {{$cashflow->nominal}}</td>
                   <td>{{$cashflow->bukti_transaksi}}</td>
                   <td align="center">
-                    <button id="edit_trs" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
+                    <button id="edit_trs" class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#edit" data-id="{{ $cashflow->id }}"><i class="fa fa-edit"></i> Edit</button>
                     <form action="cashflow/{{$cashflow->id}}" method="post" class="d-inline">
                       @method('delete')
                       @csrf
-                      <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
+                      <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure want to delete this data?')"><i class="fa fa-trash"></i> Hapus</button>
                     </form>
                   </td>
                 </tr>
@@ -64,49 +66,84 @@
               <h5 class="modal-title" id="ModalEdit">Edit Transaksi</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-              <div class="mb-3">
-                <label class="form-label" for="Tipe">Tipe</label>
-                <select class="form-select">
-                  <option selected>Pemasukan/Pengeluaran</option>
-                  <option value="1">Pemasukan</option>
-                  <option value="2">Pengeluaran</option>
-                </select>
-              </div>
-              <div class="mb-3">
-                <label class="form-label"  for="Tanggal">Tanggal</label>
-                <input name="Tanggal" class="form-control" placeholder="dd-mm-yyy" id="Tanggal" required>
-              </div>
-              <div class="mb-3">
-                <label class="form-label"  for="Nominal">Nominal</label>
-                <input type="text" name="Nominal" class="form-control" placeholder="Rp. 0,00" id="Nominal" required>
-              </div>
-              <div class="mb-3">
-                  <label class="form-label"  for="Kategori">Kategori</label>
-                  <input type="text" name="Kategori" class="form-control"  placeholder="Makanan" id="Kategori" required>
-              </div>
-              <form>
+
+            <form method="post" action="cashflow/{{$cashflow->id}}">
+              @method('patch')
+              @csrf
+              <div class="modal-body">
                 <div class="mb-3">
-                  <label class="form-label" for="BuktiTransaksi">Bukti Transaksi</label></br>
-                  <input type="file" class="form-control-file" id="BuktiTransaksi">
+                  <label class="form-label" for="tipe">Tipe</label>
+                  <select name="tipe" class="form-select @error('tipe') is-invalid @enderror" aria-label="Default select example">
+                    <option value="0"selected>Choose..</option>
+                    <option value="Pemasukan" {{ $cashflow->tipe == 'Pemasukan'? 'selected': ''}}>Pemasukan</option>
+                    <option value="Pengeluaran" {{ $cashflow->tipe == 'Pengeluaran'? 'selected': ''}}>Pengeluaran</option>
+                  </select>
+                  @error('tipe')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
                 </div>
-              </form>
-              <div class="mb-3">
-                <label for="Deskripsi">Deskripsi</label>
-                <textarea class="form-control" id="Deskripsi" rows="3"></textarea>
+                <div class="mb-3">
+                  <label class="form-label" for="tanggal">Tanggal</label>
+                  <input name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" placeholder="yyyy-mm-dd" id="tanggal" value="{{ $cashflow->tanggal }}">
+                  @error('tanggal')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label for="kategori" class="form-label">Kategori</label>
+                  <input name="kategori" type="input" class="form-control @error('kategori') is-invalid @enderror" id="kategori" placeholder="Makanan" value="{{ $cashflow->kategori }}">
+                  @error('kategori')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label for="deskripsi" class="form-label">Deskripsi</label>
+                  <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" rows="3">{{ $cashflow->deskripsi }}</textarea>
+                  @error('deskripsi')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label for="nominal" class="form-label">Nominal</label>
+                  <input name="nominal" type="input" class="form-control @error('nominal') is-invalid @enderror" id="nominal" placeholder="Rp. 0" value="{{ $cashflow->nominal }}">
+                  @error('nominal')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label for="bukti_transaksi" class="form-label">Bukti Transaksi</label>
+                  <input name="bukti_transaksi" type="file" class="form-control-file" id="bukti_transaksi">
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
               </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Simpan</button>
-            </div>
+            </form>
+
           </div>
         </div>
       </div>
       <script>
-        $('#Tanggal').datepicker({
+        $('#tanggal').datepicker({
             uiLibrary: 'bootstrap5',
-            format: 'dd-mm-yyyy'
+            format: 'yyyy-mm-dd'
         });
+        
+      
+        // $('#edit').on('show.bs.modal', function(event){
+        //   var button = $(event.relatedTarget)
+        //   var tipe = button.data('tipe')
+        //   var tanggal = button.data('tanggal')
+        //   var kategori = button.data('kategori')
+        //   var deskripsi = button.data('deskripsi')
+        //   var nominal = button.data('nominal')
+        //   var modal = $(this)
+        //   modal.find('.modal-body #tipe' ).val(tipe);
+        //   modal.find('.modal-body #tanggal' ).val(tanggal);
+        //   modal.find('.modal-body #kategori' ).val(kategori);
+        //   modal.find('.modal-body #deskripsi' ).val(deskripsi);
+        //   modal.find('.modal-body #nominal' ).val(nominal);
+        // })
       </script>
 
     <!-- Modal Tambah -->
@@ -206,7 +243,20 @@
     $(document).ready(function(){
       $('.alert-success').fadeIn().delay(5000).fadeOut();
     });
+
+// checkbox edit delete
+    $(document).ready(function () {
+      $('#master').on('click', function(e) {
+      if($(this).is(':checked',true))  
+      {
+          $(".sub_chk").prop('checked', true);  
+      } else {  
+          $(".sub_chk").prop('checked',false);  
+      }  
+      });
+    });
   </script>
+
   {{-- Hold Modal After Validation Error --}}
   @if (count($errors) > 0)
     <script>
