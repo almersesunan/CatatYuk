@@ -38,7 +38,7 @@ Route::patch('/stock/{stock}', [StockController::class, 'update']);
 // Route::resource('stock', [StockController::class]);
 
 // Payable 
-Route::get('/debt', [PayableController::class, 'index']);
+Route::get('/payable', [PayableController::class, 'index']);
 Route::post('/payable', [PayableController::class, 'store']);
 Route::put('/payable/update/{id}', [PayableController::class, 'update']);
 Route::delete('/payable/{payable}', [PayableController::class, 'destroy']);
