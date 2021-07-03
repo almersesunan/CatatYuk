@@ -26,15 +26,15 @@ Route::get('/feedback', [PagesController::class, 'feedback']);
 // Cashflow
 Route::get('/cashflow', [CashflowController::class, 'index']);
 Route::post('/cashflow', [CashflowController::class, 'store']);
-Route::put('/cashflow/update/{id}', [CashflowController::class, 'update']);
 Route::delete('/cashflow/{cashflow}', [CashflowController::class, 'destroy']);
+Route::patch('/cashflow/{id}', [CashflowController::class, 'update']);
 // Route::resource('cashflow', [CashflowController::class]);
 
 // Stock
 Route::get('/stock', [StockController::class, 'index']);
 Route::post('/stock', [StockController::class, 'store']);
 Route::delete('/stock/{stock}', [StockController::class, 'destroy']);
-Route::patch('/stock/{stock}', [StockController::class, 'update']);
+Route::patch('/stock/{id}', [StockController::class, 'update']);
 // Route::resource('stock', [StockController::class]);
 
 // Payable 

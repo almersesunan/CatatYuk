@@ -75,20 +75,26 @@ class StockController extends Controller
      * @param  \App\Models\Stock  $stock
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Stock $stock)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'nama_barang' => 'required',
-            'minimum' => 'required|integer|min:0',
-            'jumlah_saat_ini' => 'required|integer|min:0'
-        ]);
+        // $request->validate([
+        //     'nama_barang' => 'required',
+        //     'minimum' => 'required|integer|min:0',
+        //     'jumlah_saat_ini' => 'required|integer|min:0'
+        // ]);
 
-        Stock::where('id', $stock->id)->update([
-            'nama_barang' => $request->nama_barang,
-            'minimum' => $request->minimum,
-            'jumlah_saat_ini' => $request->jumlah_saat_ini
-        ]);
-        return redirect('stock')->with('status','Data Berhasil Diubah!');
+        // Stock::where('id', $stock->id)->update([
+        //     'nama_barang' => $request->nama_barang,
+        //     'minimum' => $request->minimum,
+        //     'jumlah_saat_ini' => $request->jumlah_saat_ini
+        // ]);
+
+        $stock = Stock::find($id);
+        $stock->nama_barang = $request->nama_barang_edit;
+        $stock->minimum = $request->minimum_edit;
+        $stock->jumlah_saat_ini = $request->jumlah_saat_ini_edit;
+        $stock->save();
+        return redirect('stock')->with('status','Data has been updated!');
     }
 
     /**
@@ -100,6 +106,6 @@ class StockController extends Controller
     public function destroy(Stock $stock)
     {
         Stock::destroy($stock->id);
-        return redirect('stock')->with('status','Data Berhasil Dihapus!');
+        return redirect('stock')->with('status','Data deleted successfull!');
     }
 }

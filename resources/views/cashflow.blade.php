@@ -66,46 +66,46 @@
             <h5 class="modal-title" id="ModalEdit">Edit Transaction</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-            <form id="form_edit" method="POST" action="/cashflow/update" enctype="multipart/form-data">
-              @method('put')
+            <form id="form_edit" method="post" action="cashflow" enctype="multipart/form-data">
+              @method('patch')
               @csrf
               <div class="modal-body" id="modal-edit">
                 <div class="mb-3">
                   <label class="form-label" for="tipe_edit">Tipe</label>
-                  <select name="tipe_edit" class="form-select @error('tipe_edit') is-invalid @enderror" id="tipe_edit" aria-label="Default select example">
+                  <select name="tipe_edit" class="form-select @error('tipe') is-invalid @enderror" id="tipe_edit" aria-label="Default select example">
                     <option value="0"selected>Choose..</option>
                     <option value="Pemasukan">Pemasukan</option>
                     <option value="Pengeluaran">Pengeluaran</option>
                   </select>
-                  @error('tipe_edit')
+                  @error('tipe')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="tanggal_edit">Tanggal</label>
-                  <input name="tanggal_edit" class="form-control @error('tanggal_edit') is-invalid @enderror" placeholder="yyyy-mm-dd" id="tanggal_edit">
-                  @error('tanggal_edit')
+                  <input name="tanggal_edit" class="form-control @error('tanggal') is-invalid @enderror" placeholder="yyyy-mm-dd" id="tanggal_edit">
+                  @error('tanggal')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label for="kategori_edit" class="form-label">Kategori</label>
-                  <input name="kategori_edit" type="input" class="form-control @error('kategori_edit') is-invalid @enderror" id="kategori_edit" placeholder="Makanan">
-                  @error('kategori_edit')
+                  <input name="kategori_edit" type="input" class="form-control @error('kategori') is-invalid @enderror" id="kategori_edit" placeholder="Makanan">
+                  @error('kategori')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label for="deskripsi_edit" class="form-label">Deskripsi</label>
-                  <textarea name="deskripsi_edit" class="form-control @error('deskripsi_edit') is-invalid @enderror" id="deskripsi_edit" rows="3"></textarea>
-                  @error('deskripsi_edit')
+                  <textarea name="deskripsi_edit" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi_edit" rows="3"></textarea>
+                  @error('deskripsi')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label for="nominal_edit" class="form-label">Nominal</label>
-                  <input name="nominal_edit" type="input" class="form-control @error('nominal_edit') is-invalid @enderror" id="nominal_edit" placeholder="Rp. 0">
-                  @error('nominal_edit')
+                  <input name="nominal_edit" type="input" class="form-control @error('nominal') is-invalid @enderror" id="nominal_edit" placeholder="Rp. 0">
+                  @error('nominal')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
@@ -137,7 +137,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
-          <form method="post" action="cashflow">
+          <form method="post" action="cashflow" >
             @csrf
             <div class="modal-body">
               <div class="mb-3">
@@ -232,7 +232,7 @@
       $('#deskripsi_edit').val(data[4]);
       $('#nominal_edit').val(data[5]);
 
-      $('#form_edit').attr('action', '/cashflow/update/'+data[0]);
+      $('#form_edit').attr('action', '/cashflow/'+data[0]);
       $('#edit').modal('show');
     });
 

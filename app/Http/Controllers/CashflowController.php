@@ -107,6 +107,6 @@ class CashflowController extends Controller
     public function destroy(Cashflow $cashflow)
     {
         Cashflow::destroy($cashflow->id);
-        return redirect('cashflow')->with('status','Data Berhasil Dihapus!');
+        return redirect('cashflow')->with('status','Data deleted successfull!');
     }
 }
