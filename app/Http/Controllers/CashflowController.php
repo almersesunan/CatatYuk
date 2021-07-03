@@ -42,7 +42,7 @@ class CashflowController extends Controller
             'tanggal' => 'required',
             'kategori' => 'required',
             'deskripsi' => 'required',
-            'nominal' => 'required|integer|min:0|max:8'
+            'nominal' => 'required|integer|min:0'
         ]);
 
         Cashflow::create($request->all());
@@ -78,24 +78,24 @@ class CashflowController extends Controller
      * @param  \App\Models\Cashflow  $cashflow
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cashflow $cashflow)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'tipe' => 'required|not_in:0',
-            'tanggal' => 'required',
-            'kategori' => 'required',
-            'deskripsi' => 'required',
-            'nominal' => 'required|integer|min:0|max:8'
-        ]);
+        // $request->validate([
+        //     'tipe_edit' => 'required|not_in:0',
+        //     'tanggal_edit' => 'required',
+        //     'kategori_edit' => 'required',
+        //     'deskripsi_edit' => 'required',
+        //     'nominal_edit' => 'required|min:0'
+        // ]);
 
-        Cashflow::where('id', $cashflow->id)->update([
-            'tipe' => $request->tipe,
-            'tanggal' => $request->tanggal,
-            'kategori' => $request->kategori,
-            'deskripsi' => $request->deskripsi,
-            'nominal' => $request->nominal
-        ]);
-        return redirect('cashflow')->with('status','Data Berhasil Diubah!');
+        $cashflow = Cashflow::find($id);
+        $cashflow->tipe = $request->tipe_edit;
+        $cashflow->tanggal = $request->tanggal_edit;
+        $cashflow->kategori = $request->kategori_edit;
+        $cashflow->deskripsi = $request->deskripsi_edit;
+        $cashflow->nominal = $request->nominal_edit;
+        $cashflow->save();
+        return redirect('cashflow')->with('status','Data has been updated!');
     }
 
     /**

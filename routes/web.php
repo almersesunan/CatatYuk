@@ -26,8 +26,8 @@ Route::get('/feedback', [PagesController::class, 'feedback']);
 // Cashflow
 Route::get('/cashflow', [CashflowController::class, 'index']);
 Route::post('/cashflow', [CashflowController::class, 'store']);
+Route::put('/cashflow/update/{id}', [CashflowController::class, 'update']);
 Route::delete('/cashflow/{cashflow}', [CashflowController::class, 'destroy']);
-Route::patch('/cashflow/{cashflow}', [CashflowController::class, 'update']);
 // Route::resource('cashflow', [CashflowController::class]);
 
 // Stock
@@ -38,7 +38,7 @@ Route::patch('/stock/{stock}', [StockController::class, 'update']);
 // Route::resource('stock', [StockController::class]);
 
 // Payable 
-Route::get('/payable', [PayableController::class, 'index']);
+Route::get('/debt', [PayableController::class, 'index']);
 Route::post('/payable', [PayableController::class, 'store']);
 Route::put('/payable/update/{id}', [PayableController::class, 'update']);
 Route::delete('/payable/{payable}', [PayableController::class, 'destroy']);
