@@ -15,7 +15,7 @@ class PayableController extends Controller
     public function index()
     {
         $payable = Payable::all();
-        return view('debt', compact('payable'));
+        return view('lending', compact('payable'));
     }
 
     /**

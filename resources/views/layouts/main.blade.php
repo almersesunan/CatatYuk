@@ -55,9 +55,9 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url('/debt') }}">
+                  <a class="nav-link" href="{{ url('/lending') }}">
                     <span data-feather="users"></span>
-                    Debt/Credit
+                    Payable/Receiveable
                   </a>
                 </li>
                 <li class="nav-item">

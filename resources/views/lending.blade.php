@@ -117,7 +117,7 @@
             <div class="mb-3">
                 <label class="form-label" for="py_amount_edit">Jumlah</label>
                 <input type="text" name="py_amount_edit" class="form-control" id="py_amount_edit">
-            </div>
+              </div>
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -157,19 +157,19 @@
               </div>
               <div class="mb-3">
                 <label class="form-label" for="TanggalPiutang">Tanggal</label>
-                <input type="text" name="TanggalPiutang" class="form-control" id="TanggalPiutang" required>
+                <input type="text" name="TanggalPiutang" class="form-control" id="TanggalPiutang">
               </div>
               <div class="mb-3">
                 <label class="form-label" for="JatuhTempoPiutang">Jatuh Tempo</label>
-                <input type="text" name="JatuhTempoPiutang" class="form-control" id="JatuhTempoPiutang" required>
+                <input type="text" name="JatuhTempoPiutang" class="form-control" id="JatuhTempoPiutang">
               </div>
               <div class="mb-3">
                 <label class="form-label" for="KeteranganPiutang">Keterangan</label>
-                <textarea class="form-control" id="KeteranganPiutang" rows="3" required></textarea>
+                <textarea class="form-control" id="KeteranganPiutang" rows="3"></textarea>
               </div>
               <div class="mb-3">
                   <label class="form-label" for="JumlahPiutang">Jumlah</label>
-                  <input type="text" name="JumlahPiutang" class="form-control" id="JumlahPiutang" required>
+                  <input type="text" name="JumlahPiutang" class="form-control" id="JumlahPiutang">
               </div>
             </div>
             <div class="modal-footer">
@@ -361,7 +361,7 @@
   {{-- @if (count($errors) > 0)
     <script>
       $( document ).ready(function() {
-      $('#tambah').modal('show');
+      $('#edit').modal('show');
       });
     </script>
   @endif --}}

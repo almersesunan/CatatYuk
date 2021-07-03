@@ -15,7 +15,7 @@ class ReceivableController extends Controller
     public function index()
     {
         $receivable = Receivable::all();
-        return view('debt', compact('receivable'));
+        return view('lending', compact('receivable'));
     }
 
     /**
