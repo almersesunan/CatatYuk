@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Stock extends Model
 {
     use HasFactory;
-    protected $fillable = ['nama_barang','minimum','jumlah_saat_ini'];
+    protected $primaryKey = 'st_id';
+    protected $fillable = ['item_name','minimum','available'];
 }

@@ -37,13 +37,13 @@ class StockController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_barang' => 'required',
+            'item_name' => 'required',
             'minimum' => 'required|integer|min:0',
-            'jumlah_saat_ini' => 'required|integer|min:0'
+            'available' => 'required|integer|min:0'
         ]);
 
         Stock::create($request->all());
-        return redirect('stock')->with('status','Data Berhasil Ditambahkan!');
+        return redirect('stock')->with('status','Add data successfull!');
     }
 
     /**
@@ -90,9 +90,9 @@ class StockController extends Controller
         // ]);
 
         $stock = Stock::find($id);
-        $stock->nama_barang = $request->nama_barang_edit;
+        $stock->item_name = $request->item_name_edit;
         $stock->minimum = $request->minimum_edit;
-        $stock->jumlah_saat_ini = $request->jumlah_saat_ini_edit;
+        $stock->available = $request->available_edit;
         $stock->save();
         return redirect('stock')->with('status','Data has been updated!');
     }
@@ -105,7 +105,7 @@ class StockController extends Controller
      */
     public function destroy(Stock $stock)
     {
-        Stock::destroy($stock->id);
-        return redirect('stock')->with('status','Data deleted successfull!');
+        Stock::destroy($stock->st_id);
+        return redirect('stock')->with('status','Delete data successfull!');
     }
 }

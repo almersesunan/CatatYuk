@@ -16,26 +16,26 @@
       @endif
       <table id="table" class="table table-striped table-bordered" style="width:100%">
         <a href="#" style="float: right">Download to PDF</a>
-        <label for="pwd">Stok Barang</label><br>
+        <label for="pwd">Item Stock</label><br>
         <thead>
-            <tr>
+            <tr align="center">
               <th>Id</th>
-              <th>Nama Barang</th>
+              <th>Item Name</th>
               <th>Minimum</th>
-              <th>Jumlah Saat Ini</th>
-              <th>Atur Stok</th>
+              <th>Available</th>
+              <th>Action</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($stock as $stock)
             <tr>
-              <td>{{$stock->id}}</td>
-              <td>{{$stock->nama_barang}}</td>
-              <td>{{$stock->minimum}}</td>
-              <td>{{$stock->jumlah_saat_ini}}</td>
+              <td align="center">{{$stock->st_id}}</td>
+              <td>{{$stock->item_name}}</td>
+              <td align="center">{{$stock->minimum}}</td>
+              <td align="center">{{$stock->available}}</td>
               <td align="center">
                 <button class="btn btn-secondary edit"><i class="fa fa-edit"></i> Edit</button>
-                <form action="stock/{{$stock->id}}" method="post" class="d-inline">
+                <form action="stock/{{$stock->st_id}}" method="post" class="d-inline">
                   @method('delete')
                   @csrf
                   <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure want to delete this data?')"><i class="fa fa-trash"></i> Delete</button>
@@ -45,7 +45,7 @@
             @endforeach
         </tbody>
       </table>
-      <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah">Add Stock</button>
+      <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah">Add Item</button>
     </div>
             
 
@@ -64,9 +64,9 @@
           @csrf
           <div class="modal-body">
             <div class="mb-3">
-              <label class="form-label" for="nama_barang_edit">Nama Barang</label>
-              <input name="nama_barang_edit" class="form-control @error('nama_barang') is-invalid @enderror" id="nama_barang_edit">
-              @error('nama_barang')
+              <label class="form-label" for="item_name_edit">Item Name</label>
+              <input name="item_name_edit" class="form-control @error('item_name') is-invalid @enderror" id="item_name_edit">
+              @error('item_name')
                   <div class="invalid-feedback">{{ $message }}</div>
               @enderror
             </div>
@@ -78,9 +78,9 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label class="form-label" for="jumlah_saat_ini_edit">Jumlah Saat Ini</label>
-                <input name="jumlah_saat_ini_edit" type="text" class="form-control @error('jumlah_saat_ini') is-invalid @enderror" id="jumlah_saat_ini_edit">
-                @error('jumlah_saat_ini')
+                <label class="form-label" for="available_edit">Available</label>
+                <input name="available_edit" type="text" class="form-control @error('available') is-invalid @enderror" id="available_edit">
+                @error('available')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
@@ -99,16 +99,16 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="ModalTambah">Tambah Barang</h5>
+          <h5 class="modal-title" id="ModalTambah">Add Item</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form method="post" action="stock" id="modal-form">
           @csrf
           <div class="modal-body">
             <div class="mb-3">
-                <label class="form-label" for="nama_barang">Nama Barang</label>
-                <input name="nama_barang" class="form-control @error('nama_barang') is-invalid @enderror" id="nama_barang" value="{{ old('nama_barang') }}">
-                @error('nama_barang')
+                <label class="form-label" for="item_name">Item Name</label>
+                <input name="item_name" class="form-control @error('item_name') is-invalid @enderror" id="item_name" value="{{ old('item_name') }}">
+                @error('item_name')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
@@ -120,15 +120,15 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label class="form-label" for="jumlah_saat_ini">Jumlah Saat Ini</label>
-                <input name="jumlah_saat_ini" type="text" class="form-control @error('jumlah_saat_ini') is-invalid @enderror" id="jumlah_saat_ini" value="{{ old('jumlah_saat_ini') }}" >
-                @error('jumlah_saat_ini')
+                <label class="form-label" for="available">Available</label>
+                <input name="available" type="text" class="form-control @error('available') is-invalid @enderror" id="available" value="{{ old('available') }}" >
+                @error('available')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary">Add</button>
           </div>
         </form>
       </div>
@@ -147,8 +147,7 @@
           <script>
           $(document).ready(function() {
               var table = $('#table').DataTable( {
-              lengthChange: false,
-              buttons: ['pdf']
+              lengthChange: false
           } );
        
           // Edit Modal Fetch Data
@@ -162,9 +161,9 @@
             var data = table.row($tr).data();
             console.log(data);
           
-            $('#nama_barang_edit').val(data[1]);
+            $('#item_name_edit').val(data[1]);
             $('#minimum_edit').val(data[2]);
-            $('#jumlah_saat_ini_edit').val(data[3]);
+            $('#available_edit').val(data[3]);
           
             $('#form_edit').attr('action', '/stock/'+data[0]);
             $('#edit').modal('show');
