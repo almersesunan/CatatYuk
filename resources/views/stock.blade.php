@@ -59,7 +59,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
-        <form id="form_edit" method="post" action="stock" enctype="multipart/form-data">
+        <form id="form_edit" method="post" action="stock/{{ $stock->st_id }}" enctype="multipart/form-data">
           @method('patch')
           @csrf
           <div class="modal-body">

@@ -66,7 +66,7 @@
             <h5 class="modal-title" id="ModalEdit">Edit Transaction</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-            <form id="form_edit" method="post" action="cashflow" enctype="multipart/form-data">
+            <form id="form_edit" method="post" action="cashflow/{{ $cashflow->tr_id }}" enctype="multipart/form-data">
               @method('patch')
               @csrf
               <div class="modal-body" id="modal-edit">
@@ -74,8 +74,8 @@
                   <label class="form-label" for="type_edit">Transaction Type</label>
                   <select name="type_edit" class="form-select @error('type_edit') is-invalid @enderror" id="type_edit" aria-label="Default select example">
                     <option value="0"selected>Choose..</option>
-                    <option value="Pemasukan">Income</option>
-                    <option value="Pengeluaran">Expense</option>
+                    <option value="Income" {{ old('type_edit') == 'Income' ? 'selected' : '' }}>Income</option>
+                    <option value="Expense" {{ old('type_edit') == 'Expense' ? 'selected' : '' }}>Expense</option>
                   </select>
                   @error('type_edit')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -83,28 +83,28 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="tr_date_edit">Transaction Date</label>
-                  <input name="tr_date_edit" class="form-control @error('tr_date_edit') is-invalid @enderror" placeholder="yyyy-mm-dd" id="tr_date_edit">
+                  <input name="tr_date_edit" class="form-control @error('tr_date_edit') is-invalid @enderror" placeholder="yyyy-mm-dd" id="tr_date_edit" value="{{ old('tr_date_edit') }}">
                   @error('tr_date_edit')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label for="category_edit" class="form-label">Category</label>
-                  <input name="category_edit" type="input" class="form-control @error('category_edit') is-invalid @enderror" id="category_edit" placeholder="Makanan">
+                  <input name="category_edit" type="input" class="form-control @error('category_edit') is-invalid @enderror" id="category_edit" placeholder="Makanan" value="{{ old('category_edit') }}">
                   @error('category_edit')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label for="description_edit" class="form-label">Description</label>
-                  <textarea name="description_edit" class="form-control @error('description_edit') is-invalid @enderror" id="description_edit" rows="3"></textarea>
+                  <textarea name="description_edit" class="form-control @error('description_edit') is-invalid @enderror" id="description_edit" rows="3">{{ old('description_edit') }}</textarea>
                   @error('description_edit')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label for="tr_amount_edit" class="form-label">Amount</label>
-                  <input name="tr_amount_edit" type="input" class="form-control @error('tr_amount_edit') is-invalid @enderror" id="tr_amount_edit" placeholder="Rp. 0">
+                  <input name="tr_amount_edit" type="input" class="form-control @error('tr_amount_edit') is-invalid @enderror" id="tr_amount_edit" placeholder="Rp. 0" value="{{ old('tr_amount_edit') }}">
                   @error('tr_amount_edit')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
@@ -144,8 +144,8 @@
                 <label class="form-label" for="type">Transaction Type</label>
                 <select name="type" class="form-select @error('type') is-invalid @enderror" aria-label="Default select example">
                   <option value="0" selected>Choose..</option>
-                  <option value="Pemasukan" {{ old('type') == 'Pemasukan' ? 'selected' : '' }}>Income</option>
-                  <option value="Pengeluaran" {{ old('type') == 'Pengeluaran' ? 'selected' : '' }}>Expense</option>
+                  <option value="Income" {{ old('type') == 'Income' ? 'selected' : '' }}>Income</option>
+                  <option value="Expense" {{ old('type') == 'Expense' ? 'selected' : '' }}>Expense</option>
                 </select>
                 @error('type')
                       <div class="invalid-feedback">{{ $message }}</div>
@@ -250,11 +250,78 @@
     //   $('#edit').modal('show');
     //   });
     // @endif
-
-    @if (count($errors) > 0)
-      $( document ).ready(function() {
-      $('#tambah').modal('show');
-      });
-    @endif
   </script>
+
+  {{-- Hold Modal After Validation Error --}}
+  @if ($errors->has('type_edit'))
+  <script>
+    $(document).ready(function() {
+      $('#edit').modal('show');
+    });
+  </script>
+  @endif
+  @if ($errors->has('tr_date_edit'))
+  <script>
+    $(document).ready(function() {
+      $('#edit').modal('show');
+    });
+  </script>
+  @endif
+  @if ($errors->has('category_edit'))
+  <script>
+    $(document).ready(function() {
+      $('#edit').modal('show');
+    });
+  </script>
+  @endif
+  @if ($errors->has('description_edit'))
+  <script>
+    $(document).ready(function() {
+      $('#edit').modal('show');
+    });
+  </script>
+  @endif
+  @if ($errors->has('tr_amount_edit'))
+  <script>
+    $(document).ready(function() {
+      $('#edit').modal('show');
+    });
+  </script>
+  @endif
+  @if ($errors->has('type'))
+  <script>
+    $(document).ready(function() {
+      $('#tambah').modal('show');
+    });
+  </script>
+  @endif
+  @if ($errors->has('tr_date'))
+  <script>
+    $(document).ready(function() {
+      $('#tambah').modal('show');
+    });
+  </script>
+  @endif
+  @if ($errors->has('category'))
+  <script>
+    $(document).ready(function() {
+      $('#tambah').modal('show');
+    });
+  </script>
+  @endif
+  @if ($errors->has('description'))
+  <script>
+    $(document).ready(function() {
+      $('#tambah').modal('show');
+    });
+  </script>
+  @endif
+  @if ($errors->has('tr_amount'))
+  <script>
+    $(document).ready(function() {
+      $('#tambah').modal('show');
+    });
+  </script>
+  @endif
+
 @endsection

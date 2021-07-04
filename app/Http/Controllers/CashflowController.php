@@ -39,10 +39,10 @@ class CashflowController extends Controller
     {
         $request->validate([
             'type' => 'required|not_in:0',
-            'tr_date' => 'required',
-            'category' => 'required',
-            'description' => 'required',
-            'tr_amount' => 'required|integer|min:0'
+            'tr_date' => 'required|date',
+            'category' => 'required|max:20',
+            'description' => 'required|max:255',
+            'tr_amount' => 'required|numeric|min:0'
         ]);
 
         Cashflow::create($request->all());
@@ -80,13 +80,13 @@ class CashflowController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $request->validate([
-        //     'tipe_edit' => 'required|not_in:0',
-        //     'tanggal_edit' => 'required',
-        //     'kategori_edit' => 'required',
-        //     'deskripsi_edit' => 'required',
-        //     'nominal_edit' => 'required|min:0'
-        // ]);
+        $request->validate([
+            'type_edit' => 'required|not_in:0',
+            'tr_date_edit' => 'required|date',
+            'category_edit' => 'required|max:20',
+            'description_edit' => 'required|max:255',
+            'tr_amount_edit' => 'required|numeric|min:0'
+        ]);
 
         $cashflow = Cashflow::find($id);
         $cashflow->type = $request->type_edit;
