@@ -3,8 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CashflowController;
-use App\Http\Controllers\PayableController;
-use App\Http\Controllers\ReceivableController;
+use App\Http\Controllers\LendingController;
 use App\Http\Controllers\StockController;
 
 /*
@@ -37,11 +36,18 @@ Route::delete('/stock/{stock}', [StockController::class, 'destroy']);
 Route::patch('/stock/{id}', [StockController::class, 'update']);
 // Route::resource('stock', [StockController::class]);
 
-// Payable 
-Route::get('/payable', [PayableController::class, 'index']);
-Route::post('/payable', [PayableController::class, 'store']);
-Route::put('/payable/update/{id}', [PayableController::class, 'update']);
-Route::delete('/payable/{payable}', [PayableController::class, 'destroy']);
+// Lending = Payable & Receivable
+Route::get('/lending', [LendingController::class, 'index']);
+
+Route::post('/lending/payable', [LendingController::class, 'storePayable']);
+Route::post('/lending/receivable', [LendingController::class, 'storeReceivable']);
+
+Route::put('/lending/payable/update/{id}', [LendingController::class, 'updatePayable']);
+Route::put('/lending/receivable/update/{id}', [LendingController::class, 'updateReceivable']);
+
+Route::delete('/lending/payable/{payable}', [LendingController::class, 'destroyPayable']);
+Route::delete('/lending/receivable/{receivable}', [LendingController::class, 'destroyReceivable']);
+
 
 //changepassword
 

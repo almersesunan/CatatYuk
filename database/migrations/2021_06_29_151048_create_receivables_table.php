@@ -17,8 +17,8 @@ class CreateReceivablesTable extends Migration
             $table->id('rc_id');
             $table->string('rc_name');
             $table->date('rc_date');
-            $table->date('due_date');
-            $table->string('description');
+            $table->date('rc_due_date');
+            $table->string('rc_description');
             $table->decimal('rc_amount', $precision = 19, $scale = 2);
             $table->timestamps();
         });
