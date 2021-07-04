@@ -65,22 +65,22 @@
           <div class="modal-body">
             <div class="mb-3">
               <label class="form-label" for="item_name_edit">Item Name</label>
-              <input name="item_name_edit" class="form-control @error('item_name') is-invalid @enderror" id="item_name_edit">
-              @error('item_name')
+              <input name="item_name_edit" class="form-control @error('item_name_edit') is-invalid @enderror" id="item_name_edit" value="{{ old('item_name_edit') }}">
+              @error('item_name_edit')
                   <div class="invalid-feedback">{{ $message }}</div>
               @enderror
             </div>
             <div class="mb-3">
                 <label class="form-label" for="minimum_edit">Minimum</label>
-                <input name="minimum_edit" type="text" class="form-control @error('minimum') is-invalid @enderror" id="minimum_edit">
-                @error('minimum')
+                <input name="minimum_edit" type="text" class="form-control @error('minimum_edit') is-invalid @enderror" id="minimum_edit" value="{{ old('minimum_edit') }}">
+                @error('minimum_edit')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
                 <label class="form-label" for="available_edit">Available</label>
-                <input name="available_edit" type="text" class="form-control @error('available') is-invalid @enderror" id="available_edit">
-                @error('available')
+                <input name="available_edit" type="text" class="form-control @error('available_edit') is-invalid @enderror" id="available_edit" value="{{ old('available_edit') }}">
+                @error('available_edit')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
@@ -181,11 +181,46 @@
           </script>
 
           {{-- Hold Modal After Validation Error --}}
-          @if (count($errors) > 0)
-            <script>
-              $( document ).ready(function() {
-              $('#tambah').modal('show');
-              });
-            </script>
+          @if ($errors->has('item_name_edit'))
+          <script>
+            $(document).ready(function() {
+              $('#edit').modal('show');
+            });
+          </script>
           @endif
-@endsection
+          @if ($errors->has('minimum_edit'))
+          <script>
+            $(document).ready(function() {
+              $('#edit').modal('show');
+            });
+          </script>
+          @endif
+          @if ($errors->has('available_edit'))
+          <script>
+            $(document).ready(function() {
+              $('#edit').modal('show');
+            });
+          </script>
+          @endif
+          @if ($errors->has('item_name'))
+          <script>
+            $(document).ready(function() {
+              $('#tambah').modal('show');
+            });
+          </script>
+          @endif
+          @if ($errors->has('minimum'))
+          <script>
+            $(document).ready(function() {
+              $('#tambah').modal('show');
+            });
+          </script>
+          @endif
+          @if ($errors->has('available'))
+          <script>
+            $(document).ready(function() {
+              $('#tambah').modal('show');
+            });
+          </script>
+          @endif
+          @endsection

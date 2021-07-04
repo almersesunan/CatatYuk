@@ -72,40 +72,40 @@
               <div class="modal-body" id="modal-edit">
                 <div class="mb-3">
                   <label class="form-label" for="type_edit">Transaction Type</label>
-                  <select name="type_edit" class="form-select @error('type') is-invalid @enderror" id="type_edit" aria-label="Default select example">
+                  <select name="type_edit" class="form-select @error('type_edit') is-invalid @enderror" id="type_edit" aria-label="Default select example">
                     <option value="0"selected>Choose..</option>
                     <option value="Pemasukan">Income</option>
                     <option value="Pengeluaran">Expense</option>
                   </select>
-                  @error('type')
+                  @error('type_edit')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="tr_date_edit">Transaction Date</label>
-                  <input name="tr_date_edit" class="form-control @error('tr_date') is-invalid @enderror" placeholder="yyyy-mm-dd" id="tr_date_edit">
-                  @error('tr_date')
+                  <input name="tr_date_edit" class="form-control @error('tr_date_edit') is-invalid @enderror" placeholder="yyyy-mm-dd" id="tr_date_edit">
+                  @error('tr_date_edit')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label for="category_edit" class="form-label">Category</label>
-                  <input name="category_edit" type="input" class="form-control @error('category') is-invalid @enderror" id="category_edit" placeholder="Makanan">
-                  @error('category')
+                  <input name="category_edit" type="input" class="form-control @error('category_edit') is-invalid @enderror" id="category_edit" placeholder="Makanan">
+                  @error('category_edit')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label for="description_edit" class="form-label">Description</label>
-                  <textarea name="description_edit" class="form-control @error('description') is-invalid @enderror" id="description_edit" rows="3"></textarea>
-                  @error('description')
+                  <textarea name="description_edit" class="form-control @error('description_edit') is-invalid @enderror" id="description_edit" rows="3"></textarea>
+                  @error('description_edit')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label for="tr_amount_edit" class="form-label">Amount</label>
-                  <input name="tr_amount_edit" type="input" class="form-control @error('tr_amount') is-invalid @enderror" id="tr_amount_edit" placeholder="Rp. 0">
-                  @error('tr_amount')
+                  <input name="tr_amount_edit" type="input" class="form-control @error('tr_amount_edit') is-invalid @enderror" id="tr_amount_edit" placeholder="Rp. 0">
+                  @error('tr_amount_edit')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>

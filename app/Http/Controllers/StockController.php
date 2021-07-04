@@ -77,17 +77,11 @@ class StockController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $request->validate([
-        //     'nama_barang' => 'required',
-        //     'minimum' => 'required|integer|min:0',
-        //     'jumlah_saat_ini' => 'required|integer|min:0'
-        // ]);
-
-        // Stock::where('id', $stock->id)->update([
-        //     'nama_barang' => $request->nama_barang,
-        //     'minimum' => $request->minimum,
-        //     'jumlah_saat_ini' => $request->jumlah_saat_ini
-        // ]);
+        $request->validate([
+            'item_name' => 'required',
+            'minimum' => 'required|integer|min:0',
+            'available' => 'required|integer|min:0'
+        ]);
 
         $stock = Stock::find($id);
         $stock->item_name = $request->item_name_edit;
