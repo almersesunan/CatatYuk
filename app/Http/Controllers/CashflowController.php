@@ -49,6 +49,11 @@ class CashflowController extends Controller
         return redirect('cashflow')->with('status','Add data successfull!');
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display the specified resource.
      *
