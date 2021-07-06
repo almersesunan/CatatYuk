@@ -106,7 +106,6 @@
             @method('put')
             @csrf 
           <div class="modal-body" id="modal-edit">
-            <input type="hidden" name="py_id_edit" id="py_id_edit">
             <div class="mb-3">
               <label class="form-label" for="py_name_edit">Nama</label>
               <input type="text" name="py_name_edit" class="form-control @error('py_name_edit') is-invalid @enderror" id="py_name_edit" value="{{ old('py_name_edit') }}">
@@ -392,28 +391,21 @@
 
     table.on('click', '.edit', function(){
       
-      $('#py_id_edit').val($(this).data('py_id'));
-      $('#py_name_edit').val($(this).data('py_anem'));
-      $('#py_date_edit').val($(this).data('py_date'));
-      $('#due_date_edit').val($(this).data('due_date'));
-      $('#description_edit').val($(this).data('description'));
-      $('#py_amount_edit').val($(this).data('py_amount'));
-      
-      // $tr = $(this).closest('tr');
-      // if ($($tr).hasClass('child')) {
-      //   $tr = $tr.prev('.parent');
-      // }
+      $tr = $(this).closest('tr');
+      if ($($tr).hasClass('child')) {
+        $tr = $tr.prev('.parent');
+      }
 
-      // var data = table.row($tr).data();
-      // console.log(data);
+      var data = table.row($tr).data();
+      console.log(data);
 
-      // $('#py_name_edit').val(data[1]);
-      // $('#py_date_edit').val(data[2]);
-      // $('#due_date_edit').val(data[3]);
-      // $('#description_edit').val(data[4]);
-      // $('#py_amount_edit').val(data[5]);
+      $('#py_name_edit').val(data[1]);
+      $('#py_date_edit').val(data[2]);
+      $('#due_date_edit').val(data[3]);
+      $('#description_edit').val(data[4]);
+      $('#py_amount_edit').val(data[5]);
 
-      //$('#form_edit').attr('action', '/lending/payable/update/'+data[0]);
+      $('#form_edit').attr('action', '/lending/payable/update/'+data[0]);
       $('#edit').modal('show');
     });
   
@@ -445,7 +437,7 @@
       $('#rc_description_edit').val(data[4]);
       $('#rc_amount_edit').val(data[5]);
 
-      //$('#form_edit1').attr('action', '/lending/receivable/update/'+data[0]);
+      $('#form_edit1').attr('action', '/lending/receivable/update/'+data[0]);
       $('#edit1').modal('show');
     });
 
