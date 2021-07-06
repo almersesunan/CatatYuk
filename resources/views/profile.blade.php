@@ -21,8 +21,6 @@
                     <div class="col-md-12"><label class="labels">Nomor Handphone</label><input type="text" class="form-control" placeholder="Masukan nomor handphone" value=""></div>
                     <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Masukan Email" value=""></div>
                     <div class="col-md-12"><label class="labels">Alamat</label><input type="text" class="form-control" placeholder="Masukan alamat rumah" value=""></div>
-                    <div class="col-md-12"><label class="labels">Kelurahan</label><input type="text" class="form-control" placeholder="Masukan Kelurahan" value=""></div>
-                    <div class="col-md-12"><label class="labels">Kecamatan</label><input type="text" class="form-control" placeholder="Masukan Kecamatan" value=""></div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-6"><label class="labels">Kota</label><input type="text" class="form-control" value="" placeholder="Masukan kota"></div>

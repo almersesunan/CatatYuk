@@ -14,13 +14,13 @@ class CreateCashflowsTable extends Migration
     public function up()
     {
         Schema::create('cashflows', function (Blueprint $table) {
-            $table->id();
-            $table->string('tipe');
-            $table->date('tanggal');
-            $table->string('kategori');
-            $table->string('deskripsi');
-            $table->decimal('nominal', $precision = 10, $scale = 2);
-            $table->string('bukti_transaksi')->nullable();
+            $table->id('tr_id');
+            $table->string('type', 10);
+            $table->date('tr_date');
+            $table->string('category', 20);
+            $table->string('description', 255);
+            $table->decimal('tr_amount', $precision = 19, $scale = 2);
+            $table->binary('invoice')->nullable();
             $table->timestamps();
         });
     }

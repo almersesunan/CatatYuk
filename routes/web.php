@@ -5,6 +5,9 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CashflowController;
 use App\Http\Controllers\LendingController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\CustomAuthController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -49,14 +52,24 @@ Route::delete('/lending/payable/{payable}', [LendingController::class, 'destroyP
 Route::delete('/lending/receivable/{receivable}', [LendingController::class, 'destroyReceivable']);
 
 
+
+//login & register
+Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
+Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
+Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
+Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
+Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
 //changepassword
 
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+/* 
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+ */

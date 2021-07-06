@@ -38,15 +38,20 @@ class CashflowController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'tipe' => 'required|not_in:0',
-            'tanggal' => 'required',
-            'kategori' => 'required',
-            'deskripsi' => 'required',
-            'nominal' => 'required|integer|min:0'
+            'type' => 'required|not_in:0',
+            'tr_date' => 'required|date',
+            'category' => 'required|max:20',
+            'description' => 'required|max:255',
+            'tr_amount' => 'required|numeric|min:0'
         ]);
 
         Cashflow::create($request->all());
-        return redirect('cashflow')->with('status','Data Berhasil Ditambahkan!');
+        return redirect('cashflow')->with('status','Add data successfull!');
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
     /**
@@ -80,20 +85,20 @@ class CashflowController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $request->validate([
-        //     'tipe_edit' => 'required|not_in:0',
-        //     'tanggal_edit' => 'required',
-        //     'kategori_edit' => 'required',
-        //     'deskripsi_edit' => 'required',
-        //     'nominal_edit' => 'required|min:0'
-        // ]);
+        $request->validate([
+            'type_edit' => 'required|not_in:0',
+            'tr_date_edit' => 'required|date',
+            'category_edit' => 'required|max:20',
+            'description_edit' => 'required|max:255',
+            'tr_amount_edit' => 'required|numeric|min:0'
+        ]);
 
         $cashflow = Cashflow::find($id);
-        $cashflow->tipe = $request->tipe_edit;
-        $cashflow->tanggal = $request->tanggal_edit;
-        $cashflow->kategori = $request->kategori_edit;
-        $cashflow->deskripsi = $request->deskripsi_edit;
-        $cashflow->nominal = $request->nominal_edit;
+        $cashflow->type = $request->type_edit;
+        $cashflow->tr_date = $request->tr_date_edit;
+        $cashflow->category = $request->category_edit;
+        $cashflow->description = $request->description_edit;
+        $cashflow->tr_amount = $request->tr_amount_edit;
         $cashflow->save();
         return redirect('cashflow')->with('status','Data has been updated!');
     }
@@ -106,7 +111,7 @@ class CashflowController extends Controller
      */
     public function destroy(Cashflow $cashflow)
     {
-        Cashflow::destroy($cashflow->id);
-        return redirect('cashflow')->with('status','Data deleted successfull!');
+        Cashflow::destroy($cashflow->tr_id);
+        return redirect('cashflow')->with('status','Delete data successfull!');
     }
 }

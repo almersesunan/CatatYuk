@@ -20,6 +20,12 @@ class LendingController extends Controller
         return view('lending', compact('payable','receivable'));
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
