@@ -42,8 +42,8 @@ Route::get('/lending', [LendingController::class, 'index']);
 Route::post('/lending/payable', [LendingController::class, 'storePayable']);
 Route::post('/lending/receivable', [LendingController::class, 'storeReceivable']);
 
-Route::put('/lending/payable/update/{id}', [LendingController::class, 'updatePayable']);
-Route::put('/lending/receivable/update/{id}', [LendingController::class, 'updateReceivable']);
+Route::put('/lending/payable/update/{id}', [LendingController::class, 'updatePayable'])->name('payable-update');
+Route::put('/lending/receivable/update/{id}', [LendingController::class, 'updateReceivable'])->name('receivable-update');
 
 Route::delete('/lending/payable/{payable}', [LendingController::class, 'destroyPayable']);
 Route::delete('/lending/receivable/{receivable}', [LendingController::class, 'destroyReceivable']);
