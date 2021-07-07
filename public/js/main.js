@@ -3,7 +3,7 @@ Highcharts.chart('cashflowchart', {
         type: 'column'
     },
     title: {
-        text: 'Pemasukan'
+        text: 'Cashflow'
     },
     credits: {
         enabled: false
@@ -28,7 +28,7 @@ Highcharts.chart('cashflowchart', {
     yAxis: {
         min: 0,
         title: {
-            text: 'Jumlah'
+            text: 'Amount'
         }
     },
     tooltip: {
@@ -46,8 +46,14 @@ Highcharts.chart('cashflowchart', {
         }
     },
     series: [{
-        name: 'Bulan',
+        name: 'Income',
+        color: 'green',
         data: [100000, 150000, 350000, 200000, 440000, 570000, 630000, 550000, 450000, 330000, 720000, 920000]
+    },
+    {
+        name: 'Expense',
+        color: 'red',
+        data: [2000000, 100000, 370000, 1500000, 250000, 50000, 100000, 750000, 350000, 80000, 100000, 30000]
     }]
   });
 
@@ -56,7 +62,7 @@ Highcharts.chart('stokbarangchart', {
         type: 'bar'
     },
     title: {
-        text: 'Stok Barang'
+        text: 'Item Stock'
     },
     xAxis: {
         categories: ['Gula', 'Kopi', 'Indomi', 'Kacang Hijau', 'Roti', 'Terigu', 'Rokok'],
@@ -96,25 +102,25 @@ Highcharts.chart('stokbarangchart', {
        bar: {
            zones: [{
                value: 10, // Values up to 10 (not including) ...
-                color: 'orangered' // ... have the color orangered.
+                color: 'red' // ... have the color orangered.
             },{
               value: 20,
-               color: 'gold' // Values from 20 (including) and up have the color gold
+               color: 'yellow' // Values from 20 (including) and up have the color gold
             },{
-               color: 'lightgreen' // Values from 10 (including) and up have the lightgreen
+               color: 'green' // Values from 10 (including) and up have the lightgreen
             }]
         }
     },
     series: [{
         name: 'Low',
-        color: 'orangered',
+        color: 'red',
         data: [10, 5, 2, 14, 25, 9, 30]
     },{
         name: 'Med',
-        color: 'gold'
+        color: 'yellow'
     },{
         name: 'High',
-        color: 'lightgreen'
+        color: 'green'
     }]
   });
 

@@ -18,22 +18,50 @@
   </head>
 
   <body>
-    <header class="navbar sticky-top flex-md-nowrap p-0" style="background-color: wheat">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">CatatYuk</a>
+    {{-- <header class="navbar sticky-top flex-md-nowrap p-2" style="background-color: wheat">
+        <a class="navbar-brand me-0 px-3" href="#">CatatYuk</a>
+        <a class="navbar-brand me-0 px-3" href="#">New Book</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+
+        
         <ul class="navbar-nav px-3">
           <li class="nav-item text-nowrap">
             <a class="nav-link" href="{{ url('signout') }}">Sign out</a>
           </li>
         </ul>
-    </header>
+    </header> --}}
+    <header class="navbar sticky-top flex-md-nowrap p-2 mb-3 border-bottom" style="background-color: darksalmon">
+       
+          
+            <a href="#" class="nav-link px-2 link-dark fs-5">CatatYuk</a>
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="#" class="nav-link px-2 link-dark">New Book</a></li>
+              
+            </ul>
+    
+            
+    
+            <div class="dropdown text-end">
+              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+              </a>
+              <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              </ul>
+            </div>
+          
+        
+      </header>
     <!-- Navbar -->
     <div class="container-fluid">
         <div class="row" >
-          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="background-color: cornsilk">
+          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="background-color: whitesmoke">
             <div class="position-sticky pt-3">
               <ul class="nav flex-column">
                 <li class="nav-item">
@@ -57,18 +85,18 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url('/lending') }}">
                     <span data-feather="users"></span>
-                    Payable/Receiveable
+                    Lending
                   </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                   <a class="nav-link" href="#">
                     <span data-feather="book"></span>
                     New Book
                   </a>
-                </li>
+                </li> --}}
               </ul>
       
-              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              {{-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                 <span>Settings</span>
                 <a class="link-secondary" href="#" aria-label="Add a new report">
                   <span data-feather="plus-circle"></span>
@@ -87,7 +115,7 @@
                     Change Password
                   </a>
                 </li>
-              </ul>
+              </ul> --}}
             </div>
           </nav>
         </div>
@@ -352,6 +380,8 @@
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="js/dashboard.js"></script>
-    
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   </body>
 </html>
