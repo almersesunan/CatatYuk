@@ -66,7 +66,7 @@
             <h5 class="modal-title" id="ModalEdit">Edit Transaction</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-            <form id="form_edit" method="post" action="cashflow/{{ $cashflow->tr_id }}" enctype="multipart/form-data">
+            <form id="form_edit" method="post" action="{{ route('cashflow-update', $cashflow) }}" enctype="multipart/form-data">
               @method('patch')
               @csrf
               <div class="modal-body" id="modal-edit">

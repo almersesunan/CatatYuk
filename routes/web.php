@@ -29,14 +29,14 @@ Route::get('/feedback', [PagesController::class, 'feedback']);
 Route::get('/cashflow', [CashflowController::class, 'index']);
 Route::post('/cashflow', [CashflowController::class, 'store']);
 Route::delete('/cashflow/{cashflow}', [CashflowController::class, 'destroy']);
-Route::patch('/cashflow/{id}', [CashflowController::class, 'update']);
+Route::patch('/cashflow/{id}', [CashflowController::class, 'update'])->name('cashflow-update');
 // Route::resource('cashflow', [CashflowController::class]);
 
 // Stock
 Route::get('/stock', [StockController::class, 'index']);
 Route::post('/stock', [StockController::class, 'store']);
 Route::delete('/stock/{stock}', [StockController::class, 'destroy']);
-Route::patch('/stock/{id}', [StockController::class, 'update']);
+Route::patch('/stock/{id}', [StockController::class, 'update'])->name('stock-update');
 // Route::resource('stock', [StockController::class]);
 
 // Lending = Payable & Receivable
