@@ -32,7 +32,7 @@
         <div class="table-responsive">
           <table id="table-hutang" class="table table-striped table-bordered" style="width:100%">
             <a href="#" style="float: right">Download to PDF</a>
-            <label for="pwd">Hutang</label><br>
+            <label for="pwd">Hutang Terakhir</label><br>
             <thead>
               <tr>
                 <th>Nama</th>
@@ -40,59 +40,23 @@
                 <th>Jatuh Tempo</th>
                 <th>Keterangan</th>
                 <th>Jumlah</th>
-                <th>Edit</th>
               </tr>
             </thead>
             <tbody>
+              @foreach ($payable as $payable)
               <tr>
-                <td>Danny</td>
-                <td>4/6/2021</td>
-                <td>7/6/2021</td>
-                <td>Test</td>
-                <td>Rp.1000000</td>
-                <td align="center">
-                  <button id="edit_htng" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
-                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                </td>
+                <td>{{$payable->py_name}}</td>
+                <td>{{$payable->py_date}}</td>
+                <td>{{$payable->due_date}}</td>
+                <td>{{$payable->description}}</td>
+                <td>{{$payable->py_amount}}</td>
               </tr>
-              <tr>
-                  <td>Bagus</td>
-                  <td>4/6/2021</td>
-                  <td>7/6/2021</td>
-                  <td>Test</td>
-                  <td>Rp.1000000</td>
-                  <td align="center">
-                    <button id="edit_htng" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit"><i class="fa fa-edit"></i> Edit</button>
-                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                  </td>
-              </tr>
-              <tr>
-                <td>Tono</td>
-                <td>4/6/2021</td>
-                <td>7/6/2021</td>
-                <td>Test</td>
-                <td>Rp.150000</td>
-                <td align="center">
-                  <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Tono</td>
-                <td>4/6/2021</td>
-                <td>7/6/2021</td>
-                <td>Test</td>
-                <td>Rp.150000</td>
-                <td align="center">
-                  <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                </td>
-              </tr>
+              @endforeach
             </tbody>
           </table>
           <table id="table-piutang" class="table table-striped table-bordered" style="width:100%">
             <a href="#" style="float: right">Download to PDF</a>
-            <label for="pwd">Piutang</label><br>
+            <label for="pwd">Piutang Terakhir</label><br>
             <thead>
               <tr>
                 <th>Nama</th>
@@ -100,38 +64,23 @@
                 <th>Jatuh Tempo</th>
                 <th>Keterangan</th>
                 <th>Jumlah</th>
-                <th>Edit</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Danny</td>
-                <td>4/6/2021</td>
-                <td>7/6/2021</td>
-                <td>Test</td>
-                <td>Rp.1000000</td>
-                <td align="center">
-                  <button id="edit_ptng" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit1"><i class="fa fa-edit"></i> Edit</button>
-                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Tono</td>
-                <td>4/6/2021</td>
-                <td>7/6/2021</td>
-                <td>Test</td>
-                <td>Rp.150000</td>
-                <td align="center">
-                  <button class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</button>
-                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
-                </td>
-              </tr>
+              @foreach ($receivable as $receivable)
+                <tr>
+                    <td>{{$receivable->rc_name}}</td>
+                    <td>{{$receivable->rc_date}}</td>
+                    <td>{{$receivable->rc_date}}</td>
+                    <td>{{$receivable->rc_description}}</td>
+                    <td>{{$receivable->rc_amount}}</td>
+                </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
       </div>
   </div>
-    
 @endsection
 
 

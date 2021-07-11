@@ -54,7 +54,7 @@ Route::delete('/lending/receivable/{receivable}', [LendingController::class, 'de
 
 
 //login & register
-Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
+//Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');

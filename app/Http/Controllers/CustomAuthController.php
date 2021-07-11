@@ -66,14 +66,14 @@ class CustomAuthController extends Controller
     }    
     
 
-    public function dashboard()
-    {
-        if(Auth::check()){
-            return view('dashboard');
-        }
+    // public function dashboard()
+    // {
+    //     if(Auth::check()){
+    //         return view('dashboard');
+    //     }
   
-        return redirect("login")->with('You are not allowed to access');
-    }
+    //     return redirect("login")->with('You are not allowed to access');
+    // }
     
 
     public function signOut() {
