@@ -93,6 +93,14 @@ class CashflowController extends Controller
             'tr_amount_edit' => 'required|numeric|min:0'
         ]);
 
+        // Cashflow::where('tr_id', $cashflow->tr_id)->update([
+        //     'type' => $request->type_edit,
+        //     'tr_date' => $request->tr_date_edit,
+        //     'category' => $request->category_edit,
+        //     'description' => $request->description_edit,
+        //     'tr_amount' => $request->tr_amount_edit
+        // ]);
+
         $cashflow = Cashflow::find($id);
         $cashflow->type = $request->type_edit;
         $cashflow->tr_date = $request->tr_date_edit;

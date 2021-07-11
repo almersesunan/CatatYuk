@@ -74,8 +74,8 @@
                   <label class="form-label" for="type_edit">Transaction Type</label>
                   <select name="type_edit" class="form-select @error('type_edit') is-invalid @enderror" id="type_edit" aria-label="Default select example">
                     <option value="0"selected>Choose..</option>
-                    <option value="Income" {{ old('type_edit') == 'Income' ? 'selected' : '' }}>Income</option>
-                    <option value="Expense" {{ old('type_edit') == 'Expense' ? 'selected' : '' }}>Expense</option>
+                    <option value="Income" {{ $cashflow->type == 'Income' ? 'selected' : '' }}>Income</option>
+                    <option value="Expense" {{ $cashflow->type == 'Expense' ? 'selected' : '' }}>Expense</option>
                   </select>
                   @error('type_edit')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -83,28 +83,28 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="tr_date_edit">Transaction Date</label>
-                  <input name="tr_date_edit" class="form-control @error('tr_date_edit') is-invalid @enderror" placeholder="yyyy-mm-dd" id="tr_date_edit" value="{{ old('tr_date_edit') }}">
+                  <input name="tr_date_edit" class="form-control @error('tr_date_edit') is-invalid @enderror" placeholder="yyyy-mm-dd" id="tr_date_edit" value="{{ $cashflow->tr_date }}">
                   @error('tr_date_edit')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label for="category_edit" class="form-label">Category</label>
-                  <input name="category_edit" type="input" class="form-control @error('category_edit') is-invalid @enderror" id="category_edit" placeholder="Makanan" value="{{ old('category_edit') }}">
+                  <input name="category_edit" type="input" class="form-control @error('category_edit') is-invalid @enderror" id="category_edit" placeholder="Makanan" value="{{ $cashflow->category }}">
                   @error('category_edit')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label for="description_edit" class="form-label">Description</label>
-                  <textarea name="description_edit" class="form-control @error('description_edit') is-invalid @enderror" id="description_edit" rows="3">{{ old('description_edit') }}</textarea>
+                  <textarea name="description_edit" class="form-control @error('description_edit') is-invalid @enderror" id="description_edit" rows="3">{{ $cashflow->description }}</textarea>
                   @error('description_edit')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label for="tr_amount_edit" class="form-label">Amount</label>
-                  <input name="tr_amount_edit" type="input" class="form-control @error('tr_amount_edit') is-invalid @enderror" id="tr_amount_edit" placeholder="Rp. 0" value="{{ old('tr_amount_edit') }}">
+                  <input name="tr_amount_edit" type="input" class="form-control @error('tr_amount_edit') is-invalid @enderror" id="tr_amount_edit" placeholder="Rp. 0" value="{{ $cashflow->tr_amount }}">
                   @error('tr_amount_edit')
                         <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
@@ -323,5 +323,4 @@
     });
   </script>
   @endif
-
 @endsection
