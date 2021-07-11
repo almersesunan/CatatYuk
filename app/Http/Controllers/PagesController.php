@@ -13,7 +13,6 @@ class PagesController extends Controller
     {
         // ...
     }
-    
     public function dashboard()
     {
         
