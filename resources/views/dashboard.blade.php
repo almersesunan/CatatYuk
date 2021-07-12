@@ -56,54 +56,54 @@
     <br>
     <div class="card border-dark mb-3" style="max-width: 100%;">
       <div class="card-body text-dark">
-        <h2>Lending</h2>
+        <h2>Lending - Nearest Due Date</h2>
+        <br>
         <div class="table-responsive">
-          <h5>Payable</h5>
           <table id="table-hutang" class="table table-striped table-bordered" style="width:100%">
             {{-- <a href="#" style="float: right">Download to PDF</a> --}}
-            <label for="pwd">Nearest Due Date</label><br>
+            <label for="pwd">Payable</label>
             <thead>
-              <tr>
-                <th>Nama</th>
-                <th>Tanggal</th>
-                <th>Jatuh Tempo</th>
-                <th>Keterangan</th>
-                <th>Jumlah</th>
+              <tr align=center>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Due Date</th>
+                <th>Description</th>
+                <th>Amount</th>
               </tr>
             </thead>
             <tbody>
               @foreach ($payable as $payable)
               <tr>
                 <td>{{$payable->py_name}}</td>
-                <td>{{$payable->py_date}}</td>
-                <td>{{$payable->due_date}}</td>
+                <td align=center>{{$payable->py_date}}</td>
+                <td align=center>{{$payable->due_date}}</td>
                 <td>{{$payable->description}}</td>
-                <td>{{$payable->py_amount}}</td>
+                <td align=right>{{$payable->py_amount}}</td>
               </tr>
               @endforeach
             </tbody>
           </table>
-          <h5>Receivable</h5>
+          <br>
           <table id="table-piutang" class="table table-striped table-bordered" style="width:100%">
             {{-- <a href="#" style="float: right">Download to PDF</a> --}}
-            <label for="pwd">Nearest Due Date</label><br>
+            <label for="pwd">Receivable</label>
             <thead>
-              <tr>
-                <th>Nama</th>
-                <th>Tanggal</th>
-                <th>Jatuh Tempo</th>
-                <th>Keterangan</th>
-                <th>Jumlah</th>
+              <tr align=center>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Due Date</th>
+                <th>Description</th>
+                <th>Amount</th>
               </tr>
             </thead>
             <tbody>
               @foreach ($receivable as $receivable)
                 <tr>
                     <td>{{$receivable->rc_name}}</td>
-                    <td>{{$receivable->rc_date}}</td>
-                    <td>{{$receivable->rc_date}}</td>
+                    <td align=center>{{$receivable->rc_date}}</td>
+                    <td align=center>{{$receivable->rc_due_date}}</td>
                     <td>{{$receivable->rc_description}}</td>
-                    <td>{{$receivable->rc_amount}}</td>
+                    <td align=right>{{$receivable->rc_amount}}</td>
                 </tr>
               @endforeach
             </tbody>
