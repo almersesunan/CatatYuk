@@ -11,7 +11,7 @@
         </div>
         <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
           <span data-feather="calendar"></span>
-          This week
+          Year
         </button>
       </div>
     </div>
@@ -23,9 +23,37 @@
     </div><br>
     <div class="card border-dark mb-3" style="max-width: 100%;">
       <div class="card-body text-dark">
+        <h2>Summary</h2>
+        <div class="table-responsive">
+          <table id="table-hutang" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+              <tr>
+                <th>Month</th>
+                @foreach ($type as $types)
+                  <th>Amount {{ $types }}</th>
+                @endforeach
+              </tr>
+            </thead>
+            @foreach ($cashflow as $month => $values)
+              <tr>
+                <td>{{ \Carbon\Carbon::parse($month)->format('F Y') }}</td>
+                @foreach ($type as $types)
+                    <td>{{ $cashflow[$month][$types]['amount'] ?? '0' }}</td>
+                @endforeach
+              </tr>
+                
+            @endforeach
+          </table>
+    
+        </div>
+      </div>
+  </div>
+    <div class="card border-dark mb-3" style="max-width: 100%;">
+      <div class="card-body text-dark">
         <div id="stokbarangchart"></div>
       </div>
-    </div><br>
+    </div>
+    <br>
     <div class="card border-dark mb-3" style="max-width: 100%;">
       <div class="card-body text-dark">
         <h2>Lending</h2>
@@ -81,6 +109,60 @@
         </div>
       </div>
   </div>
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script>
+    var income = {!! json_encode($income, JSON_NUMERIC_CHECK) !!};
+    var expense = {!! json_encode($expense, JSON_NUMERIC_CHECK) !!};
+    var 
+    Highcharts.chart('cashflowchart', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Cashflow'
+    },
+    credits: {
+        enabled: false
+    },
+    xAxis: {
+        categories: {!! json_encode($cash) !!},
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Amount'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:3px">{series.name}: </td>' +
+            '<td style="padding:3px"><b>Rp. {point.y:.2f}</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Income',
+        color: 'green',
+        data: income
+    },
+    {
+        name: 'Expense',
+        color: 'red',
+        data: expense
+    }]
+  });
+
+
+  </script>
 @endsection
 
 
