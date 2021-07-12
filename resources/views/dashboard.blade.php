@@ -58,9 +58,10 @@
       <div class="card-body text-dark">
         <h2>Lending</h2>
         <div class="table-responsive">
+          <h5>Payable</h5>
           <table id="table-hutang" class="table table-striped table-bordered" style="width:100%">
-            <a href="#" style="float: right">Download to PDF</a>
-            <label for="pwd">Hutang Terakhir</label><br>
+            {{-- <a href="#" style="float: right">Download to PDF</a> --}}
+            <label for="pwd">Nearest Due Date</label><br>
             <thead>
               <tr>
                 <th>Nama</th>
@@ -82,9 +83,10 @@
               @endforeach
             </tbody>
           </table>
+          <h5>Receivable</h5>
           <table id="table-piutang" class="table table-striped table-bordered" style="width:100%">
-            <a href="#" style="float: right">Download to PDF</a>
-            <label for="pwd">Piutang Terakhir</label><br>
+            {{-- <a href="#" style="float: right">Download to PDF</a> --}}
+            <label for="pwd">Nearest Due Date</label><br>
             <thead>
               <tr>
                 <th>Nama</th>

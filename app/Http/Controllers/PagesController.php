@@ -22,8 +22,9 @@ class PagesController extends Controller
     public function dashboard()
     {
         
-        $payable = Payable::where('created_at', Payable::max('created_at'))->orderBy('created_at','desc')->get();
-        $receivable = Receivable::where('created_at', Receivable::max('created_at'))->orderBy('created_at','desc')->get();
+        $payable = Payable::all()->sortBy('due_date')->take(3);//where('due_date', Receivable::min('due_date'))->orderBy('created_at','desc')->get();
+        $receivable = Receivable::all()->sortBy('rc_due_date')->take(3);//where('rc_due_date', Receivable::min('rc_due_date'))->orderBy('created_at','desc')->get();
+        
         // $income = Cashflow::WhereYear('tr_date', now()->year)->whereMonth('tr_date', now()->month)->where('type','Income')->get();
         // $expense = Cashflow::WhereYear('tr_date', now()->year)->whereMonth('tr_date', now()->month)->where('type','Expense')->get();
 
