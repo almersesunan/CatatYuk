@@ -114,7 +114,6 @@
   <script>
     var income = {!! json_encode($income, JSON_NUMERIC_CHECK) !!};
     var expense = {!! json_encode($expense, JSON_NUMERIC_CHECK) !!};
-    var 
     Highcharts.chart('cashflowchart', {
     chart: {
         type: 'column'
