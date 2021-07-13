@@ -21,13 +21,13 @@ class PagesController extends Controller
     
     public function dashboard()
     {
-        
+        // Nearest Due Date
         $payable = Payable::all()->sortBy('due_date')->take(3);//where('due_date', Receivable::min('due_date'))->orderBy('created_at','desc')->get();
         $receivable = Receivable::all()->sortBy('rc_due_date')->take(3);//where('rc_due_date', Receivable::min('rc_due_date'))->orderBy('created_at','desc')->get();
         
+        //Cashflow Chart
         // $income = Cashflow::WhereYear('tr_date', now()->year)->whereMonth('tr_date', now()->month)->where('type','Income')->get();
         // $expense = Cashflow::WhereYear('tr_date', now()->year)->whereMonth('tr_date', now()->month)->where('type','Expense')->get();
-
         $temp = Cashflow::select(['type',DB::raw("DATE_FORMAT(tr_date,'%Y-%M') as month"), DB::raw('SUM(tr_amount) as amount')])->groupBy('type')->groupBy('month')->orderBy('tr_date')->get();
         //DB::raw("DATE_FORMAT(tr_date,'%Y') as year")
         $cashflow= [];
@@ -59,6 +59,9 @@ class PagesController extends Controller
         }
     
     //dd($expense);
+
+        //Stok barang chart
+        
 
         return view('dashboard')->with(compact('payable','receivable','cashflow','type','cash','income','expense'));
     }

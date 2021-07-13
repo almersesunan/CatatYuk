@@ -61,6 +61,13 @@
         <div class="table-responsive">
           <table id="table-hutang" class="table table-striped table-bordered" style="width:100%">
             {{-- <a href="#" style="float: right">Download to PDF</a> --}}
+            <colgroup>
+              <col span="1" style="width: 15%;">
+              <col span="1" style="width: 15%;">
+              <col span="1" style="width: 15%;">
+              <col span="1" style="width: 15%;">
+              <col span="1" style="width: 15%;">
+           </colgroup>
             <label for="pwd">Payable</label>
             <thead>
               <tr align=center>
@@ -86,6 +93,13 @@
           <br>
           <table id="table-piutang" class="table table-striped table-bordered" style="width:100%">
             {{-- <a href="#" style="float: right">Download to PDF</a> --}}
+            <colgroup>
+              <col span="1" style="width: 15%;">
+              <col span="1" style="width: 15%;">
+              <col span="1" style="width: 15%;">
+              <col span="1" style="width: 15%;">
+              <col span="1" style="width: 15%;">
+           </colgroup>
             <label for="pwd">Receivable</label>
             <thead>
               <tr align=center>
@@ -116,6 +130,7 @@
   <script>
     var income = {!! json_encode($income, JSON_NUMERIC_CHECK) !!};
     var expense = {!! json_encode($expense, JSON_NUMERIC_CHECK) !!};
+    var month = {!! json_encode($cash) !!};
     Highcharts.chart('cashflowchart', {
     chart: {
         type: 'column'
@@ -127,7 +142,7 @@
         enabled: false
     },
     xAxis: {
-        categories: {!! json_encode($cash) !!},
+        categories: month,
         crosshair: true
     },
     yAxis: {
