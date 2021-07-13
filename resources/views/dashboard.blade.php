@@ -196,7 +196,7 @@
       yAxis: {
           min: 0,
           title: {
-              text: 'Jumlah',
+              text: 'Quantity',
               align: 'high'
           },
           labels: {
@@ -238,7 +238,8 @@
           }
       },
       series: [{
-          name: 'Low',
+          showInLegend: false,
+          name: 'Quantity',
           data: count
       }]
     });

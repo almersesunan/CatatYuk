@@ -59,19 +59,21 @@ class PagesController extends Controller
             }
         }
     
-    //dd($expense);
+        //dd($expense);
 
         //Stok barang chart
         $stock = Stock::all();
         $item_name = array();
         $item_count = array();
+        //$minimum = array();
 
         foreach($stock as $stocks){
             array_push($item_name, $stocks->item_name);
             array_push($item_count, $stocks->available);
+            //array_push($minimum, $stocks->minimum);
         }
 
-        //dd($item_name);
+        //dd($minimum);
 
         return view('dashboard')->with(compact('payable','receivable','cashflow','type','cash','income','expense','item_name','item_count'));
     }
