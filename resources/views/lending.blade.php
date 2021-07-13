@@ -8,15 +8,15 @@
             <h1 class="h2">Payable</h1>
             <table id="table" class="table table-striped table-bordered" style="width:100%">
               <a href="#" style="float: right">Download to PDF</a>
-              <label for="pwd">Hutang</label><br>
+              <label for="pwd">Payable</label><br>
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Nama</th>
-                  <th>Tanggal</th>
-                  <th>Jatuh Tempo</th>
-                  <th>Keterangan</th>
-                  <th>Jumlah</th>
+                  <th>Name</th>
+                  <th>Date</th>
+                  <th>Due Date</th>
+                  <th>Description</th>
+                  <th>Amount</th>
                   <th>Edit</th>
                 </tr>
               </thead>
@@ -34,7 +34,7 @@
                      <form action="lending/payable/{{$payable->py_id}}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
-                      <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
+                      <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</button>
                      </form>
                     </td>
                 </tr>
@@ -42,20 +42,20 @@
               </tbody>
             </table>
             
-            <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah">Tambah Hutang</button>
+            <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah">Add Payable</button>
             <br/><br/><br/><br/>
-            <h1 class="h2">Receiveable</h1>
+            <h1 class="h2">Receivable</h1>
             <table id="table1" class="table table-striped table-bordered" style="width:100%">
                 <a href="#" style="float: right">Download to PDF</a>
-                <label for="pwd">Piutang</label><br>
+                <label for="pwd">Receivable</label><br>
                 <thead>
                   <tr>
                     <th>Id</th>
-                    <th>Nama</th>
-                    <th>Tanggal</th>
-                    <th>Jatuh Tempo</th>
-                    <th>Keterangan</th>
-                    <th>Jumlah</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Due Date</th>
+                    <th>Description</th>
+                    <th>Amount</th>
                     <th>Edit</th>
                   </tr>
                 </thead>
@@ -73,14 +73,14 @@
                       <form action="lending/receivable/{{$receivable->rc_id}}" method="post" class="d-inline">
                           @method('delete')
                           @csrf
-                        <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</button>
                       </form>
                     </td>
                   </tr>
                   @endforeach
                 </tbody>
               </table>
-            <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah1">Tambah Piutang</button>
+            <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah1">Add Receivable</button>
           </div>
          
     
@@ -97,7 +97,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="ModalEditHutang">Edit Hutang</h5>
+            <h5 class="modal-title" id="ModalEditHutang">Edit Payable</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           
@@ -107,35 +107,35 @@
             @csrf 
           <div class="modal-body" id="modal-edit">
             <div class="mb-3">
-              <label class="form-label" for="py_name_edit">Nama</label>
+              <label class="form-label" for="py_name_edit">Name</label>
               <input type="text" name="py_name_edit" class="form-control @error('py_name_edit') is-invalid @enderror" id="py_name_edit" value="{{ old('py_name_edit') }}">
               @error('py_name_edit')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
             </div>
             <div class="mb-3">
-              <label class="form-label" for="py_date_edit">Tanggal</label>
+              <label class="form-label" for="py_date_edit">Date</label>
               <input name="py_date_edit" class="form-control @error('py_date_edit') is-invalid @enderror" id="py_date_edit" value="{{ old('py_date_edit') }}">
               @error('py_date_edit')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
             </div>
             <div class="mb-3">
-              <label class="form-label" for="due_date_edit">Jatuh Tempo</label>
+              <label class="form-label" for="due_date_edit">Due Date</label>
               <input name="due_date_edit" class="form-control @error('due_date_edit') is-invalid @enderror" id="due_date_edit" value="{{ old('due_date_edit') }}">
               @error('due_date_edit')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
             </div>
             <div class="mb-3">
-              <label class="form-label" for="description_edit">Keterangan</label>
+              <label class="form-label" for="description_edit">Description</label>
               <textarea name="description_edit" class="form-control @error('description_edit') is-invalid @enderror" id="description_edit" rows="3">{{ old('description_edit') }}</textarea>
               @error('description_edit')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
             </div>
             <div class="mb-3">
-                <label class="form-label" for="py_amount_edit">Jumlah</label>
+                <label class="form-label" for="py_amount_edit">Amount</label>
                 <input type="text" name="py_amount_edit" class="form-control @error('py_amount_edit') is-invalid @enderror" id="py_amount_edit" value="{{ old('py_amount_edit') }}">
                 @error('py_amount_edit')
                   <div class="invalid-feedback">{{ $message }}</div>
@@ -143,7 +143,7 @@
               </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary">Save</button>
           </div>
           </form>
         </div>
@@ -168,7 +168,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="ModalEditPiutang">Edit Piutang</h5>
+              <h5 class="modal-title" id="ModalEditPiutang">Edit Receivable</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             
@@ -177,35 +177,35 @@
               @csrf 
               <div class="modal-body">
                 <div class="mb-3">
-                  <label class="form-label" for="rc_name_edit">Nama</label>
+                  <label class="form-label" for="rc_name_edit">Name</label>
                   <input name="rc_name_edit" class="form-control @error('rc_name_edit') is-invalid @enderror"  id="rc_name_edit" value="{{ old('rc_name_edit') }}">
                   @error('rc_name_edit')
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
-                  <label class="form-label" for="rc_date_edit">Tanggal</label>
+                  <label class="form-label" for="rc_date_edit">Date</label>
                   <input type="text" name="rc_date_edit" class="form-control @error('rc_date_edit') is-invalid @enderror" id="rc_date_edit" value="{{ old('rc_date_edit') }}">
                   @error('rc_date_edit')
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
-                  <label class="form-label" for="rc_due_date_edit">Jatuh Tempo</label>
+                  <label class="form-label" for="rc_due_date_edit">Due Date</label>
                   <input type="text" name="rc_due_date_edit" class="form-control @error('rc_due_date_edit') is-invalid @enderror" id="rc_due_date_edit" value="{{ old('rc_due_date_edit') }}">
                   @error('rc_due_date_edit')
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
-                  <label class="form-label" for="rc_description_edit">Keterangan</label>
+                  <label class="form-label" for="rc_description_edit">Description</label>
                   <textarea class="form-control @error('rc_description_edit') is-invalid @enderror" name="rc_description_edit" id="rc_description_edit" rows="3">{{ old('rc_description_edit') }}</textarea>
                   @error('rc_description_edit')
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="rc_amount_edit">Jumlah</label>
+                    <label class="form-label" for="rc_amount_edit">Amount</label>
                     <input type="text" name="rc_amount_edit" class="form-control @error('rc_amount_edit') is-invalid @enderror" id="rc_amount_edit" value="{{ old('rc_amount_edit') }}">
                     @error('rc_amount_edit')
                       <div class="invalid-feedback">{{ $message }}</div>
@@ -213,7 +213,7 @@
                   </div>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-primary">Save</button>
               </div>
             </form>
           </div>
@@ -237,7 +237,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="ModalTambahHutang">Tambah Hutang</h5>
+            <h5 class="modal-title" id="ModalTambahHutang">Add Payable</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           
@@ -245,35 +245,35 @@
             @csrf
             <div class="modal-body">
               <div class="mb-3">
-                <label class="form-label" for="py_name">Nama</label>
+                <label class="form-label" for="py_name">Name</label>
                 <input type="text" name="py_name" placeholder="Masukan Nama" class="form-control @error('py_name') is-invalid @enderror" id="py_name" value="{{ old('py_name') }}">
                 @error('py_name')
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
               <div class="mb-3">
-                <label class="form-label" for="py_date">Tanggal</label>
+                <label class="form-label" for="py_date">Date</label>
                 <input name="py_date" class="form-control @error('py_date') is-invalid @enderror" placeholder="yyyy-mm-dd" id="py_date" value="{{ old('py_date') }}">
                 @error('py_date')
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
               <div class="mb-3">
-                <label class="form-label" for="due_date">Jatuh Tempo</label>
+                <label class="form-label" for="due_date">Due Date</label>
                 <input type="text" name="due_date" class="form-control @error('due_date') is-invalid @enderror" placeholder="yyyy-mm-dd" id="due_date" value="{{ old('due_date') }}">
                 @error('due_date')
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
               <div class="mb-3">
-                <label class="form-label" for="description">Keterangan</label>
+                <label class="form-label" for="description">Description</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" name="description" placeholder="Masukan keterangan" rows="3">{{ old('description') }}</textarea>
                 @error('description')
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
               <div class="mb-3">
-                  <label class="form-label" for="py_amount">Jumlah</label>
+                  <label class="form-label" for="py_amount">Amount</label>
                   <input type="text" name="py_amount" class="form-control @error('py_amount') is-invalid @enderror" placeholder="0,00" id="py_amount" value="{{ old('py_amount') }}">
                   @error('py_amount')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -281,7 +281,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">Simpan</button>
+              <button type="submit" class="btn btn-primary">Save</button>
             </div>
           </form>
           
@@ -307,7 +307,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="ModalTambahPiutang">Tambah Piutang</h5>
+                <h5 class="modal-title" id="ModalTambahPiutang">Add Receivable</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               
@@ -315,35 +315,35 @@
                 @csrf
               <div class="modal-body">
                 <div class="mb-3">
-                    <label class="form-label" for="rc_name">Nama</label>
+                    <label class="form-label" for="rc_name">Name</label>
                     <input type="text" name="rc_name" class="form-control @error('rc_name') is-invalid @enderror" placeholder="Masukan nama" id="rc_name" value="{{ old('rc_name') }}">
                     @error('rc_name')
                       <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                   </div>
                   <div class="mb-3">
-                    <label class="form-label" for="rc_date">Tanggal</label>
+                    <label class="form-label" for="rc_date">Date</label>
                     <input name="rc_date" class="form-control @error('rc_date') is-invalid @enderror" placeholder="dd-mm-yyyy" id="rc_date" value="{{ old('rc_date') }}">
                     @error('rc_date')
                       <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                   </div>
                   <div class="mb-3">
-                    <label class="form-label" for="rc_due_date">Jatuh Tempo</label>
+                    <label class="form-label" for="rc_due_date">Due Date</label>
                     <input type="text" name="rc_due_date" class="form-control @error('rc_due_date') is-invalid @enderror" placeholder="dd-mm-yyyy" id="rc_due_date" value="{{ old('rc_due_date') }}">
                     @error('rc_due_date')
                       <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                   </div>
                   <div class="mb-3">
-                    <label class="form-label" for="rc_description">Keterangan</label>
+                    <label class="form-label" for="rc_description">Description</label>
                     <textarea class="form-control @error('rc_description') is-invalid @enderror" name="rc_description" id="description" placeholder="Masukan keterangan" rows="3">{{ old('rc_description') }}</textarea>
                     @error('rc_description')
                       <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                   </div>
                   <div class="mb-3">
-                      <label class="form-label" for="rc_amount">Jumlah</label>
+                      <label class="form-label" for="rc_amount">Amount</label>
                       <input type="text" name="rc_amount" class="form-control @error('rc_amount') is-invalid @enderror" placeholder="0,00" id="rc_amount" value="{{ old('rc_amount') }}">
                       @error('rc_amount')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -351,7 +351,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary">Simpan</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
                 </div>
               </form>
             </div>
