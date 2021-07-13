@@ -30,8 +30,9 @@
                   <td>{{$payable->description}}</td>
                   <td>{{$payable->py_amount}}</td>
                   <td align="center">  
-                    <button class="btn btn-secondary edit"><i class="fa fa-edit"></i> Edit</button>
-                     <form action="lending/payable/{{$payable->py_id}}" method="post" class="d-inline">
+                    {{-- <button class="btn btn-secondary edit"><i class="fa fa-edit"></i> Edit</button> --}}
+                    <a href="/lending/payable/edit/{{ $payable->py_id }}" class="btn btn-secondary edit"><i class="fa fa-edit"></i>Edit</a> 
+                    <form action="lending/payable/{{$payable->py_id}}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
                       <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</button>
@@ -65,11 +66,11 @@
                     <td>{{$receivable->rc_id}}</td>
                     <td>{{$receivable->rc_name}}</td>
                     <td>{{$receivable->rc_date}}</td>
-                    <td>{{$receivable->rc_date}}</td>
+                    <td>{{$receivable->rc_due_date}}</td>
                     <td>{{$receivable->rc_description}}</td>
                     <td>{{$receivable->rc_amount}}</td>
                     <td align="center">
-                      <button class="btn btn-secondary edit1"><i class="fa fa-edit"></i> Edit</button>
+                      <a href="/lending/receivable/edit/{{ $receivable->rc_id }}" class="btn btn-secondary edit1"><i class="fa fa-edit"></i>Edit</a> 
                       <form action="lending/receivable/{{$receivable->rc_id}}" method="post" class="d-inline">
                           @method('delete')
                           @csrf
@@ -93,7 +94,7 @@
         <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     </head>
     
-    <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="edithutang" aria-hidden="true">
+    {{-- <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="edithutang" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -102,44 +103,54 @@
           </div>
           
 
-          <form id="form_edit" action="{{ route('payable-update',$payable) }}" method="POST" enctype="multipart/form-data">
+          <form id="form_edit" action="/lending/payable/update/{{ $payable->py_id }} " method="POST" enctype="multipart/form-data">
             @method('put')
             @csrf 
           <div class="modal-body" id="modal-edit">
             <div class="mb-3">
               <label class="form-label" for="py_name_edit">Name</label>
-              <input type="text" name="py_name_edit" class="form-control @error('py_name_edit') is-invalid @enderror" id="py_name_edit" value="{{ old('py_name_edit') }}">
-              @error('py_name_edit')
-                <div class="invalid-feedback">{{ $message }}</div>
-              @enderror
+              <input type="text" name="py_name_edit" class="form-control @error('py_name_edit') is-invalid @enderror" id="py_name_edit" value="{{ $payable->py_name }}">
+              @if($errors->has('py_name_edit'))
+                <div class="text-danger">
+                    {{ $errors->first('py_name_edit')}}
+                </div>
+              @endif
             </div>
             <div class="mb-3">
               <label class="form-label" for="py_date_edit">Date</label>
-              <input name="py_date_edit" class="form-control @error('py_date_edit') is-invalid @enderror" id="py_date_edit" value="{{ old('py_date_edit') }}">
-              @error('py_date_edit')
-                <div class="invalid-feedback">{{ $message }}</div>
-              @enderror
+              <input name="py_date_edit" class="form-control @error('py_date_edit') is-invalid @enderror" id="py_date_edit" value="{{ $payable->py_date }}">
+              @if($errors->has('py_date_edit'))
+                <div class="text-danger">
+                    {{ $errors->first('py_date_edit')}}
+                </div>
+              @endif
             </div>
             <div class="mb-3">
               <label class="form-label" for="due_date_edit">Due Date</label>
-              <input name="due_date_edit" class="form-control @error('due_date_edit') is-invalid @enderror" id="due_date_edit" value="{{ old('due_date_edit') }}">
-              @error('due_date_edit')
-                <div class="invalid-feedback">{{ $message }}</div>
-              @enderror
+              <input name="due_date_edit" class="form-control @error('due_date_edit') is-invalid @enderror" id="due_date_edit" value="{{ $payable->due_date }}">
+              @if($errors->has('due_date_edit'))
+                <div class="text-danger">
+                    {{ $errors->first('due_date_edit')}}
+                </div>
+              @endif
             </div>
             <div class="mb-3">
               <label class="form-label" for="description_edit">Description</label>
-              <textarea name="description_edit" class="form-control @error('description_edit') is-invalid @enderror" id="description_edit" rows="3">{{ old('description_edit') }}</textarea>
-              @error('description_edit')
-                <div class="invalid-feedback">{{ $message }}</div>
-              @enderror
+              <textarea name="description_edit" class="form-control @error('description_edit') is-invalid @enderror" id="description_edit" rows="3">{{ $payable->description }}</textarea>
+              @if($errors->has('description_edit'))
+                <div class="text-danger">
+                    {{ $errors->first('description_edit')}}
+                </div>
+              @endif
             </div>
             <div class="mb-3">
                 <label class="form-label" for="py_amount_edit">Amount</label>
-                <input type="text" name="py_amount_edit" class="form-control @error('py_amount_edit') is-invalid @enderror" id="py_amount_edit" value="{{ old('py_amount_edit') }}">
-                @error('py_amount_edit')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
+                <input type="text" name="py_amount_edit" class="form-control @error('py_amount_edit') is-invalid @enderror" id="py_amount_edit" value="{{ $payable->py_amount }}">
+                @if($errors->has('py_amount_edit'))
+                <div class="text-danger">
+                    {{ $errors->first('py_amount_edit')}}
+                </div>
+              @endif
               </div>
           </div>
           <div class="modal-footer">
@@ -160,11 +171,11 @@
             uiLibrary: 'bootstrap5',
             format: 'yyyy-mm-dd'
         });
-      </script>
+      </script> --}}
 
     
     <!-- Modal Edit Piutang -->
-    <div class="modal fade" id="edit1" tabindex="-1" aria-labelledby="editpiutang" aria-hidden="true">
+    {{-- <div class="modal fade" id="edit1" tabindex="-1" aria-labelledby="editpiutang" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -230,7 +241,7 @@
             uiLibrary: 'bootstrap5',
             format: 'dd-mm-yyyy'
         });
-      </script>
+      </script> --}}
     
     <!-- Modal Tambah Hutang -->
     <div class="modal fade" id="tambah" tabindex="-1" aria-labelledby="tambahhutang" aria-hidden="true">
@@ -389,25 +400,25 @@
       lengthChange: false
     } );
 
-    table.on('click', '.edit', function(){
+    // table.on('click', '.edit', function(){
       
-      $tr = $(this).closest('tr');
-      if ($($tr).hasClass('child')) {
-        $tr = $tr.prev('.parent');
-      }
+    //   $tr = $(this).closest('tr');
+    //   if ($($tr).hasClass('child')) {
+    //     $tr = $tr.prev('.parent');
+    //   }
 
-      var data = table.row($tr).data();
-      console.log(data);
+    //   var data = table.row($tr).data();
+    //   console.log(data);
 
-      $('#py_name_edit').val(data[1]);
-      $('#py_date_edit').val(data[2]);
-      $('#due_date_edit').val(data[3]);
-      $('#description_edit').val(data[4]);
-      $('#py_amount_edit').val(data[5]);
+    //   $('#py_name_edit').val(data[1]);
+    //   $('#py_date_edit').val(data[2]);
+    //   $('#due_date_edit').val(data[3]);
+    //   $('#description_edit').val(data[4]);
+    //   $('#py_amount_edit').val(data[5]);
 
-      $('#form_edit').attr('action', '/lending/payable/update/'+data[0]);
-      $('#edit').modal('show');
-    });
+    //   $('#form_edit').attr('action', '/lending/payable/update/'+data[0]);
+    //   $('#edit').modal('show');
+    // });
   
     table.buttons().container()
       .appendTo( '#table_wrapper .col-md-6:eq(0)' );
@@ -421,25 +432,25 @@
       lengthChange: false
     } );
 
-    table.on('click', '.edit1', function(){
+    // table.on('click', '.edit1', function(){
       
-      $tr = $(this).closest('tr');
-      if ($($tr).hasClass('child')) {
-        $tr = $tr.prev('.parent');
-      }
+    //   $tr = $(this).closest('tr');
+    //   if ($($tr).hasClass('child')) {
+    //     $tr = $tr.prev('.parent');
+    //   }
 
-      var data = table.row($tr).data();
-      console.log(data);
+    //   var data = table.row($tr).data();
+    //   console.log(data);
 
-      $('#rc_name_edit').val(data[1]);
-      $('#rc_date_edit').val(data[2]);
-      $('#rc_due_date_edit').val(data[3]);
-      $('#rc_description_edit').val(data[4]);
-      $('#rc_amount_edit').val(data[5]);
+    //   $('#rc_name_edit').val(data[1]);
+    //   $('#rc_date_edit').val(data[2]);
+    //   $('#rc_due_date_edit').val(data[3]);
+    //   $('#rc_description_edit').val(data[4]);
+    //   $('#rc_amount_edit').val(data[5]);
 
-      $('#form_edit1').attr('action', '/lending/receivable/update/'+data[0]);
-      $('#edit1').modal('show');
-    });
+    //   $('#form_edit1').attr('action', '/lending/receivable/update/'+data[0]);
+    //   $('#edit1').modal('show');
+    // });
 
     table.buttons().container()
       .appendTo( '#table_wrapper .col-md-6:eq(0)' );
@@ -447,7 +458,7 @@
   </script>
 
   {{-- Hold Edit Hutang Modal After Validation Error --}}
-  @if ($errors->has('py_name_edit'))
+  {{-- @if ($errors->has('py_name_edit'))
     <script>
       $(document).ready(function() {
       $('#edit').modal('show');
@@ -485,7 +496,7 @@
       $('#edit').modal('show');
     });
     </script>
-  @endif
+  @endif --}}
 
   {{-- Hold Tambah Hutang Modal After Validation Error --}}
 
@@ -572,7 +583,7 @@
 @endif
 
 {{-- Hold Edit Piutang Modal After Validation Error --}}
-@if ($errors->has('rc_name_edit'))
+{{-- @if ($errors->has('rc_name_edit'))
 <script>
   $(document).ready(function() {
   $('#edit1').modal('show');
@@ -610,5 +621,5 @@
   $('#edit1').modal('show');
 });
 </script>
-@endif
+@endif --}}
 @endsection

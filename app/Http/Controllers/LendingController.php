@@ -100,9 +100,16 @@ class LendingController extends Controller
      * @param  \App\Models\Payable  $payable
      * @return \Illuminate\Http\Response
      */
-    public function edit(Payable $payable)
+    public function editPayable($id)
     {
-        //
+        $payable = Payable::find($id);
+        return view('editPayable', ['payable' => $payable]);
+    }
+
+    public function editReceivable($id)
+    {
+        $receivable = Receivable::find($id);
+        return view('editReceivable', ['receivable' => $receivable]);
     }
 
     /**
@@ -114,7 +121,7 @@ class LendingController extends Controller
      */
     public function updatePayable(Request $request, $id)
     {
-        $request->validate([
+        $this->validate($request,[
             'py_name_edit' => 'required',
             'py_date_edit' => 'required',
             'due_date_edit' => 'required',
@@ -141,7 +148,7 @@ class LendingController extends Controller
 
     public function updateReceivable(Request $request, $id)
     {
-        $request->validate([
+        $this->validate($request,[
             'rc_name_edit' => 'required',
             'rc_date_edit' => 'required',
             'rc_due_date_edit' => 'required',
