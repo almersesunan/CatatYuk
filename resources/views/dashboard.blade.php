@@ -176,8 +176,72 @@
         data: expense
     }]
   });
-
-
+  </script>
+  <script>
+    var name_item = {!! json_encode($item_name) !!};
+    var count = {!! json_encode($item_count, JSON_NUMERIC_CHECK) !!};
+    Highcharts.chart('stokbarangchart', {
+      chart: {
+          type: 'bar'
+      },
+      title: {
+          text: 'Item Stock'
+      },
+      xAxis: {
+          categories: name_item,
+          title: {
+              text: null
+          }
+      },
+      yAxis: {
+          min: 0,
+          title: {
+              text: 'Jumlah',
+              align: 'high'
+          },
+          labels: {
+              overflow: 'justify'
+          }
+      },
+      tooltip: {
+          valueSuffix: ' Item(s)'
+      },
+      legend: {
+          layout: 'vertical',
+          align: 'right',
+          verticalAlign: 'top',
+          x: -40,
+          y: 80,
+          floating: true,
+          borderWidth: 1,
+          backgroundColor:
+              Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+          shadow: true
+      },
+      credits: {
+          enabled: false
+      },
+      plotOptions: {
+         bar: {
+             zones: [{
+                 value: 10, // Values up to 10 (not including) ...
+                  name: 'Low',
+                  color: 'red' // ... have the color orangered.
+              },{
+                value: 20,
+                name: 'Med',
+                 color: 'yellow' // Values from 20 (including) and up have the color gold
+              },{
+                  name: 'High',
+                 color: 'green' // Values from 10 (including) and up have the lightgreen
+              }]
+          }
+      },
+      series: [{
+          name: 'Low',
+          data: count
+      }]
+    });
   </script>
 @endsection
 

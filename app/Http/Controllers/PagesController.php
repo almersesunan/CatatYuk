@@ -7,6 +7,7 @@ use App\Models\Payable;
 use App\Models\Receivable;
 use App\Models\User;
 use App\Models\Cashflow;
+use App\Models\Stock;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
@@ -61,9 +62,18 @@ class PagesController extends Controller
     //dd($expense);
 
         //Stok barang chart
-        
+        $stock = Stock::all();
+        $item_name = array();
+        $item_count = array();
 
-        return view('dashboard')->with(compact('payable','receivable','cashflow','type','cash','income','expense'));
+        foreach($stock as $stocks){
+            array_push($item_name, $stocks->item_name);
+            array_push($item_count, $stocks->available);
+        }
+
+        //dd($item_name);
+
+        return view('dashboard')->with(compact('payable','receivable','cashflow','type','cash','income','expense','item_name','item_count'));
     }
 
     public function __construct()
