@@ -174,7 +174,7 @@
               </div>
               <div class="mb-3">
                 <label for="tr_amount" class="form-label">Amount</label>
-                <input name="tr_amount" type="input" class="form-control @error('tr_amount') is-invalid @enderror" id="tr_amount" data-type='currency' placeholder="Rp 0" value="{{ old('tr_amount') }}">
+                <input name="tr_amount" type="input" class="form-control @error('tr_amount') is-invalid @enderror" id="tr_amount" data-type='currency' placeholder="Rp 0.00" value="{{ old('tr_amount') }}">
                 @error('tr_amount')
                       <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -200,6 +200,8 @@
   </html>
   
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+{{--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js"></script>
   <!-- Table -->
   <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
@@ -211,7 +213,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
   <script>
 
-    
+/*   $("input[data-type='currency']").mask("#,##0.00", {reverse: true});
+ */
+
+
     //auto input format currency using jquery
     $("input[data-type='currency']").on({
     keyup: function() {
@@ -294,8 +299,7 @@
     caret_pos = updated_len - original_len + caret_pos;
     input[0].setSelectionRange(caret_pos, caret_pos);
     }
-
-
+ 
 
 /* 
     //Auto input format curency IDR using javascript
