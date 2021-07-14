@@ -44,8 +44,8 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         
-                        {{-- <form method="post" action="dashboard/book">
-                          @csrf --}}
+                        <form method="post" action="book/add">
+                          @csrf
                           <div class="modal-body">
                             <div class="mb-3">
                               <label class="form-label" for="book_name">Name</label>

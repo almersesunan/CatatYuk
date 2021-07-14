@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -33,8 +34,17 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeBook(Request $request)
     {
-        //
+        $request->validate([
+            'book_name' => 'required',
+        ], [
+            'book_name.required' => 'Nama tidak boleh kosong',
+        ]);
+
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        Book::create($data);
+        return redirect()->back()->with('status','Data Berhasil Ditambahkan!');
     }
-}
+ }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CashflowController;
@@ -54,7 +55,8 @@ Route::put('/lending/receivable/update/{id}', [LendingController::class, 'update
 Route::delete('/lending/payable/{payable}', [LendingController::class, 'destroyPayable']);
 Route::delete('/lending/receivable/{receivable}', [LendingController::class, 'destroyReceivable']);
 
-
+//Book
+Route::post('/book/add', [BookController::class, 'storeBook']);
 
 //login & register
 //Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
