@@ -31,8 +31,36 @@
                       Current Book
                     </button>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Add New Book</a></li>
+                      <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#tambahbook">Add New Book</a></li>
                     </ul>
+                  </div>
+
+                  {{-- Modal New Book --}}
+                  <div class="modal fade" id="tambahbook" tabindex="-1" aria-labelledby="tambahbook" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="ModalTambahBook">Add New Book</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        
+                        {{-- <form method="post" action="dashboard/book">
+                          @csrf --}}
+                          <div class="modal-body">
+                            <div class="mb-3">
+                              <label class="form-label" for="book_name">Name</label>
+                              <input type="text" name="book_name" placeholder="Masukan Nama Buku" class="form-control @error('book_name') is-invalid @enderror" id="book_name">
+                              @error('book_name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                              @enderror
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
                   </div>
 
                 <div class="dropdown text-end" style="align-items: flex-end">
