@@ -9,10 +9,7 @@
           <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
           <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
         </div>
-        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-          <span data-feather="calendar"></span>
-          Year
-        </button>
+          <input type="text" id="calendar" class="btn btn-sm btn-outline-primary dropdown-toggle" placeholder="Year">
       </div>
     </div>
 
@@ -20,7 +17,8 @@
       <div class="card-body text-dark">
         <div id="cashflowchart"></div>
       </div>
-    </div><br>
+    </div>
+    <br>
     <div class="card border-dark mb-3" style="max-width: 100%;">
       <div class="card-body text-dark">
         <h2>Summary</h2>
@@ -41,13 +39,12 @@
                     <td>{{ $cashflow[$month][$types]['amount'] ?? '0' }}</td>
                 @endforeach
               </tr>
-                
             @endforeach
           </table>
-    
         </div>
       </div>
-  </div>
+    </div>
+    <br>
     <div class="card border-dark mb-3" style="max-width: 100%;">
       <div class="card-body text-dark">
         <div id="stokbarangchart"></div>
@@ -127,6 +124,9 @@
   </div>
 
   <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   <script>
     var income = {!! json_encode($income, JSON_NUMERIC_CHECK) !!};
     var expense = {!! json_encode($expense, JSON_NUMERIC_CHECK) !!};
@@ -242,6 +242,40 @@
           name: 'Quantity',
           data: count
       }]
+    });
+  </script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<style>
+    .ui-datepicker-calendar {
+       display: none;
+    }
+    .ui-datepicker-month {
+       display: none;
+    }
+    .ui-datepicker-prev{
+       display: none;
+    }
+    .ui-datepicker-next{
+       display: none;
+    }
+</style>
+  <script>
+    $(function() {
+      $('#calendar').datepicker({
+          changeYear: true,
+          showButtonPanel: true,
+          dateFormat: 'yy',
+          onClose: function(dateText, inst) { 
+              var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+              $(this).datepicker('setDate', new Date(year, 1));
+          }
+    });
+    $("#calendar").focus(function () {
+           $(".ui-datepicker-month").hide();
+       });
     });
   </script>
 @endsection

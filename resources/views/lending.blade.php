@@ -203,7 +203,7 @@
                   </div>
                   <div class="mb-3">
                       <label class="form-label" for="rc_amount">Amount</label>
-                      <input type="text" name="rc_amount" class="form-control @error('rc_amount') is-invalid @enderror" data-type="currency" placeholder="Rp 0" id="rc_amount" value="{{ old('rc_amount') }}">
+                      <input type="text" name="rc_amount" class="form-control text-right @error('rc_amount') is-invalid @enderror" data-type="currency" placeholder="Rp 0" id="rc_amount" value="{{ old('rc_amount') }}">
                       @error('rc_amount')
                         <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
