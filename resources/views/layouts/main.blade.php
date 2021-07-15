@@ -31,7 +31,10 @@
                       Current Book
                     </button>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#tambahbook">Add New Book</a></li>
+                      @foreach ($book as $book)
+                      <li><a class="dropdown-item" href="#">{{$book->book_name}}</a></li>
+                      @endforeach
+                      <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#tambahbook">+ Add New Book</a></li>
                     </ul>
                   </div>
 
