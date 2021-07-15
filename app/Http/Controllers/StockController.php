@@ -68,9 +68,10 @@ class StockController extends Controller
      * @param  \App\Models\Stock  $stock
      * @return \Illuminate\Http\Response
      */
-    public function edit(Stock $stock)
+    public function edit($id)
     {
-        //
+        $stock = Stock::find($id);
+        return view('editStock', compact('stock'));
     }
 
     /**

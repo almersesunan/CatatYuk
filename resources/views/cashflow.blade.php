@@ -13,10 +13,9 @@
       @endif
       <table id="table" class="table table-striped table-bordered" style="width:100%">
         <a href="#" style="float: right">Download to PDF</a>
-        <label for="pwd">Pencatatan Kas</label><br>
         <thead>
           <tr align=center>
-            <th>Id</th>
+            <th>No</th>
             <th>Transaction Type</th>
             <th>Transaction Date</th>
             <th>Category</th>
@@ -29,7 +28,7 @@
         <tbody>
           @foreach ($cashflow as $cashflow)
             <tr>
-              <td align=center>{{$cashflow->tr_id}}</td>
+              <td align=center>{{$loop->iteration}}</td>
               <td>{{$cashflow->type}}</td>
               <td align=center>{{$cashflow->tr_date}}</td>
               <td>{{$cashflow->category}}</td>
@@ -37,8 +36,8 @@
               <td align=right>{{$cashflow->tr_amount}}</td>
               <td>{{$cashflow->invoice}}</td>
               <td align=center>
-                <button class="btn btn-secondary edit"><i class="fa fa-edit"></i> Edit</button>
-                <form action="cashflow/{{$cashflow->tr_id}}" method="POST" class="d-inline">
+                <a href="/cashflow/{{ $cashflow->tr_id }}" class="btn btn-secondary edit"><i class="fa fa-edit"></i>Edit</a> 
+                <form action="cashflow/{{ $cashflow->tr_id }}" method="POST" class="d-inline">
                   @method('delete')
                   @csrf
                   <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure want to delete this data?')"><i class="fa fa-trash"></i> Delete</button>
@@ -59,7 +58,7 @@
       <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
     </head>
 
-    <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="edittransaksi" aria-hidden="true">
+    {{-- <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="edittransaksi" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -126,7 +125,7 @@
             uiLibrary: 'bootstrap5',
             format: 'yyyy-mm-dd'
         });
-      </script>
+      </script> --}}
 
     <!-- Modal Add Transaction -->
     <div class="modal fade" id="tambah" tabindex="-1" aria-labelledby="tambahtransaksi" aria-hidden="true">

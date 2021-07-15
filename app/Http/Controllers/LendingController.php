@@ -50,7 +50,7 @@ class LendingController extends Controller
             'py_date' => 'required',
             'due_date' => 'required',
             'description' => 'required',
-            'py_amount' => 'required|integer|min:0'
+            'py_amount' => 'required|numeric|min:0'
         ], [
             'py_name.required' => 'Nama tidak boleh kosong',
             'py_date.required' => 'Tanggal tidak boleh kosong',
@@ -70,7 +70,7 @@ class LendingController extends Controller
             'rc_date' => 'required',
             'rc_due_date' => 'required',
             'rc_description' => 'required',
-            'rc_amount' => 'required|integer|min:0'
+            'rc_amount' => 'required|numeric|min:0'
         ], [
             'rc_name.required' => 'Nama tidak boleh kosong',
             'rc_date.required' => 'Tanggal tidak boleh kosong',
@@ -126,7 +126,7 @@ class LendingController extends Controller
             'py_date_edit' => 'required',
             'due_date_edit' => 'required',
             'description_edit' => 'required',
-            'py_amount_edit' => 'required|integer|min:0'
+            'py_amount_edit' => 'required|numeric|min:0'
         ], [
             'py_name_edit.required' => 'Nama tidak boleh kosong',
             'py_date_edit.required' => 'Tanggal tidak boleh kosong',
@@ -153,7 +153,7 @@ class LendingController extends Controller
             'rc_date_edit' => 'required',
             'rc_due_date_edit' => 'required',
             'rc_description_edit' => 'required',
-            'rc_amount_edit' => 'required|integer|min:0'
+            'rc_amount_edit' => 'required|numeric|min:0'
         ], [
             'rc_name_edit.required' => 'Nama tidak boleh kosong',
             'rc_date_edit.required' => 'Tanggal tidak boleh kosong',

@@ -71,9 +71,10 @@ class CashflowController extends Controller
      * @param  \App\Models\Cashflow  $cashflow
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cashflow $cashflow)
+    public function edit($id)
     {
-        //
+        $cashflow = Cashflow::find($id);
+        return view('editCashflow', compact('cashflow'));
     }
 
     /**

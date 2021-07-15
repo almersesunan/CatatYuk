@@ -16,10 +16,9 @@
       @endif
       <table id="table" class="table table-striped table-bordered" style="width:100%">
         <a href="#" style="float: right">Download to PDF</a>
-        <label for="pwd">Item Stock</label><br>
         <thead>
             <tr align="center">
-              <th>Id</th>
+              <th>No</th>
               <th>Item Name</th>
               <th>Minimum</th>
               <th>Available</th>
@@ -29,13 +28,13 @@
         <tbody>
             @foreach ($stock as $stock)
             <tr>
-              <td align="center">{{$stock->st_id}}</td>
+              <td align="center">{{$loop->iteration}}</td>
               <td>{{$stock->item_name}}</td>
               <td align="center">{{$stock->minimum}}</td>
               <td align="center">{{$stock->available}}</td>
               <td align="center">
-                <button class="btn btn-secondary edit"><i class="fa fa-edit"></i> Edit</button>
-                <form action="stock/{{$stock->st_id}}" method="post" class="d-inline">
+                <a href="/stock/{{ $stock->st_id }}" class="btn btn-secondary edit"><i class="fa fa-edit"></i>Edit</a> 
+                <form action="stock/{{ $stock->st_id }}" method="post" class="d-inline">
                   @method('delete')
                   @csrf
                   <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure want to delete this data?')"><i class="fa fa-trash"></i> Delete</button>
@@ -51,7 +50,7 @@
 
 
 <!-- Modal Edit -->
-  <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editbarang" aria-hidden="true">
+  {{-- <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editbarang" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -92,7 +91,7 @@
 
       </div>
     </div>
-  </div>
+  </div> --}}
 
   <!-- Modal Tambah -->
   <div class="modal fade" id="tambah" tabindex="-1" aria-labelledby="tambahbarang" aria-hidden="true">

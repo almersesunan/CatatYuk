@@ -30,14 +30,16 @@ Route::get('/feedback', [PagesController::class, 'feedback']);
 Route::get('/cashflow', [CashflowController::class, 'index']);
 Route::post('/cashflow', [CashflowController::class, 'store']);
 Route::delete('/cashflow/{cashflow}', [CashflowController::class, 'destroy']);
-Route::patch('/cashflow/{id}', [CashflowController::class, 'update'])->name('cashflow-update');
+Route::get('/cashflow/{id}', [CashflowController::class, 'edit']);
+Route::patch('/cashflow/{id}', [CashflowController::class, 'update']);
 // Route::resource('cashflow', [CashflowController::class]);
 
 // Stock
 Route::get('/stock', [StockController::class, 'index']);
 Route::post('/stock', [StockController::class, 'store']);
 Route::delete('/stock/{stock}', [StockController::class, 'destroy']);
-Route::patch('/stock/{id}', [StockController::class, 'update'])->name('stock-update');
+Route::get('/stock/{id}', [StockController::class, 'edit']);
+Route::patch('/stock/{id}', [StockController::class, 'update']);
 // Route::resource('stock', [StockController::class]);
 
 // Lending = Payable & Receivable
@@ -49,8 +51,8 @@ Route::post('/lending/receivable', [LendingController::class, 'storeReceivable']
 Route::get('/lending/payable/edit/{id}', [LendingController::class, 'editPayable']);
 Route::get('/lending/receivable/edit/{id}', [LendingController::class, 'editReceivable']);
 
-Route::put('/lending/payable/update/{id}', [LendingController::class, 'updatePayable'])->name('payable-update');
-Route::put('/lending/receivable/update/{id}', [LendingController::class, 'updateReceivable'])->name('receivable-update');
+Route::put('/lending/payable/update/{id}', [LendingController::class, 'updatePayable']);
+Route::put('/lending/receivable/update/{id}', [LendingController::class, 'updateReceivable']);
 
 Route::delete('/lending/payable/{payable}', [LendingController::class, 'destroyPayable']);
 Route::delete('/lending/receivable/{receivable}', [LendingController::class, 'destroyReceivable']);

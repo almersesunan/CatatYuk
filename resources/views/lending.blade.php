@@ -8,10 +8,9 @@
             <h1 class="h2">Payable</h1>
             <table id="table" class="table table-striped table-bordered" style="width:100%">
               <a href="#" style="float: right">Download to PDF</a>
-              <label for="pwd">Payable</label><br>
               <thead>
-                <tr>
-                  <th>Id</th>
+                <tr align="center">
+                  <th >No</th>
                   <th>Name</th>
                   <th>Date</th>
                   <th>Due Date</th>
@@ -23,12 +22,12 @@
               <tbody>
                 @foreach ($payable as $payable)
                 <tr>
-                  <td>{{$payable->py_id}}</td>
+                  <td align="center">{{$loop->iteration}}</td>
                   <td>{{$payable->py_name}}</td>
-                  <td>{{$payable->py_date}}</td>
-                  <td>{{$payable->due_date}}</td>
+                  <td align="center">{{$payable->py_date}}</td>
+                  <td align="center">{{$payable->due_date}}</td>
                   <td>{{$payable->description}}</td>
-                  <td>{{$payable->py_amount}}</td>
+                  <td align="right">{{$payable->py_amount}}</td>
                   <td align="center">  
                     <a href="/lending/payable/edit/{{ $payable->py_id }}" class="btn btn-secondary edit"><i class="fa fa-edit"></i>Edit</a> 
                     <form action="lending/payable/{{$payable->py_id}}" method="post" class="d-inline">
@@ -47,10 +46,9 @@
             <h1 class="h2">Receivable</h1>
             <table id="table1" class="table table-striped table-bordered" style="width:100%">
                 <a href="#" style="float: right">Download to PDF</a>
-                <label for="pwd">Receivable</label><br>
                 <thead>
-                  <tr>
-                    <th>Id</th>
+                  <tr align="center">
+                    <th>No</th>
                     <th>Name</th>
                     <th>Date</th>
                     <th>Due Date</th>
@@ -62,12 +60,12 @@
                 <tbody>
                     @foreach ($receivable as $receivable)
                     <tr>
-                    <td>{{$receivable->rc_id}}</td>
+                    <td align="center">{{$loop->iteration}}</td>
                     <td>{{$receivable->rc_name}}</td>
-                    <td>{{$receivable->rc_date}}</td>
-                    <td>{{$receivable->rc_due_date}}</td>
+                    <td align="center">{{$receivable->rc_date}}</td>
+                    <td align="center">{{$receivable->rc_due_date}}</td>
                     <td>{{$receivable->rc_description}}</td>
-                    <td>{{$receivable->rc_amount}}</td>
+                    <td align="right">{{$receivable->rc_amount}}</td>
                     <td align="center">
                       <a href="/lending/receivable/edit/{{ $receivable->rc_id }}" class="btn btn-secondary edit1"><i class="fa fa-edit"></i>Edit</a> 
                       <form action="lending/receivable/{{$receivable->rc_id}}" method="post" class="d-inline">
