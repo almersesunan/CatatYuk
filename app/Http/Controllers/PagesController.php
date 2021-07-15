@@ -65,30 +65,15 @@ class PagesController extends Controller
         $stock = Stock::all();
         $item_name = array();
         $item_count = array();
-        // $minimum = array();
-        // $low = array();
-        // $med = array();
-        // $hi = array();
+        //$minimum = array();
 
         foreach($stock as $stocks){
             array_push($item_name, $stocks->item_name);
             array_push($item_count, $stocks->available);
             //array_push($minimum, $stocks->minimum);
-            
         }
-        // foreach ($stock as $stocks){
-        //     if ($stocks->minimum >= $stocks->available){
-        //         array_push($low, $stocks->minimum);
-        //     }
-        //     elseif ($stocks->minimum+10 >= $stocks->available){
-        //         array_push($med, $stocks->minimum);
-        //     }
-        //     else{
-        //         array_push($hi, $stocks->minimum);
-        //     }
-        // }
 
-        //d($hi);
+        //dd($minimum);
 
         return view('dashboard')->with(compact('payable','receivable','cashflow','type','cash','income','expense','item_name','item_count'));
     }
