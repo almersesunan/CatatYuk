@@ -9,6 +9,7 @@
         <meta name="generator" content="">
             
         <!-- CSS -->
+        <link href="/manifest.json" rel="manifest">
         <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link href="/css/dashboard.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">

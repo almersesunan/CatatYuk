@@ -1,0 +1,16 @@
+{
+    "short_name": "Catatyuk",
+    "name": "Catatyuk",
+    "start_url": "/dashboard",
+    "background_color": "#3367D6",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#3367D6",
+    "icons": [
+      {
+        "src": "/images/test.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }
