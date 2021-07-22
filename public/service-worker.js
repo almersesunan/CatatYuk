@@ -21,30 +21,48 @@ self.addEventListener('install', function(event) {
     );
 });
 
-self.addEventListener('fetch', function(event) {
-    event.respondWith(
-      caches.open('mysite-dynamic').then(function(cache) {
-        return cache.match(event.request).then(function (response) {
-          return response || fetch(event.request).then(function(response) {
-            cache.put(event.request, response.clone());
-            return response;
-          });
-        });
-      })
-    );
-  });
-
 // self.addEventListener('fetch', function(event) {
 //     event.respondWith(
-//         caches.match(event.request).then(function(response){
-//             if (response){
-//                 return response;
-//             }
-//             return fetch(event.request);
-//         }
-//     )
+//       caches.open('mysite-dynamic').then(function(cache) {
+//         return cache.match(event.request).then(function (response) {
+//           return response || fetch(event.request).then(function(response) {
+//             cache.put(event.request, response.clone());
+//             return response;
+//           });
+//         });
+//       })
 //     );
-// });
+//   });
+
+  self.addEventListener('fetch', function(event) {
+    
+    var request = event.request
+    var url = new URL(request.url)
+
+    if(url.origin == location.origin){
+      event.respondWith(
+        caches.match(request).then(function(response){
+          return response || fetch(request)
+
+        })
+        )
+    }else {
+      event.respondWith(
+        caches.open('catatyuk-cache').then(function(cache){
+          return fetch(request).then(function(liveResponse){
+            cache.put(request, liveResponse.clone())
+            return liveResponse
+          })
+          // .catch(function(){
+          //   return caches.match(request).then(function(response){
+          //     if(response) return response
+          //     return caches.match('/fallback.json')
+          //   })
+          // })
+        })
+      )
+    }
+  });
 
 self.addEventListener('activate', function(event) {
     event.waitUntil(
