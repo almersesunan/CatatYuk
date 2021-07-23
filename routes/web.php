@@ -58,7 +58,7 @@ Route::delete('/lending/payable/{payable}', [LendingController::class, 'destroyP
 Route::delete('/lending/receivable/{receivable}', [LendingController::class, 'destroyReceivable']);
 
 //Book
-Route::post('/book/add', [BookController::class, 'storeBook']);
+// Route::post('/book/add', [BookController::class, 'storeBook']);
 
 //login & register
 //Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Payable;
 use App\Models\Receivable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LendingController extends Controller
 {
@@ -59,7 +60,9 @@ class LendingController extends Controller
             'py_amount.required' => 'Jumlah tidak boleh kosong'
         ]);
 
-        Payable::create($request->all());
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        Payable::create($data);
         return redirect('lending')->with('status','Data Berhasil Ditambahkan!');
     }
 
@@ -79,7 +82,9 @@ class LendingController extends Controller
             'rc_amount.required' => 'Jumlah tidak boleh kosong'
         ]);
 
-        Receivable::create($request->all());
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        Receivable::create($data);
         return redirect('lending')->with('status','Data Berhasil Ditambahkan!');
     }
 

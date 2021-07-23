@@ -15,6 +15,8 @@ class CreatePayablesTable extends Migration
     {
         Schema::create('payables', function (Blueprint $table) {
             $table->id('py_id');
+            $table->biginteger('user_id')->unsigned(); 
+            $table->foreign('user_id')->references('id')->on('users'); 
             $table->string('py_name');
             $table->date('py_date');
             $table->date('due_date');

@@ -15,6 +15,8 @@ class CreateReceivablesTable extends Migration
     {
         Schema::create('receivables', function (Blueprint $table) {
             $table->id('rc_id');
+            $table->biginteger('user_id')->unsigned(); 
+            $table->foreign('user_id')->references('id')->on('users'); 
             $table->string('rc_name');
             $table->date('rc_date');
             $table->date('rc_due_date');

@@ -27,7 +27,7 @@
                   <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
                 </a>
                
-                  <div class="btn-group col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                  {{-- {{-- <div class="btn-group col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                       Current Book
                     </button>
@@ -37,10 +37,10 @@
                       @endforeach
                       <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#tambahbook">+ Add New Book</a></li>
                     </ul>
-                  </div>
+                  </div> --}}
 
                   {{-- Modal New Book --}}
-                  <div class="modal fade" id="tambahbook" tabindex="-1" aria-labelledby="tambahbook" aria-hidden="true">
+                  {{-- <div class="modal fade" id="tambahbook" tabindex="-1" aria-labelledby="tambahbook" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -65,9 +65,9 @@
                         </form>
                       </div>
                     </div>
-                  </div>
+                  </div> --}}
 
-                <div class="dropdown text-end" style="align-items: flex-end">
+                <div class="dropdown text-end" style="align-items: flex-end; left: 1400px;">
                     <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                       <img src="https://github.com/mdo.png" alt="user" width="32" height="32" class="rounded-circle">
                     </a>

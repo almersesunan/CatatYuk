@@ -9,5 +9,5 @@ class Payable extends Model
 {
     use HasFactory;
     protected $primaryKey = 'py_id'; 
-    protected $fillable = ['py_name','py_date','due_date','description','py_amount'];
+    protected $fillable = ['user_id','py_name','py_date','due_date','description','py_amount'];
 }
