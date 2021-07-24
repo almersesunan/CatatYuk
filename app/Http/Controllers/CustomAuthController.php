@@ -63,7 +63,12 @@ class CustomAuthController extends Controller
         'email' => $data['email'],
         'password' => Hash::make($data['password'])
       ]);
-    }    
+    }
+    
+    public function viewPassword()
+    {
+        return view('changePassword');
+    }
     
 
     // public function dashboard()
