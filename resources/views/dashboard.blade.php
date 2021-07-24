@@ -1,15 +1,24 @@
 @extends('layouts/main')
 
 @section('title', 'CatatYuk - Dashboard')
-    
+
 @section('container')
+<head>
+  <style>
+    @media print{
+      .tools{
+        display: none;
+      }
+    }
+  </style>
+</head>
       <h1 class="h2">Summary</h1>
       <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group me-2">
+        <div class="tools btn-group me-2">
           <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-          <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+          <a type="button" class="btn btn-sm btn-outline-secondary" onclick="window.print()" target="_blank">Export</a>
+          {{-- <input type="text" id="calendar" class="btn btn-sm btn-outline-primary dropdown-toggle" placeholder="Year"> --}}
         </div>
-          <input type="text" id="calendar" class="btn btn-sm btn-outline-primary dropdown-toggle" placeholder="Year">
       </div>
     </div>
 

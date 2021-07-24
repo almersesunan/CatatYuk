@@ -113,14 +113,14 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="minimum">Minimum</label>
-                <input name="minimum" type="text" class="form-control @error('minimum') is-invalid @enderror" id="minimum" value="{{ old('minimum') }}" >
+                <input name="minimum" type="number" class="form-control @error('minimum') is-invalid @enderror" id="minimum" value="{{ old('minimum') }}" >
                 @error('minimum')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
                 <label class="form-label" for="available">Available</label>
-                <input name="available" type="text" class="form-control @error('available') is-invalid @enderror" id="available" value="{{ old('available') }}" >
+                <input name="available" type="number" class="form-control @error('available') is-invalid @enderror" id="available" value="{{ old('available') }}" >
                 @error('available')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

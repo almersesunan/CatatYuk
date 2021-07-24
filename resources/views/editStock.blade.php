@@ -35,14 +35,14 @@
                               </div>
                               <div class="mb-3">
                                   <label class="form-label" for="minimum_edit">Minimum</label>
-                                  <input name="minimum_edit" type="text" class="form-control @error('minimum_edit') is-invalid @enderror" id="minimum_edit" value="{{ $stock->minimum }}">
+                                  <input name="minimum_edit" type="number" class="form-control @error('minimum_edit') is-invalid @enderror" id="minimum_edit" value="{{ $stock->minimum }}">
                                   @error('minimum_edit')
                                       <div class="invalid-feedback">{{ $message }}</div>
                                   @enderror
                               </div>
                               <div class="mb-3">
                                   <label class="form-label" for="available_edit">Available</label>
-                                  <input name="available_edit" type="text" class="form-control @error('available_edit') is-invalid @enderror" id="available_edit" value="{{ $stock->available }}">
+                                  <input name="available_edit" type="number" class="form-control @error('available_edit') is-invalid @enderror" id="available_edit" value="{{ $stock->available }}">
                                   @error('available_edit')
                                       <div class="invalid-feedback">{{ $message }}</div>
                                   @enderror

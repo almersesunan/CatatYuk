@@ -9,6 +9,16 @@
         <meta name="generator" content="">
             
         <!-- CSS -->
+        <style>
+          @media print{
+            .footer{
+              display: none;
+            }
+            .feedback-area{
+              display: none;
+            }
+          }
+        </style>
         <link href="/manifest.json" rel="manifest">
         <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link href="/css/dashboard.css" rel="stylesheet">
@@ -134,7 +144,7 @@
         </div>
 
         {{-- Footer --}}
-        <div class="container-fluid">
+        <div class="footer container-fluid">
             <div class="row">
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                     <footer class="text-center text-lg-start bg-light text-muted">
