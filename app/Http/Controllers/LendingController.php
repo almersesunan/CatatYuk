@@ -57,7 +57,8 @@ class LendingController extends Controller
             'py_date.required' => 'Tanggal tidak boleh kosong',
             'due_date.required' => 'Jatuh Tempo tidak boleh kosong',
             'description.required' => 'Keterangan tidak boleh kosong',
-            'py_amount.required' => 'Jumlah tidak boleh kosong'
+            'py_amount.required' => 'Jumlah tidak boleh kosong',
+            'py_amount.numeric' => 'Jumlah harus diisi dengan angka'
         ]);
 
         $data = $request->all();
@@ -79,7 +80,8 @@ class LendingController extends Controller
             'rc_date.required' => 'Tanggal tidak boleh kosong',
             'rc_due_date.required' => 'Jatuh Tempo tidak boleh kosong',
             'rc_description.required' => 'Keterangan tidak boleh kosong',
-            'rc_amount.required' => 'Jumlah tidak boleh kosong'
+            'rc_amount.required' => 'Jumlah tidak boleh kosong',
+            'rc_amount.numeric' => 'Jumlah harus diisi dengan angka'
         ]);
 
         $data = $request->all();
@@ -137,7 +139,8 @@ class LendingController extends Controller
             'py_date_edit.required' => 'Tanggal tidak boleh kosong',
             'due_date_edit.required' => 'Jatuh Tempo tidak boleh kosong',
             'description_edit.required' => 'Keterangan tidak boleh kosong',
-            'py_amount_edit.required' => 'Jumlah tidak boleh kosong'
+            'py_amount_edit.required' => 'Jumlah tidak boleh kosong',
+            'py_amount_edit.numeric' => 'Jumlah harus diisi dengan angka'
         ]);
 
         $payable = Payable::find($id);
@@ -164,7 +167,8 @@ class LendingController extends Controller
             'rc_date_edit.required' => 'Tanggal tidak boleh kosong',
             'rc_due_date_edit.required' => 'Jatuh Tempo tidak boleh kosong',
             'rc_description_edit.required' => 'Keterangan tidak boleh kosong',
-            'rc_amount_edit.required' => 'Jumlah tidak boleh kosong'
+            'rc_amount_edit.required' => 'Jumlah tidak boleh kosong',
+            'rc_amount_edit.numeric' => 'Jumlah harus diisi dengan angka'
         ]);
 
         $receivable = Receivable::find($id);

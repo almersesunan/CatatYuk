@@ -6,6 +6,11 @@
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">   
           <div class="card-body">
             <h1 class="h2">Payable</h1>
+            @if (session('status'))
+              <div class="alert alert-success">
+                  {{ session('status') }}
+              </div>
+            @endif
             <table id="table" class="table table-striped table-bordered" style="width:100%">
               <a href="#" style="float: right">Download to PDF</a>
               <thead>
@@ -71,7 +76,7 @@
                       <form action="lending/receivable/{{$receivable->rc_id}}" method="post" class="d-inline">
                           @method('delete')
                           @csrf
-                        <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</button>
+                        <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure want to delete this data?')"><i class="fa fa-trash"></i> Delete</button>
                       </form>
                     </td>
                   </tr>
@@ -347,6 +352,13 @@
     });
 
   </script> --}}
+  
+  <script>
+    $(document).ready(function(){
+      $('.alert-success').fadeIn().delay(2500).fadeOut();
+    });
+  </script>
+
   
   {{-- Table Hutang --}}
   <script>
