@@ -14,17 +14,17 @@
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Nama depan</label><input type="text" class="form-control" placeholder="Nama depan" value=""></div>
-                    <div class="col-md-6"><label class="labels">Nama belakang</label><input type="text" class="form-control" value="" placeholder="Nama belakang"></div>
+                    <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" placeholder="Nama depan" value=""></div>
+                    <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" value="" placeholder="Nama belakang"></div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Nomor Handphone</label><input type="text" class="form-control" placeholder="Masukan nomor handphone" value=""></div>
+                    <div class="col-md-12"><label class="labels">Phone Number</label><input type="text" class="form-control" placeholder="Masukan nomor handphone" value=""></div>
                     <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Masukan Email" value=""></div>
-                    <div class="col-md-12"><label class="labels">Alamat</label><input type="text" class="form-control" placeholder="Masukan alamat rumah" value=""></div>
+                    <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" placeholder="Masukan alamat rumah" value=""></div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">Kota</label><input type="text" class="form-control" value="" placeholder="Masukan kota"></div>
-                    <div class="col-md-6"><label class="labels">Kode pos</label><input type="text" class="form-control" placeholder="Masukan kode pos" value=""></div>
+                    <div class="col-md-6"><label class="labels">City</label><input type="text" class="form-control" value="" placeholder="Masukan kota"></div>
+                    <div class="col-md-6"><label class="labels">Postal Code</label><input type="text" class="form-control" placeholder="Masukan kode pos" value=""></div>
                 </div>
                 <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
             </div>

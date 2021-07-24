@@ -244,7 +244,7 @@
   <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
 
 
-  {{-- <script>
+  <script>
     //auto input format currency using jquery
     $("input[data-type='currency']").on({
     keyup: function() {
@@ -328,7 +328,7 @@
     caret_pos = updated_len - original_len + caret_pos;
     input[0].setSelectionRange(caret_pos, caret_pos);
     }
-  </script> --}}
+  </script>
 
 {{--   <script>
     //Auto input format curency IDR using javascript
