@@ -23,7 +23,6 @@ use App\Http\Controllers\CustomAuthController;
 
 // PageRoutes
 Route::get('/dashboard', [PagesController::class, 'dashboard']);
-Route::get('/profile', [PagesController::class, 'profile']);
 Route::get('/feedback', [PagesController::class, 'feedback']);
 
 // Cashflow
@@ -71,6 +70,10 @@ Route::get('/changepw', [CustomAuthController::class, 'viewPassword']);
 
 //changepassword
 
+
+//Profile
+Route::get('/profile', [CustomAuthController::class, 'profile']);
+Route::patch('/profile/{id}', [CustomAuthController::class, 'update']);
 /* 
 
 Auth::routes();

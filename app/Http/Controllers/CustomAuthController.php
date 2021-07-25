@@ -87,4 +87,37 @@ class CustomAuthController extends Controller
   
         return Redirect('login');
     }
+
+    public function profile(){
+        $user = User::where('id', Auth::user()->id)->get();
+        return view('profile', compact('user'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $cashflow
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id){
+        // $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required|email|unique:users',
+        //     'address' => '',
+        //     'city' => '',
+        //     'postalcode' => ''
+        // ]);
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        // $user->email = $request->email;
+        $user->address = $request->address;
+        $user->city = $request->city;
+        $user->postalcode = $request->postalcode;
+        $user->save();
+        return redirect('profile')->with('status','Data has been updated!');
+    }
+    
+
+
 }

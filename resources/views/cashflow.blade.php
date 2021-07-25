@@ -12,7 +12,7 @@
         </div>
       @endif
       <table id="table" class="table table-striped table-bordered" style="width:100%">
-        <a href="#" style="float: right">Download to PDF</a>
+        <a href="downloadCashflow.php" target="_blank" style="float: right">Download to PDF</a>
         <thead>
           <tr align=center>
             <th>No</th>
