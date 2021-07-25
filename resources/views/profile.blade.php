@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">{{ Auth::user()->Name }}</span><span class="text-black-50">{{ Auth::user()->email }}</span><span> </span>
+                <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">{{ Auth::user()->name }}</span><span class="text-black-50">{{ Auth::user()->email }}</span><span> </span>
             </div>
         </div>
         <div class="col-md-5 border-right">
@@ -19,7 +19,7 @@
                 @method('patch')
                 @csrf
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Name</label><input type="text" class="form-control" placeholder="Name" value=""></div>
+                        <div class="col-md-12"><label class="labels">Name</label><input type="text" class="form-control" placeholder="Name" value="{{ Auth::user()->name }}"></div>
                     </div>
                     <div class="row mt-3">
                         {{-- <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Email" value="{{ Auth::user()->email }}"></div> --}}

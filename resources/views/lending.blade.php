@@ -5,6 +5,7 @@
 @section('container')
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">   
           <div class="card-body">
+            <a type="button" class="btn btn-primary active" href="/lending_pdf" target="_blank" style="float: right">Download to PDF</a><br>
             <h1 class="h2">Payable</h1>
             @if (session('status'))
               <div class="alert alert-success">
@@ -12,16 +13,15 @@
               </div>
             @endif
             <table id="table" class="table table-striped table-bordered" style="width:100%">
-              <a href="#" style="float: right">Download to PDF</a>
               <thead>
                 <tr align="center">
-                  <th >No</th>
+                  <th>No</th>
                   <th>Name</th>
                   <th>Date</th>
                   <th>Due Date</th>
                   <th>Description</th>
                   <th>Amount</th>
-                  <th>Edit</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -50,7 +50,6 @@
             <br/><br/><br/><br/>
             <h1 class="h2">Receivable</h1>
             <table id="table1" class="table table-striped table-bordered" style="width:100%">
-                <a href="#" style="float: right">Download to PDF</a>
                 <thead>
                   <tr align="center">
                     <th>No</th>
@@ -59,7 +58,7 @@
                     <th>Due Date</th>
                     <th>Description</th>
                     <th>Amount</th>
-                    <th>Edit</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -246,14 +245,14 @@
 
   <script>
     //auto input format currency using jquery
-    $("input[data-type='currency']").on({
-    keyup: function() {
-    formatCurrency($(this));
-    },
-    blur: function() { 
-    formatCurrency($(this), "blur");
-    }
-    });
+    // $("input[data-type='currency']").on({
+    // keyup: function() {
+    // formatCurrency($(this));
+    // },
+    // blur: function() { 
+    // formatCurrency($(this), "blur");
+    // }
+    // });
 
 
     function formatNumber(n) {

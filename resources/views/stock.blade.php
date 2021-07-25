@@ -15,7 +15,7 @@
         </div>
       @endif
       <table id="table" class="table table-striped table-bordered" style="width:100%">
-        <a href="#" style="float: right">Download to PDF</a>
+        <a href="/stock_pdf" target="_blank" style="float: right">Download to PDF</a>
         <thead>
             <tr align="center">
               <th>No</th>

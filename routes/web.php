@@ -7,7 +7,7 @@ use App\Http\Controllers\CashflowController;
 use App\Http\Controllers\LendingController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\CustomAuthController;
-
+use App\Http\Controllers\PdfController;
 
 
 /*
@@ -74,6 +74,12 @@ Route::get('/changepw', [CustomAuthController::class, 'viewPassword']);
 //Profile
 Route::get('/profile', [CustomAuthController::class, 'profile']);
 Route::patch('/profile/{id}', [CustomAuthController::class, 'update']);
+
+//PDF
+Route::get('/cashflow_pdf', [PdfController::class, 'generateCashflow']);
+Route::get('/stock_pdf', [PdfController::class, 'generateStock']);
+Route::get('/lending_pdf', [PdfController::class, 'generateLending']);
+
 /* 
 
 Auth::routes();

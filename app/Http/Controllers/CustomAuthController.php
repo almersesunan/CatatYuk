@@ -108,7 +108,7 @@ class CustomAuthController extends Controller
         //     'city' => '',
         //     'postalcode' => ''
         // ]);
-        $user = User::findOrFail($id);
+        $user = User::where('id', Auth::user()->id)->find($id);
         $user->name = $request->name;
         // $user->email = $request->email;
         $user->address = $request->address;
