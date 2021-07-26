@@ -104,12 +104,21 @@
         <form method="post" action="stock" id="modal-form">
           @csrf
           <div class="modal-body">
-            <div class="mb-3">
-                <label class="form-label" for="item_name">Item Name</label>
-                <input name="item_name" class="form-control @error('item_name') is-invalid @enderror" id="item_name" value="{{ old('item_name') }}">
-                @error('item_name')
+            <div class="row mt-3">
+              <div class="col-md-6">
+                  <label class="form-label" for="item_name">Item Name</label>
+                  <input name="item_name" class="form-control @error('item_name') is-invalid @enderror" id="item_name" value="{{ old('item_name') }}">
+                  @error('item_name')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="">Measurement</label>
+                <input name="" class="form-control @error('') is-invalid @enderror" id="" value="{{ old('') }}">
+                @error('')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
+              </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="minimum">Minimum</label>
@@ -149,6 +158,12 @@
               lengthChange: false
           } );
        
+          function getwords(){
+            textbox = document.getElementById('words');
+            label = document.getElementById('label');
+            label.innerHTML = textbox.value;
+          }
+
           // Edit Modal Fetch Data
           table.on('click', '.edit', function(){
       

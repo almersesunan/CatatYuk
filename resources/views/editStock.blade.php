@@ -25,13 +25,21 @@
 
                               @method('patch')
                               @csrf
-
-                              <div class="mb-3">
-                                <label class="form-label" for="item_name_edit">Item Name</label>
-                                <input name="item_name_edit" class="form-control @error('item_name_edit') is-invalid @enderror" id="item_name_edit" value="{{ $stock->item_name }}">
-                                @error('item_name_edit')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                              <div class="row mt-3">
+                                <div class="col-md-6">
+                                  <label class="form-label" for="item_name_edit">Item Name</label>
+                                  <input name="item_name_edit" class="form-control @error('item_name_edit') is-invalid @enderror" id="item_name_edit" value="{{ $stock->item_name }}">
+                                  @error('item_name_edit')
+                                      <div class="invalid-feedback">{{ $message }}</div>
+                                  @enderror
+                                </div>
+                                <div class="col-md-6">
+                                  <label class="form-label" for="">Measurement</label>
+                                  <input name="" class="form-control @error('') is-invalid @enderror" id="" value="">
+                                  @error('')
+                                      <div class="invalid-feedback">{{ $message }}</div>
+                                  @enderror
+                                </div>
                               </div>
                               <div class="mb-3">
                                   <label class="form-label" for="minimum_edit">Minimum</label>
