@@ -5,6 +5,7 @@
 @section('container')
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <div class="card-body">
+      <a type="button" class="btn btn-sm btn-outline-secondary" href="/cashflow_pdf" target="_blank" style="float: right">Download to PDF</a><br>
       <h1 class="h2">Cashflow</h1>
       @if (session('status'))
         <div class="alert alert-success">
@@ -12,7 +13,6 @@
         </div>
       @endif
       <table id="table" class="table table-striped table-bordered" style="width:100%">
-        <a href="/cashflow_pdf" target="_blank" style="float: right">Download to PDF</a>
         <thead>
           <tr align=center>
             <th>No</th>

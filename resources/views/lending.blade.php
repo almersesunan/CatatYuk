@@ -5,7 +5,7 @@
 @section('container')
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">   
           <div class="card-body">
-            <a type="button" class="btn btn-primary active" href="/lending_pdf" target="_blank" style="float: right">Download to PDF</a><br>
+            <a type="button" class="btn btn-sm btn-outline-secondary" href="/lending_pdf" target="_blank" style="float: right">Download to PDF</a><br>
             <h1 class="h2">Payable</h1>
             @if (session('status'))
               <div class="alert alert-success">

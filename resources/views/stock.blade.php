@@ -8,6 +8,7 @@
     <!--css ini bikin ngerusak tampilan, gatau kenapa-->
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}   
     <div class="card-body">
+      <a type="button" class="btn btn-sm btn-outline-secondary" href="/stock_pdf" target="_blank" style="float: right">Download to PDF</a><br>
       <h1 class="h2">Manage Stock</h1>
       @if (session('status'))
         <div class="alert alert-success">
@@ -15,7 +16,6 @@
         </div>
       @endif
       <table id="table" class="table table-striped table-bordered" style="width:100%">
-        <a href="/stock_pdf" target="_blank" style="float: right">Download to PDF</a>
         <thead>
             <tr align="center">
               <th>No</th>
