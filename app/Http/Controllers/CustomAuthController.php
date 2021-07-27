@@ -27,10 +27,10 @@ class CustomAuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('dashboard')
-                        ->withSuccess('Signed in');
+                        ->withSuccess('status', 'Signed in');
         }
   
-        return redirect("login")->with('Login details are not valid');
+        return redirect("login")->with('status', 'Login details are invalid!');
     }
 
 
@@ -52,7 +52,7 @@ class CustomAuthController extends Controller
         $data = $request->all();
         $check = $this->create($data);
          
-        return redirect("dashboard")->with('You have signed-in');
+        return redirect("dashboard")->with('status', 'You have signed-in');
     }
 
 
@@ -100,22 +100,29 @@ class CustomAuthController extends Controller
      * @param  \App\Models\User  $cashflow
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id){
-        // $request->validate([
-        //     'name' => 'required',
-        //     'email' => 'required|email|unique:users',
-        //     'address' => '',
-        //     'city' => '',
-        //     'postalcode' => ''
-        // ]);
-        $user = User::where('id', Auth::user()->id)->find($id);
-        $user->name = $request->name;
-        // $user->email = $request->email;
-        $user->address = $request->address;
-        $user->city = $request->city;
-        $user->postalcode = $request->postalcode;
-        $user->save();
-        return redirect('profile')->with('status','Data has been updated!');
+    public function update(Request $request, User $user){
+        $request->validate([
+            'name' => 'required'
+            // 'email' => 'required|email|unique:users'
+            // 'address' => '',
+            // 'city' => '',
+            // 'postalcode' => ''
+        ]);
+        $user = User::where('id', Auth::user()->id);
+        $user->update([
+            'name' => $request->name,
+            'address' => $request->address,
+            'city' => $request->city,
+            'postalcode' => $request->postalcode
+        ]);
+        // $user->name = $request->name;
+        // // $user->email = $request->email;
+        // $user->address = $request->address;
+        // $user->city = $request->city;
+        // $user->postalcode = $request->postalcode;
+        // $user->save();
+        //session()->flash('user update sucessfully!')
+        return redirect('profile')->with('status','Your profile has been updated!');
     }
     
 

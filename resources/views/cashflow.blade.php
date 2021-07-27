@@ -34,7 +34,11 @@
               <td>{{$cashflow->category}}</td>
               <td>{{$cashflow->description}}</td>
               <td align=right>{{$cashflow->tr_amount}}</td>
-              <td>{{$cashflow->invoice}}</td>
+              <td align=center>
+                <a href="{{ asset('/storage/images/invoices/'.$cashflow->invoice) }}" target="_blank">
+                  <img style="height: 50px;" src="{{ asset('/storage/images/invoices/'.$cashflow->invoice) }}" alt="cashflow-invoice"/>
+                </a>
+              </td>
               <td align=center>
                 <a href="/cashflow/{{ $cashflow->tr_id }}" class="btn btn-secondary edit"><i class="fa fa-edit"></i>Edit</a> 
                 <form action="cashflow/{{ $cashflow->tr_id }}" method="POST" class="d-inline">
@@ -136,7 +140,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
-          <form method="post" action="cashflow" >
+          <form method="post" action="cashflow" enctype="multipart/form-data">
             @csrf
             <div class="modal-body">
               <div class="mb-3">

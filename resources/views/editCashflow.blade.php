@@ -21,7 +21,7 @@
                         <div class="card-body">
                         <br>
                             
-                            <form method="post" action="/cashflow/{{ $cashflow->tr_id }}">
+                            <form method="post" action="/cashflow/{{ $cashflow->tr_id }}" enctype="multipart/form-data">
 
                               @method('patch')
                               @csrf
@@ -66,8 +66,8 @@
                                   @enderror
                                 </div>
                                 <div class="mb-3">
-                                  <label for="invoice" class="form-label">Invoice</label>
-                                  <input name="invoice" type="file" class="form-control-file" id="invoice">
+                                  <label for="invoice_edit" class="form-label">Invoice</label>
+                                  <input name="invoice_edit" type="file" class="form-control-file" id="invoice_edit">
                                 </div>
                                   <br>
                                 <div class="row">

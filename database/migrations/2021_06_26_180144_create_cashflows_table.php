@@ -20,7 +20,7 @@ class CreateCashflowsTable extends Migration
             $table->string('category', 20);
             $table->string('description', 255);
             $table->decimal('tr_amount', $precision = 19, $scale = 2);
-            $table->binary('invoice')->nullable();
+            $table->string('invoice', 255)->nullable();
             $table->timestamps();
         });
     }

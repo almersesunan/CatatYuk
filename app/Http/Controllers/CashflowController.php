@@ -42,10 +42,22 @@ class CashflowController extends Controller
             'tr_date' => 'required|date',
             'category' => 'required|max:20',
             'description' => 'required|max:255',
-            'tr_amount' => 'required|numeric|min:0'
+            'tr_amount' => 'required|numeric|min:0',
+            'invoice' => 'mimes:jpeg,jpg,png|max:5048' //masih ngaco formatnya
         ]);
 
-        Cashflow::create($request->all());
+        $input = $request->all();
+        if($request->hasFile('invoice')){
+            $destination_path = 'public/images/invoices';
+            $invoice = $request->file('invoice');
+            $invoice_name = $invoice->getClientOriginalName();
+            $request->file('invoice')->storeAs($destination_path, $invoice_name);
+            
+            $input['invoice'] = $invoice_name;
+        }
+
+        Cashflow::create($input);
+
         return redirect('cashflow')->with('status','Add data successfull!');
     }
 
@@ -91,7 +103,8 @@ class CashflowController extends Controller
             'tr_date_edit' => 'required|date',
             'category_edit' => 'required|max:20',
             'description_edit' => 'required|max:255',
-            'tr_amount_edit' => 'required|numeric|min:0'
+            'tr_amount_edit' => 'required|numeric|min:0',
+            'invoice_edit' => 'mimes:jpeg,jpg,png|max:5048' //masih ngaco formatnya
         ]);
 
         // Cashflow::where('tr_id', $cashflow->tr_id)->update([
@@ -102,7 +115,17 @@ class CashflowController extends Controller
         //     'tr_amount' => $request->tr_amount_edit
         // ]);
 
-        $cashflow = Cashflow::find($id);
+        $input = Cashflow::find($id);
+        if($request->hasFile('invoice_edit')){
+            $destination_path = 'public/images/invoices';
+            $invoice = $request->file('invoice_edit');
+            $invoice_name = $invoice->getClientOriginalName();
+            $request->file('invoice_edit')->storeAs($destination_path, $invoice_name);
+            
+            $input['invoice'] = $invoice_name;
+        }
+
+        $cashflow = $input;
         $cashflow->type = $request->type_edit;
         $cashflow->tr_date = $request->tr_date_edit;
         $cashflow->category = $request->category_edit;

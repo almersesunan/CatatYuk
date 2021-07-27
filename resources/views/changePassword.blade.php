@@ -15,7 +15,7 @@
               <body>
                 <div class="container">
                     <div class="card mt-5" style="width: 500px; margin: auto">
-                        <div class="card-header text-center">Ubah password
+                        <div class="card-header text-center">Change Password
                         </div>
                         <div class="card-body">
                         <br>
@@ -40,7 +40,7 @@
                                 <div class="row">
                                   <div class="col-8"></div>
                                   <div class="col-2">
-                                    <a href="/lending" class="btn btn-secondary">Cancel</a>
+                                    <a href="/dashboard" class="btn btn-secondary">Cancel</a>
                                   </div>
                                   <div class="col-1">
                                     <button type="submit" class="btn btn-primary">Save</button>

@@ -23,6 +23,13 @@
                         @endif
                     </div>
                     <input type="submit" value="Login" class="btn solid" />
+                    <br>
+                    @if (session('status'))
+                    <div class="alert alert-success" style="color: red;">
+                        {{ session('status') }}
+                    </div>
+                     @endif
+                    <br>
                     <p class="social-text">
                         Or Sign in with social platforms
                     </p>
@@ -66,6 +73,8 @@
                         @endif
                     </div>
                     <input type="submit" class="btn" value="Sign up" />
+                    <br>
+                    <br>
                     <p class="social-text">
                         Or Sign up with social platforms
                     </p>
@@ -90,9 +99,9 @@
         <div class="panels-container">
             <div class="panel left-panel">
                 <div class="content">
-                    <h3>Don't have an account ?</h3>
+                    <h3>Don't have an account?</h3>
                     <p>
-                        Please register your account first !
+                        Let's register your account first!
                     </p>
                     <button class="btn transparent" id="sign-up-btn">
                         Sign up
@@ -102,10 +111,8 @@
             </div>
             <div class="panel right-panel">
                 <div class="content">
-                    <h3>One of us ?</h3>
-                    <p>
-                        
-                    </p>
+                    <h3>Already have one?</h3>
+                    <br>
                     <button class="btn transparent" id="sign-in-btn">
                         Sign in
                     </button>
