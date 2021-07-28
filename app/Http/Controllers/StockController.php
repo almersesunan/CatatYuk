@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Stock;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StockController extends Controller
 {
@@ -14,7 +15,8 @@ class StockController extends Controller
      */
     public function index()
     {
-        $stock = Stock::all();
+        $stock = auth()->user()->stock;
+        // $stock = Stock::all();
         return view('stock', compact('stock'));
     }
 
@@ -47,7 +49,10 @@ class StockController extends Controller
             'available' => 'required|integer|min:0'
         ]);
 
-        Stock::create($request->all());
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        Stock::create($data);
+
         return redirect('stock')->with('status','Add data successfull!');
     }
 

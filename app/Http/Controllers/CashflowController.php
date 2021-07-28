@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cashflow;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Contracts\Service\Attribute\Required;
 
 class CashflowController extends Controller
@@ -15,7 +16,8 @@ class CashflowController extends Controller
      */
     public function index()
     {
-        $cashflow = Cashflow::all();
+        $cashflow = auth()->user()->cashflow;
+        // $cashflow = Cashflow::all();
         return view('cashflow', compact('cashflow'));
     }
 
@@ -56,6 +58,7 @@ class CashflowController extends Controller
             $input['invoice'] = $invoice_name;
         }
 
+        $input['user_id'] = Auth::user()->id;
         Cashflow::create($input);
 
         return redirect('cashflow')->with('status','Add data successfull!');

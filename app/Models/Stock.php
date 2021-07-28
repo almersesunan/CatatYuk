@@ -9,5 +9,5 @@ class Stock extends Model
 {
     use HasFactory;
     protected $primaryKey = 'st_id';
-    protected $fillable = ['item_name','minimum','available'];
+    protected $fillable = ['user_id','item_name','minimum','available'];
 }

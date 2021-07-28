@@ -15,6 +15,8 @@ class CreateStocksTable extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id('st_id');
+            $table->biginteger('user_id')->unsigned(); 
+            $table->foreign('user_id')->references('id')->on('users'); 
             $table->string('item_name', 255);
             $table->integer('minimum');
             $table->integer('available');

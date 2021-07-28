@@ -9,5 +9,5 @@ class Cashflow extends Model
 {
     use HasFactory;
     protected $primaryKey = 'tr_id';
-    protected $fillable = ['type','tr_date','category','description','tr_amount','invoice'];
+    protected $fillable = ['user_id','type','tr_date','category','description','tr_amount','invoice'];
 }

@@ -16,8 +16,10 @@ class LendingController extends Controller
      */
     public function index()
     {
-        $payable = Payable::all();
-        $receivable = Receivable::all();
+        $payable = auth()->user()->payable;
+        $receivable = auth()->user()->receivable;
+        // $payable = Payable::all();
+        // $receivable = Receivable::all();
         return view('lending', compact('payable','receivable'));
     }
 

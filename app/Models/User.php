@@ -11,6 +11,22 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function cashflow() {
+        return $this->hasMany(Cashflow::class);
+    }
+
+    public function payable() {
+        return $this->hasMany(Payable::class);
+    }
+
+    public function receivable() {
+        return $this->hasMany(Receivable::class);
+    }
+
+    public function stock() {
+        return $this->hasMany(Stock::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
