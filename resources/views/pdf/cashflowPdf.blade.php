@@ -59,19 +59,33 @@
         </tr>
       @endforeach
       <tr>
+        <td colspan="3"></td>
+      </tr>
+      <tr>
         <th>Total</th>
         <td align="right" style="font-weight: bold">Rp. {{ $total_income }}.00</td>
         <td align="right" style="font-weight: bold">Rp. {{ $total_expense }}.00</td>
       </tr>
+      <tr>
+        <td colspan="3"></td>
+      </tr>
+      <tr align="center" >
+        <th style="font-weight: bold;" colspan="2">Revenue</th>
+        @if ($revenue<0)
+          <td align="right" style="font-weight: bold;color: red;" colspan="1">Loss Rp. {{ abs($revenue) }}.00</td>
+        @else
+          <td align="right" style="font-weight: bold;color: green;" colspan="1">Profit Rp. {{ abs($revenue) }}.00</td>
+        @endif
+      </tr>
     </table>
-    <br>
+    {{-- <br>
     <div class="revenue" style="text-align: right;display: inline-block;">
       @if ($revenue<0)
         <p style="font-weight: bold;">Revenue : <span style="font-weight: bold;color: red;">Loss Rp. {{ abs($revenue) }}.00</span></p>
       @else
         <p style="font-weight: bold;">Revenue : <span style="font-weight: bold;color: green;">Profit Rp. {{ abs($revenue) }}.00</span></p>
       @endif
-    </div>
+    </div> --}}
 
     {{-- <br>
     <br>
