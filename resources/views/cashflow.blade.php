@@ -34,11 +34,15 @@
               <td>{{$cashflow->category}}</td>
               <td>{{$cashflow->description}}</td>
               <td align=right>{{$cashflow->tr_amount}}</td>
-              <td align=center>
-                <a href="{{ asset('/storage/images/invoices/'.$cashflow->invoice) }}" target="_blank">
-                  <img style="height: 50px;" src="{{ asset('/storage/images/invoices/'.$cashflow->invoice) }}" alt="cashflow-invoice"/>
-                </a>
-              </td>
+              @if ($cashflow->invoice==null)
+                <td align=center>No Invoice</td>
+              @else
+                <td align=center>
+                  <a href="{{ asset('/storage/images/invoices/'.$cashflow->invoice) }}" target="_blank">
+                    <img style="height: 50px;" src="{{ asset('/storage/images/invoices/'.$cashflow->invoice) }}" alt="cashflow-invoice"/>
+                  </a>
+                </td>
+              @endif
               <td align=center>
                 <a href="/cashflow/{{ $cashflow->tr_id }}" class="btn btn-secondary edit"><i class="fa fa-edit"></i>Edit</a> 
                 <form action="cashflow/{{ $cashflow->tr_id }}" method="POST" class="d-inline">
