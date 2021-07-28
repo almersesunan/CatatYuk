@@ -30,7 +30,7 @@
     <br>
     <div class="card border-dark mb-3" style="max-width: 100%;">
       <div class="card-body text-dark">
-        <h2>Summary</h2>
+        <h2>Summary Details</h2>
         <div class="table-responsive">
           <table id="table-hutang" class="table table-striped table-bordered" style="width:100%">
             <thead>
