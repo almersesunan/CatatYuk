@@ -26,8 +26,9 @@ class CustomAuthController extends Controller
    
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
+            session()->flash('success');
             return redirect()->intended('dashboard')
-                        ->withSuccess('status', 'Signed in');
+                        ->withSuccess('Signed In');
         }
   
         return redirect("login")->with('status', 'Login details are invalid!');
