@@ -69,7 +69,7 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 Route::get('/changepw', [CustomAuthController::class, 'viewPassword']);
 
 //changepassword
-//Route::patch('/change-password/{id}', [CustomAuthController::class, 'changePassword']);
+Route::patch('/change-password/{id}', [CustomAuthController::class, 'changePassword']);
 
 //Profile
 Route::get('/profile', [CustomAuthController::class, 'profile']);

@@ -19,7 +19,7 @@
                         </div>
                         <div class="card-body">
                         <br>
-                        {{-- <form method="post" action="/change-password/{{ Auth::user()->id }}"> --}}
+                        <form method="post" action="/change-password/{{ Auth::user()->id }}">
                           @method('patch')
                           @csrf
                           <div class="mb-3">
@@ -49,7 +49,7 @@
                               <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                           </div>
-                        {{-- </form> --}}
+                        </form>
                       </div>   
                     </div>
                   </div>
