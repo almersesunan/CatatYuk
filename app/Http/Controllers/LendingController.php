@@ -66,7 +66,7 @@ class LendingController extends Controller
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
         Payable::create($data);
-        return redirect('lending')->with('status','Data Berhasil Ditambahkan!');
+        return redirect('lending')->with('status','Data added successfully!');
     }
 
     public function storeReceivable(Request $request)
@@ -89,7 +89,7 @@ class LendingController extends Controller
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
         Receivable::create($data);
-        return redirect('lending')->with('status','Data Berhasil Ditambahkan!');
+        return redirect('lending')->with('status','Data added successfully!');
     }
 
     /**
@@ -152,7 +152,7 @@ class LendingController extends Controller
         $payable->description = $request->description_edit;
         $payable->py_amount = $request->py_amount_edit;
         $payable->save();
-        return redirect('lending')->with('status','Data Berhasil Diupdate!');
+        return redirect('lending')->with('status','Data has been updated!');
 
     }
 
@@ -180,7 +180,7 @@ class LendingController extends Controller
         $receivable->rc_description = $request->rc_description_edit;
         $receivable->rc_amount = $request->rc_amount_edit;
         $receivable->save();
-        return redirect('lending')->with('status','Data Berhasil Diupdate!');
+        return redirect('lending')->with('status','Data has been updated!');
 
     }
 
@@ -194,12 +194,12 @@ class LendingController extends Controller
     public function destroyPayable(Payable $payable)
     {
         Payable::destroy($payable->py_id);
-        return redirect('lending')->with('status','Data Berhasil Dihapus!');
+        return redirect('lending')->with('status','Data deleted successfully!');
     }
 
     public function destroyReceivable(Receivable $receivable)
     {
         Receivable::destroy($receivable->rc_id);
-        return redirect('lending')->with('status','Data Berhasil Dihapus!');
+        return redirect('lending')->with('status','Data deleted successfully!');
     }
 }

@@ -48,11 +48,4 @@
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script>
-    $(document).ready(function(){
-      $('.alert-success').fadeIn().delay(5000).fadeOut();
-    });
-</script>
-
 @endsection

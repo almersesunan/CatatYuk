@@ -41,6 +41,8 @@ class PagesController extends Controller
         $cash = array();
         $income = array();
         $expense = array();
+        $total_income = 0;
+        $total_expense = 0;
         //$test = array();
 
         $type = $temp->pluck('type')->sortBy('type')->unique();
@@ -58,7 +60,10 @@ class PagesController extends Controller
                 }
             }
         }
-    
+        $total_income = array_sum($income);
+        $total_expense = array_sum($expense);
+
+        $revenue = $total_income - $total_expense;
         //dd($expense);
 
         //Stok barang chart
@@ -75,7 +80,7 @@ class PagesController extends Controller
 
         //dd($minimum);
 
-        return view('dashboard')->with(compact('payable','receivable','cashflow','type','cash','income','expense','item_name','item_count'));
+        return view('dashboard')->with(compact('payable','receivable','cashflow','type','cash','income','expense','item_name','item_count','total_income','total_expense','revenue'));
     }
 
     public function __construct()

@@ -5,13 +5,13 @@
 @section('container')
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">   
           <div class="card-body">
-            <a type="button" class="btn btn-sm btn-outline-secondary" href="/lending_pdf" target="_blank" style="float: right">Download to PDF</a><br>
-            <h1 class="h2">Payable</h1>
             @if (session('status'))
               <div class="alert alert-success">
                   {{ session('status') }}
               </div>
             @endif
+            <a type="button" class="btn btn-sm btn-outline-secondary" href="/lending_pdf" target="_blank" style="float: right">Download to PDF</a><br>
+            <h1 class="h2">Payable</h1>
             <table id="table" class="table table-striped table-bordered" style="width:100%">
               <thead>
                 <tr align="center">
@@ -38,7 +38,7 @@
                     <form action="lending/payable/{{$payable->py_id}}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
-                      <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</button>
+                      <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure want to delete this data?')"><i class="fa fa-trash"></i>Delete</button>
                      </form>
                     </td>
                 </tr>
@@ -107,7 +107,7 @@
             <div class="modal-body">
               <div class="mb-3">
                 <label class="form-label" for="py_name">Name</label>
-                <input type="text" name="py_name" placeholder="Masukan Nama" class="form-control @error('py_name') is-invalid @enderror" id="py_name" value="{{ old('py_name') }}">
+                <input type="text" name="py_name" placeholder="Insert name" class="form-control @error('py_name') is-invalid @enderror" id="py_name" value="{{ old('py_name') }}">
                 @error('py_name')
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -128,14 +128,14 @@
               </div>
               <div class="mb-3">
                 <label class="form-label" for="description">Description</label>
-                <textarea class="form-control @error('description') is-invalid @enderror" name="description" placeholder="Masukan keterangan" rows="3">{{ old('description') }}</textarea>
+                <textarea class="form-control @error('description') is-invalid @enderror" name="description" placeholder="" rows="3">{{ old('description') }}</textarea>
                 @error('description')
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
               <div class="mb-3">
                   <label class="form-label" for="py_amount">Amount</label>
-                  <input type="text" name="py_amount" class="form-control @error('py_amount') is-invalid @enderror" data-type="currency" placeholder="Rp 0" id="py_amount" value="{{ old('py_amount') }}">
+                  <input type="text" name="py_amount" class="form-control @error('py_amount') is-invalid @enderror" data-type="currency" placeholder="Rp. 0.00" id="py_amount" value="{{ old('py_amount') }}">
                   @error('py_amount')
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
@@ -177,7 +177,7 @@
               <div class="modal-body">
                 <div class="mb-3">
                     <label class="form-label" for="rc_name">Name</label>
-                    <input type="text" name="rc_name" class="form-control @error('rc_name') is-invalid @enderror" placeholder="Masukan nama" id="rc_name" value="{{ old('rc_name') }}">
+                    <input type="text" name="rc_name" class="form-control @error('rc_name') is-invalid @enderror" placeholder="Insert name" id="rc_name" value="{{ old('rc_name') }}">
                     @error('rc_name')
                       <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -198,14 +198,14 @@
                   </div>
                   <div class="mb-3">
                     <label class="form-label" for="rc_description">Description</label>
-                    <textarea class="form-control @error('rc_description') is-invalid @enderror" name="rc_description" id="description" placeholder="Masukan keterangan" rows="3">{{ old('rc_description') }}</textarea>
+                    <textarea class="form-control @error('rc_description') is-invalid @enderror" name="rc_description" id="description" placeholder="" rows="3">{{ old('rc_description') }}</textarea>
                     @error('rc_description')
                       <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                   </div>
                   <div class="mb-3">
                       <label class="form-label" for="rc_amount">Amount</label>
-                      <input type="text" name="rc_amount" class="form-control text-right @error('rc_amount') is-invalid @enderror" data-type="currency" placeholder="Rp 0" id="rc_amount" value="{{ old('rc_amount') }}">
+                      <input type="text" name="rc_amount" class="form-control text-right @error('rc_amount') is-invalid @enderror" data-type="currency" placeholder="Rp. 0.00" id="rc_amount" value="{{ old('rc_amount') }}">
                       @error('rc_amount')
                         <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
@@ -351,13 +351,6 @@
     });
 
   </script> --}}
-  
-  <script>
-    $(document).ready(function(){
-      $('.alert-success').fadeIn().delay(2500).fadeOut();
-    });
-  </script>
-
   
   {{-- Table Hutang --}}
   <script>

@@ -33,8 +33,13 @@
         <h2>Summary Details</h2>
         <div class="table-responsive">
           <table id="table-hutang" class="table table-striped table-bordered" style="width:100%">
+            <colgroup>
+              <col span="0" style="width: 20%;">
+              <col span="0" style="width: 33%;">
+              <col span="0" style="width: 33%;">
+            </colgroup>
             <thead>
-              <tr>
+              <tr align="center">
                 <th>Month</th>
                 @foreach ($type as $types)
                   <th>Amount {{ $types }}</th>
@@ -42,13 +47,32 @@
               </tr>
             </thead>
             @foreach ($cashflow as $month => $values)
-              <tr>
+              <tr align="center">
                 <td>{{ \Carbon\Carbon::parse($month)->format('F Y') }}</td>
                 @foreach ($type as $types)
-                    <td>{{ $cashflow[$month][$types]['amount'] ?? '0' }}</td>
+                    <td align="right">Rp. {{ $cashflow[$month][$types]['amount'] ?? '0' }}</td>
                 @endforeach
               </tr>
             @endforeach
+            <tr>
+              <td colspan="3"></td>
+            </tr>
+            <tr align="center">
+              <th>Total</th>
+              <td align="right" style="font-weight: bold">Rp. {{ $total_income }}.00</td>
+              <td align="right" style="font-weight: bold">Rp. {{ $total_expense }}.00</td>
+            </tr>
+            <tr>
+              <td colspan="3"></td>
+            </tr>
+            <tr align="center" >
+              <th style="font-weight: bold;" colspan="2">Revenue</th>
+              @if ($revenue<0)
+                <td align="right" style="font-weight: bold;color: red;" colspan="2">Loss Rp. {{ abs($revenue) }}.00</td>
+              @else
+                <td align="right" style="font-weight: bold;color: green;" colspan="2">Profit Rp. {{ abs($revenue) }}.00</td>
+              @endif
+            </tr>
           </table>
         </div>
       </div>
@@ -91,7 +115,7 @@
                 <td align=center>{{$payable->py_date}}</td>
                 <td align=center>{{$payable->due_date}}</td>
                 <td>{{$payable->description}}</td>
-                <td align=right>{{$payable->py_amount}}</td>
+                <td align=right>Rp. {{$payable->py_amount}}</td>
               </tr>
               @endforeach
             </tbody>
@@ -123,7 +147,7 @@
                     <td align=center>{{$receivable->rc_date}}</td>
                     <td align=center>{{$receivable->rc_due_date}}</td>
                     <td>{{$receivable->rc_description}}</td>
-                    <td align=right>{{$receivable->rc_amount}}</td>
+                    <td align=right>Rp. {{$receivable->rc_amount}}</td>
                 </tr>
               @endforeach
             </tbody>

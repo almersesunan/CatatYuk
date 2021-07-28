@@ -179,10 +179,6 @@
               .appendTo( '#table_wrapper .col-md-6:eq(0)' );
           } );
 
-          // Success Flash FadeOut
-          $(document).ready(function(){
-            $('.alert-success').fadeIn().delay(5000).fadeOut();
-          });
           </script>
 
           {{-- Hold Modal After Validation Error --}}

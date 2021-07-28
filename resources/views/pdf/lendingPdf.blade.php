@@ -34,7 +34,7 @@
             <td align="center">{{$payable->py_date}}</td>
             <td align="center">{{$payable->due_date}}</td>
             <td>{{$payable->description}}</td>
-            <td align="right">{{$payable->py_amount}}</td>
+            <td align="right">Rp. {{$payable->py_amount}}</td>
           </tr>
           @endforeach
         </tbody>

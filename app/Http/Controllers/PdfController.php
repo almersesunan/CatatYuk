@@ -8,11 +8,57 @@ use App\Models\Stock;
 use App\Models\Payable;
 use App\Models\Receivable;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class PdfController extends Controller
 {
     public function generateCashflow(){
         $cashflow = Cashflow::get();
+        $temp = Cashflow::select(['type',DB::raw("DATE_FORMAT(tr_date,'%Y-%M') as month"), DB::raw('SUM(tr_amount) as amount')])->groupBy('type')->groupBy('month')->orderBy('tr_date')->get();
+        //DB::raw("DATE_FORMAT(tr_date,'%Y') as year")
+        $cashflow_summary= [];
+        $temp->each(function($item) use (&$cashflow_summary){
+            $cashflow_summary[$item->month][$item->type] = [
+                'amount' => $item->amount
+            ];
+        } );
+        
+        $cash = array();
+        $income = array();
+        $expense = array();
+        $total_income = 0;
+        $total_expense = 0;
+        //$test = array();
+
+        $type = $temp->pluck('type')->sortBy('type')->unique();
+        //$year = $temp->pluck('year')->sortBy('year')->unique();
+
+        foreach ($cashflow_summary as $month => $values){
+            array_push($cash, Carbon::parse($month)->format('F Y'));
+            //array_push($test, Carbon::parse($month)->format('Y'));
+            foreach ($type as $types){
+                if ($types == 'Income'){
+                    array_push($income, $cashflow_summary[$month]['Income']['amount'] ??  '0');
+                }
+                elseif ($types == 'Expense'){
+                    array_push($expense, $cashflow_summary[$month]['Expense']['amount'] ?? '0');
+                }
+            }
+        };
+        $total_income = array_sum($income);
+        $total_expense = array_sum($expense);
+
+        $revenue = $total_income - $total_expense;
+
+        // //chart->img
+        // $data = file(getClientOriginalName());
+        // $imgUrl = 'http://export.highcharts.com/' + data;
+        // $destination_path = 'public/images/charts';
+        // $cashflow_chart = $imgUrl->file(data);
+        // $cashflow_chart_name = $cashflow_chart->getClientOriginalName();
+        // $imgUrl->file(data)->storeAs($destination_path, $invoice_name);
+
         $fileName = 'Cashflow.pdf';
         $mpdf = new \Mpdf\Mpdf([
             'margin_left' => 10,
@@ -23,7 +69,7 @@ class PdfController extends Controller
             'margin_footer' => 10
         ]);
     
-        $html = View::make('pdf.cashflowPdf')->with('cashflow', $cashflow);
+        $html = View::make('pdf.cashflowPdf')->with(compact('cashflow','cashflow_summary','type','cash','total_income','total_expense','income','expense','revenue'));
         $html = $html->render();
 
         $mpdf->SetHTMLHeader('
@@ -35,7 +81,7 @@ class PdfController extends Controller
                 <tr>
                     <td width="33%">{DATE j-m-Y}</td>
                     <td width="33%" align="center">{PAGENO}/{nbpg}</td>
-                    <td width="33%" style="text-align: right;">catatyuk.herokuapp.com</td>
+                    <td width="33%" style="text-align: right;">catatyuknew.herokuapp.com</td>
                 </tr>
             </table>');
 
@@ -70,7 +116,7 @@ class PdfController extends Controller
                 <tr>
                     <td width="33%">{DATE j-m-Y}</td>
                     <td width="33%" align="center">{PAGENO}/{nbpg}</td>
-                    <td width="33%" style="text-align: right;">catatyuk.herokuapp.com</td>
+                    <td width="33%" style="text-align: right;">catatyuknew.herokuapp.com</td>
                 </tr>
             </table>');
 
@@ -106,7 +152,7 @@ class PdfController extends Controller
                 <tr>
                     <td width="33%">{DATE j-m-Y}</td>
                     <td width="33%" align="center">{PAGENO}/{nbpg}</td>
-                    <td width="33%" style="text-align: right;">catatyuk.herokuapp.com</td>
+                    <td width="33%" style="text-align: right;">catatyuknew.herokuapp.com</td>
                 </tr>
             </table>');
 

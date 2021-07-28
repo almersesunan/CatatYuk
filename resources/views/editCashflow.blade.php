@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="mb-3">
                                   <label for="category_edit" class="form-label">Category</label>
-                                  <input name="category_edit" type="input" class="form-control @error('category_edit') is-invalid @enderror" id="category_edit" placeholder="Makanan" value="{{ $cashflow->category }}">
+                                  <input name="category_edit" type="input" class="form-control @error('category_edit') is-invalid @enderror" id="category_edit" placeholder="Food" value="{{ $cashflow->category }}">
                                   @error('category_edit')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                   @enderror
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="mb-3">
                                   <label for="tr_amount_edit" class="form-label">Amount</label>
-                                  <input name="tr_amount_edit" type="input" class="form-control @error('tr_amount_edit') is-invalid @enderror" id="tr_amount_edit" placeholder="Rp. 0" value="{{ $cashflow->tr_amount }}">
+                                  <input name="tr_amount_edit" type="input" class="form-control @error('tr_amount_edit') is-invalid @enderror" id="tr_amount_edit" placeholder="Rp. 0.00" value="{{ $cashflow->tr_amount }}">
                                   @error('tr_amount_edit')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                   @enderror

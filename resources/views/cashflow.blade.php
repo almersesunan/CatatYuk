@@ -169,7 +169,7 @@
               </div>
               <div class="mb-3">
                 <label for="category" class="form-label">Category</label>
-                <input name="category" type="input" class="form-control @error('category') is-invalid @enderror" id="category" placeholder="Makanan" value="{{ old('category') }}">
+                <input name="category" type="input" class="form-control @error('category') is-invalid @enderror" id="category" placeholder="Food" value="{{ old('category') }}">
                 @error('category')
                       <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -361,10 +361,6 @@
 
     table.buttons().container()
       .appendTo( '#table_wrapper .col-md-6:eq(0)' );
-    });
-
-    $(document).ready(function(){
-      $('.alert-success').fadeIn().delay(5000).fadeOut();
     });
 
     // Hold Modal After Validation Error
