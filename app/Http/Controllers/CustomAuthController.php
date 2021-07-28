@@ -71,22 +71,22 @@ class CustomAuthController extends Controller
         return view('changePassword');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $cashflow
-     * @return \Illuminate\Http\Response
-    */
-    public function changePassword(Request $request, User $user)
-    {
-        $user = User::where('id', Auth::user()->id);
-        $user->update([
-            'password' => Hash::make($request->confirm_password)
-        ]);
-        //dd($user);
-        return redirect('login');
-    }
+    // /**
+    //  * Update the specified resource in storage.
+    //  *
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @param  \App\Models\User  $cashflow
+    //  * @return \Illuminate\Http\Response
+    // */
+    // public function changePassword(Request $request, User $user)
+    // {
+    //     $user = User::where('id', Auth::user()->id);
+    //     $user->update([
+    //         'password' => Hash::make($request->confirm_password)
+    //     ]);
+    //     //dd($user);
+    //     return redirect('login');
+    // }
     
 
     // public function dashboard()
