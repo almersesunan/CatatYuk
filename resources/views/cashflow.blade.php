@@ -62,6 +62,8 @@
       <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
     </head>
 
+
+    
     {{-- <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="edittransaksi" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
