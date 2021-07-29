@@ -8,11 +8,9 @@ self.addEventListener('install', function(event) {
             console.log('Install serviceworker... cache openend');
             return cache.addAll(
                 [
-                    '/',
                     '/dashboard',
                     '/lending',
                     '/cashflow',
-                    '/stock',
                     '/css/bootstrap.min.css',
                     '/css/dashboard.css',
                     '/css/main.css',

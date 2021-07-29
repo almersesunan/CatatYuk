@@ -1,7 +1,7 @@
 {
     "short_name": "Catatyuk",
     "name": "Catatyuk",
-    "start_url": "/dashboard",
+    "start_url": "/",
     "background_color": "#3367D6",
     "display": "standalone",
     "scope": "/",
