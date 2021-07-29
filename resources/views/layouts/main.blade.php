@@ -19,6 +19,9 @@
               align-self: center;
               align-content: center;
             }
+            .sidebarMenu{
+              display: none;
+            }
           }
         </style>
         <link href="/manifest.json" rel="manifest">
@@ -100,6 +103,7 @@
         </header>
 
         {{-- Sidebar --}}
+        <div class="sidebarMenu">
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="padding:0px">
             <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 100%;height: 100%;">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -135,7 +139,7 @@
                 </ul>
             </div>
         </nav>
-
+      </div>
         {{-- Main Content --}}
         <div class="container-fluid">
             <div class="row">
