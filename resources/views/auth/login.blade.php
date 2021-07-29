@@ -7,7 +7,7 @@
             <div class="signin-signup">
                 <form method="POST" action="{{ route('login.custom') }}" class="sign-in-form">
                     @csrf
-                    <h2 class="title">Sign in</h2>
+                    <h2 class="title">Login</h2>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
                         <input type="text" placeholder="Email" id="email" name="email" required/>
@@ -22,35 +22,17 @@
                             <span class="text-danger">{{ $errors->first('password') }}</span>
                         @endif
                     </div>
-                    <input type="submit" value="Login" class="btn solid" />
+                    <input type="submit" value="Submit" class="btn solid" />
                     <br>
                     @if (session('status'))
                     <div class="alert alert-success" style="color: red;">
                         {{ session('status') }}
                     </div>
                      @endif
-                    <br>
-                    <p class="social-text">
-                        Or Sign in with social platforms
-                    </p>
-                    <div class="social-media">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-google"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
                 </form>
                 <form action="{{ route('register.custom') }}" class="sign-up-form" method="POST">
                     @csrf
-                    <h2 class="title">Sign up</h2>
+                    <h2 class="title">Register</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" placeholder="Full Name" id="name" name="name" required/>
@@ -72,26 +54,8 @@
                             <span class="text-danger">{{ $errors->first('password') }}</span>
                         @endif
                     </div>
-                    <input type="submit" class="btn" value="Sign up" />
+                    <input type="submit" class="btn" value="Register" />
                     <br>
-                    <br>
-                    <p class="social-text">
-                        Or Sign up with social platforms
-                    </p>
-                    <div class="social-media">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-google"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
                 </form>
             </div>
         </div>
@@ -104,7 +68,7 @@
                         Let's register your account first!
                     </p>
                     <button class="btn transparent" id="sign-up-btn">
-                        Sign up
+                        Register
                     </button>
                 </div>
                 <img src="img/log.svg" class="image" alt="" />
@@ -114,7 +78,7 @@
                     <h3>Already have one?</h3>
                     <br>
                     <button class="btn transparent" id="sign-in-btn">
-                        Sign in
+                        Login
                     </button>
                 </div>
                 <img src="img/register.svg" class="image" alt="" />

@@ -46,6 +46,9 @@ class CashflowController extends Controller
             'description' => 'required|max:255',
             'tr_amount' => 'required|numeric|min:0',
             'invoice' => 'mimes:jpeg,jpg,png|max:5048' //masih ngaco formatnya
+        ],[
+            'tr_amount.required' => 'The amount field is required',
+            'tr_amount.numeric' => 'The amount must be a number'
         ]);
 
         $input = $request->all();
@@ -108,6 +111,9 @@ class CashflowController extends Controller
             'description_edit' => 'required|max:255',
             'tr_amount_edit' => 'required|numeric|min:0',
             'invoice_edit' => 'mimes:jpeg,jpg,png|max:5048' //masih ngaco formatnya
+        ],[
+            'tr_amount_edit.required' => 'The amount field is required',
+            'tr_amount_edit.numeric' => 'The amount must be a number'
         ]);
 
         // Cashflow::where('tr_id', $cashflow->tr_id)->update([

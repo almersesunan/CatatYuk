@@ -55,12 +55,12 @@ class LendingController extends Controller
             'description' => 'required',
             'py_amount' => 'required|numeric|min:0'
         ], [
-            'py_name.required' => 'Nama tidak boleh kosong',
-            'py_date.required' => 'Tanggal tidak boleh kosong',
-            'due_date.required' => 'Jatuh Tempo tidak boleh kosong',
-            'description.required' => 'Keterangan tidak boleh kosong',
-            'py_amount.required' => 'Jumlah tidak boleh kosong',
-            'py_amount.numeric' => 'Jumlah harus diisi dengan angka'
+            'py_name.required' => 'Name field is required',
+            'py_date.required' => 'Date field is required',
+            'due_date.required' => 'Due date field is required',
+            'description.required' => 'Description field is required',
+            'py_amount.required' => 'Amount field is required',
+            'py_amount.numeric' => 'Amount field must be a number'
         ]);
 
         $data = $request->all();
@@ -78,12 +78,12 @@ class LendingController extends Controller
             'rc_description' => 'required',
             'rc_amount' => 'required|numeric|min:0'
         ], [
-            'rc_name.required' => 'Nama tidak boleh kosong',
-            'rc_date.required' => 'Tanggal tidak boleh kosong',
-            'rc_due_date.required' => 'Jatuh Tempo tidak boleh kosong',
-            'rc_description.required' => 'Keterangan tidak boleh kosong',
-            'rc_amount.required' => 'Jumlah tidak boleh kosong',
-            'rc_amount.numeric' => 'Jumlah harus diisi dengan angka'
+            'rc_name.required' => 'Name field is required',
+            'rc_date.required' => 'Date field is required',
+            'rc_due_date.required' => 'Due date field is required',
+            'rc_description.required' => 'Description field is required',
+            'rc_amount.required' => 'Amount field is required',
+            'rc_amount.numeric' => 'Amount field must be a number'
         ]);
 
         $data = $request->all();
@@ -137,12 +137,12 @@ class LendingController extends Controller
             'description_edit' => 'required',
             'py_amount_edit' => 'required|numeric|min:0'
         ], [
-            'py_name_edit.required' => 'Nama tidak boleh kosong',
-            'py_date_edit.required' => 'Tanggal tidak boleh kosong',
-            'due_date_edit.required' => 'Jatuh Tempo tidak boleh kosong',
-            'description_edit.required' => 'Keterangan tidak boleh kosong',
-            'py_amount_edit.required' => 'Jumlah tidak boleh kosong',
-            'py_amount_edit.numeric' => 'Jumlah harus diisi dengan angka'
+            'py_name_edit.required' => 'Name field is required',
+            'py_date_edit.required' => 'Date field is required',
+            'due_date_edit.required' => 'Due date field is required',
+            'description_edit.required' => 'Description field is required',
+            'py_amount_edit.required' => 'Amount field is required',
+            'py_amount_edit.numeric' => 'Amount field must be a number'
         ]);
 
         $payable = Payable::find($id);
@@ -165,12 +165,12 @@ class LendingController extends Controller
             'rc_description_edit' => 'required',
             'rc_amount_edit' => 'required|numeric|min:0'
         ], [
-            'rc_name_edit.required' => 'Nama tidak boleh kosong',
-            'rc_date_edit.required' => 'Tanggal tidak boleh kosong',
-            'rc_due_date_edit.required' => 'Jatuh Tempo tidak boleh kosong',
-            'rc_description_edit.required' => 'Keterangan tidak boleh kosong',
-            'rc_amount_edit.required' => 'Jumlah tidak boleh kosong',
-            'rc_amount_edit.numeric' => 'Jumlah harus diisi dengan angka'
+            'rc_name_edit.required' => 'Name field is required',
+            'rc_date_edit.required' => 'Date field is required',
+            'rc_due_date_edit.required' => 'Due date field is required',
+            'rc_description_edit.required' => 'Description field is required',
+            'rc_amount_edit.required' => 'Amount field is required',
+            'rc_amount_edit.numeric' => 'Amount field must be a number'
         ]);
 
         $receivable = Receivable::find($id);

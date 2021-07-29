@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
-        <meta name="author" content="Dicky Ardi, Edric Aldo, and Mas Muhammad Almer Sesunan">
+        <meta name="author" content="Edric Aldo, Dicky Ardi, and Mas Muhammad Almer Sesunan">
         <meta name="generator" content="">
             
         <!-- CSS -->
@@ -168,7 +168,7 @@
                                    border-bottom
                                "
                            >
-                               <!-- Left -->
+                               {{-- <!-- Left -->
                                <div class="me-5 d-none d-lg-block">
                                    <span>Get connected with us on social networks:</span>
                                </div>
@@ -192,7 +192,7 @@
                                        <i class="fab fa-linkedin"></i>
                                    </a>
                                </div>
-                               <!-- Right -->
+                               <!-- Right --> --}}
                            </section>
                            <!-- Section: Social media -->
                        
@@ -202,23 +202,21 @@
                                    <!-- Grid row -->
                                    <div class="row mt-3">
                                        <!-- Grid column -->
-                                       <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                                       <div class="col-md-3 col-lg-4 col-xl-5 mx-auto mb-4">
                                            <!-- Content -->
                                            <h6 class="text-uppercase fw-bold mb-4">
                                                <i class="fas fa-gem me-3"></i>CatatYuk!
                                            </h6>
                                            <p>
-                                               Kami ingin membantu dalam aktifitas
-                                               pencatatan semua transaksi, seperti membuat laporan
-                                               keuangan, pencatatan stok barang, hingga mencatat &
-                                               menagih hutang piutang usaha kamu menjadi
-                                               semakin mudah.
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CatatYuk wants to help you to record your transactions, 
+                                              such as incomes and expenses, making financial reports, recording stock of goods or inventory, 
+                                              and bookkeeping your payables and receivables getting easier.
                                            </p>
                                        </div>
                                        <!-- Grid column -->
                                    
                                        <!-- Grid column -->
-                                       <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                                       {{-- <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                                            <!-- Links -->
                                            <h6 class="text-uppercase fw-bold mb-4">
                                                Products
@@ -260,7 +258,7 @@
                                                <a href="#!" class="text-reset">Kontak Kami</a>
                                            </p>
                                        </div>
-                                       <!-- Grid column -->
+                                       <!-- Grid column --> --}}
                                    
                                        <!-- Grid column -->
                                        <div
