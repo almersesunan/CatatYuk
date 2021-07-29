@@ -60,7 +60,7 @@
             <td align="center">{{$receivable->rc_date}}</td>
             <td align="center">{{$receivable->rc_due_date}}</td>
             <td>{{$receivable->rc_description}}</td>
-            <td align="right">{{$receivable->rc_amount}}</td>
+            <td align="right">Rp. {{$receivable->rc_amount}}</td>
           </tr>
           @endforeach
         </tbody>

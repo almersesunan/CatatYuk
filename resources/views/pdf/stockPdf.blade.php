@@ -29,7 +29,7 @@
               <td align="center">{{$loop->iteration}}</td>
               <td>{{$stock->item_name}}</td>
               <td align="center">{{$stock->minimum}}</td>
-              <td align="center">Rp. {{$stock->available}}</td>
+              <td align="center">{{$stock->available}}</td>
             </tr>
             @endforeach
         </tbody>
