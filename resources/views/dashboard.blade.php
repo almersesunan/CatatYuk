@@ -68,9 +68,9 @@
             <tr align="center" >
               <th style="font-weight: bold;" colspan="2">Revenue</th>
               @if ($revenue<0)
-                <td align="right" style="font-weight: bold;color: red;" colspan="2">Loss Rp. {{ abs($revenue) }}.00</td>
+                <td align="right" style="font-weight: bold;color: red;" colspan="1">Loss Rp. {{ abs($revenue) }}.00</td>
               @else
-                <td align="right" style="font-weight: bold;color: green;" colspan="2">Profit Rp. {{ abs($revenue) }}.00</td>
+                <td align="right" style="font-weight: bold;color: green;" colspan="1">Profit Rp. {{ abs($revenue) }}.00</td>
               @endif
             </tr>
           </table>

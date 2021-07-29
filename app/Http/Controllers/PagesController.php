@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Cashflow;
 use App\Models\Stock;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
 use function PHPSTORM_META\type;
