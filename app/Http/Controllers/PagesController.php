@@ -24,15 +24,15 @@ class PagesController extends Controller
     public function dashboard()
     {
         // Nearest Due Date
-        $payable = Payable::all()->sortBy('due_date')->take(3);//where('due_date', Receivable::min('due_date'))->orderBy('created_at','desc')->get();
-        $receivable = Receivable::all()->sortBy('rc_due_date')->take(3);//where('rc_due_date', Receivable::min('rc_due_date'))->orderBy('created_at','desc')->get();
+        $payable = auth()->user()->payable->sortBy('due_date')->take(3);//where('due_date', Receivable::min('due_date'))->orderBy('created_at','desc')->get();
+        $receivable = auth()->user()->receivable->sortBy('rc_due_date')->take(3);//where('rc_due_date', Receivable::min('rc_due_date'))->orderBy('created_at','desc')->get();
         
         //Cashflow Chart
         // $income = Cashflow::WhereYear('tr_date', now()->year)->whereMonth('tr_date', now()->month)->where('type','Income')->get();
         // $expense = Cashflow::WhereYear('tr_date', now()->year)->whereMonth('tr_date', now()->month)->where('type','Expense')->get();
-        $temp = Cashflow::select(['type',DB::raw("DATE_FORMAT(tr_date,'%Y-%M') as month"), DB::raw('SUM(tr_amount) as amount')])->groupBy('type')->groupBy('month')->orderBy('tr_date')->get();
+        $temp = Cashflow::select(['type', DB::raw("DATE_FORMAT(tr_date,'%Y-%M') as month"), DB::raw('SUM(tr_amount) as amount')])->where('user_id', Auth::user()->id)->groupBy('type')->groupBy('month')->orderBy('tr_date')->get();
         //DB::raw("DATE_FORMAT(tr_date,'%Y') as year")
-        $cashflow= [];
+        $cashflow = [];
         $temp->each(function($item) use (&$cashflow){
             $cashflow[$item->month][$item->type] = [
                 'amount' => $item->amount
@@ -61,6 +61,7 @@ class PagesController extends Controller
                 }
             }
         }
+        //cashflow summary
         $total_income = array_sum($income);
         $total_expense = array_sum($expense);
 
@@ -68,7 +69,7 @@ class PagesController extends Controller
         //dd($expense);
 
         //Stok barang chart
-        $stock = Stock::all();
+        $stock = auth()->user()->stock;
         $item_name = array();
         $item_count = array();
         //$minimum = array();

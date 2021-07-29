@@ -9,13 +9,14 @@ use App\Models\Payable;
 use App\Models\Receivable;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
 
 class PdfController extends Controller
 {
     public function generateCashflow(){
-        $cashflow = Cashflow::get();
-        $temp = Cashflow::select(['type',DB::raw("DATE_FORMAT(tr_date,'%Y-%M') as month"), DB::raw('SUM(tr_amount) as amount')])->groupBy('type')->groupBy('month')->orderBy('tr_date')->get();
+        $cashflow = auth()->user()->cashflow;
+        $temp = Cashflow::select(['type',DB::raw("DATE_FORMAT(tr_date,'%Y-%M') as month"), DB::raw('SUM(tr_amount) as amount')])->where('user_id', Auth::user()->id)->groupBy('type')->groupBy('month')->orderBy('tr_date')->get();
         //DB::raw("DATE_FORMAT(tr_date,'%Y') as year")
         $cashflow_summary= [];
         $temp->each(function($item) use (&$cashflow_summary){
@@ -93,7 +94,7 @@ class PdfController extends Controller
     }
 
     public function generateStock(){
-        $stock = Stock::get();
+        $stock = auth()->user()->stock;
         $fileName = 'Stock.pdf';
         $mpdf = new \Mpdf\Mpdf([
             'margin_left' => 10,
@@ -128,8 +129,8 @@ class PdfController extends Controller
     }
 
     public function generateLending(){
-        $payable = Payable::get();
-        $receivable = Receivable::get();
+        $payable = auth()->user()->payable;
+        $receivable = auth()->user()->receivable;
         $fileName = 'Lending.pdf';
         $mpdf = new \Mpdf\Mpdf([
             'margin_left' => 10,
