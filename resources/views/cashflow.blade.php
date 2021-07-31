@@ -190,7 +190,10 @@
               </div>
               <div class="mb-3">
                 <label for="invoice" class="form-label">Invoice</label>
-                <input name="invoice" type="file" class="form-control-file" id="invoice">
+                <input name="invoice" type="file" accept="image/*" class="form-control-file @error('invoice') is-invalid @enderror" id="invoice">
+                @error('invoice')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Add</button>

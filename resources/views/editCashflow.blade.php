@@ -67,7 +67,10 @@
                                 </div>
                                 <div class="mb-3">
                                   <label for="invoice_edit" class="form-label">Invoice</label>
-                                  <input name="invoice_edit" type="file" class="form-control-file" id="invoice_edit">
+                                  <input name="invoice_edit" type="file" accept="image/*" class="form-control-file @error('invoice_edit') is-invalid @enderror" id="invoice_edit">
+                                  @error('invoice_edit')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                  @enderror
                                 </div>
                                   <br>
                                 <div class="row">

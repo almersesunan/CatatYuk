@@ -51,13 +51,14 @@ class LendingController extends Controller
         $request->validate([
             'py_name' => 'required',
             'py_date' => 'required',
-            'due_date' => 'required',
+            'due_date' => 'required|after_or_equal:py_date',
             'description' => 'required',
             'py_amount' => 'required|numeric|min:0'
         ], [
             'py_name.required' => 'Name field is required',
             'py_date.required' => 'Date field is required',
             'due_date.required' => 'Due date field is required',
+            'due_date.after_or_equal' => 'Due date must less than or equal date',
             'description.required' => 'Description field is required',
             'py_amount.required' => 'Amount field is required',
             'py_amount.numeric' => 'Amount field must be a number'
@@ -74,13 +75,14 @@ class LendingController extends Controller
         $request->validate([
             'rc_name' => 'required',
             'rc_date' => 'required',
-            'rc_due_date' => 'required',
+            'rc_due_date' => 'required|after_or_equal:rc_date',
             'rc_description' => 'required',
             'rc_amount' => 'required|numeric|min:0'
         ], [
             'rc_name.required' => 'Name field is required',
             'rc_date.required' => 'Date field is required',
             'rc_due_date.required' => 'Due date field is required',
+            'rc_due_date.after_or_equal' => 'Due date must less than or equal date',
             'rc_description.required' => 'Description field is required',
             'rc_amount.required' => 'Amount field is required',
             'rc_amount.numeric' => 'Amount field must be a number'
@@ -133,13 +135,14 @@ class LendingController extends Controller
         $this->validate($request,[
             'py_name_edit' => 'required',
             'py_date_edit' => 'required',
-            'due_date_edit' => 'required',
+            'due_date_edit' => 'required|after_or_equal:py_date_edit',
             'description_edit' => 'required',
             'py_amount_edit' => 'required|numeric|min:0'
         ], [
             'py_name_edit.required' => 'Name field is required',
             'py_date_edit.required' => 'Date field is required',
             'due_date_edit.required' => 'Due date field is required',
+            'due_date_edit.after_or_equal' => 'Due date must less than or equal date',
             'description_edit.required' => 'Description field is required',
             'py_amount_edit.required' => 'Amount field is required',
             'py_amount_edit.numeric' => 'Amount field must be a number'
@@ -161,13 +164,14 @@ class LendingController extends Controller
         $this->validate($request,[
             'rc_name_edit' => 'required',
             'rc_date_edit' => 'required',
-            'rc_due_date_edit' => 'required',
+            'rc_due_date_edit' => 'required|after_or_equal:rc_date_edit',
             'rc_description_edit' => 'required',
             'rc_amount_edit' => 'required|numeric|min:0'
         ], [
             'rc_name_edit.required' => 'Name field is required',
             'rc_date_edit.required' => 'Date field is required',
             'rc_due_date_edit.required' => 'Due date field is required',
+            'rc_due_date_edit.after_or_equal' => 'Due date must less than or equal date',
             'rc_description_edit.required' => 'Description field is required',
             'rc_amount_edit.required' => 'Amount field is required',
             'rc_amount_edit.numeric' => 'Amount field must be a number'
