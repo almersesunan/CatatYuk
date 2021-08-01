@@ -24,8 +24,15 @@ class PagesController extends Controller
     public function dashboard()
     {
         // Nearest Due Date
-        $payable = auth()->user()->payable->sortBy('due_date')->take(3);//where('due_date', Receivable::min('due_date'))->orderBy('created_at','desc')->get();
-        $receivable = auth()->user()->receivable->sortBy('rc_due_date')->take(3);//where('rc_due_date', Receivable::min('rc_due_date'))->orderBy('created_at','desc')->get();
+        //$payable = auth()->user()->payable->sortBy('due_date')->take(3);//where('due_date', Receivable::min('due_date'))->orderBy('created_at','desc')->get();
+        //$receivable = auth()->user()->receivable->sortBy('rc_due_date')->take(3);//where('rc_due_date', Receivable::min('rc_due_date'))->orderBy('created_at','desc')->get();
+        //$past_payable = DB::select("select * from payables inner join users on user_id = id where CURRENT_TIMESTAMP > due_date order by due_date asc");
+        //$past_receivable = DB::select("select * from receivables inner join users on user_id = id where CURRENT_TIMESTAMP > rc_due_date order by rc_due_date asc");
+        $payable = Payable::select('*')->whereRaw('CURRENT_TIMESTAMP < due_date')->where('user_id', Auth::user()->id)->orderBy('due_date')->take(3)->get();
+        $receivable = Receivable::select('*')->whereRaw('CURRENT_TIMESTAMP < rc_due_date')->where('user_id', Auth::user()->id)->orderBy('rc_due_date')->take(3)->get();
+        $payable_past = Payable::select('*')->whereRaw('CURRENT_TIMESTAMP > due_date')->where('user_id', Auth::user()->id)->orderBy('due_date')->get();
+        $receivable_past = Receivable::select('*')->whereRaw('CURRENT_TIMESTAMP > rc_due_date')->where('user_id', Auth::user()->id)->orderBy('rc_due_date')->get();
+        //dd($receivable);
         
         //Cashflow Chart
         // $income = Cashflow::WhereYear('tr_date', now()->year)->whereMonth('tr_date', now()->month)->where('type','Income')->get();
@@ -82,7 +89,7 @@ class PagesController extends Controller
 
         //dd($minimum);
 
-        return view('dashboard')->with(compact('payable','receivable','cashflow','type','cash','income','expense','item_name','item_count','total_income','total_expense','revenue'));
+        return view('dashboard')->with(compact('payable','receivable','cashflow','type','cash','income','expense','item_name','item_count','total_income','total_expense','revenue','payable_past','receivable_past'));
     }
 
     public function __construct()

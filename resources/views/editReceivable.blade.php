@@ -93,13 +93,13 @@
   <script>
     $('#rc_date_edit').datepicker({
         uiLibrary: 'bootstrap5',
-        format: 'dd-mm-yyyy'
+        format: 'yyyy-mm-dd'
     });
   </script>
   <script>
     $('#rc_due_date_edit').datepicker({
         uiLibrary: 'bootstrap5',
-        format: 'dd-mm-yyyy'
+        format: 'yyyy-mm-dd'
     });
   </script>
 @endsection

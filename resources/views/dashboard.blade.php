@@ -109,6 +109,15 @@
               </tr>
             </thead>
             <tbody>
+              @foreach ($payable_past as $payable_past)
+              <tr style="color: red">
+                <td>{{$payable_past->py_name}}</td>
+                <td align=center>{{$payable_past->py_date}}</td>
+                <td align=center>{{$payable_past->due_date}}</td>
+                <td>{{$payable_past->description}}</td>
+                <td align=right>Rp. {{$payable_past->py_amount}}</td>
+              </tr>
+              @endforeach
               @foreach ($payable as $payable)
               <tr>
                 <td>{{$payable->py_name}}</td>
@@ -118,6 +127,8 @@
                 <td align=right>Rp. {{$payable->py_amount}}</td>
               </tr>
               @endforeach
+              
+              
             </tbody>
           </table>
           <br>
@@ -141,6 +152,15 @@
               </tr>
             </thead>
             <tbody>
+              @foreach ($receivable_past as $receivable_past)
+              <tr style="color: red">
+                <td>{{$receivable_past->rc_name}}</td>
+                <td align=center>{{$receivable_past->rc_date}}</td>
+                <td align=center>{{$receivable_past->rc_due_date}}</td>
+                <td>{{$receivable_past->rc_description}}</td>
+                <td align=right>Rp. {{$receivable_past->rc_amount}}</td>
+              </tr>
+              @endforeach
               @foreach ($receivable as $receivable)
                 <tr>
                     <td>{{$receivable->rc_name}}</td>

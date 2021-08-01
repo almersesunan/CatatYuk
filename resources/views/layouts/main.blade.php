@@ -87,6 +87,68 @@
                     </div>
                   </div> --}}
 
+
+                  <?php
+                  use App\Models\Stock;
+                  use App\Models\Payable;
+                  use App\Models\Receivable;
+                  use Illuminate\Support\Facades\DB;
+                  // $stock = DB::select("select * from stocks inner join users on user_id = id where available < minimum"); //tanpa sesuain user_id
+                  // $payable = DB::select("select * from payables inner join users on user_id = id where CURRENT_TIMESTAMP <= due_date and day(CURRENT_TIMESTAMP)+3 = day(due_date) order by due_date asc limit 1");
+                  // $receivable = DB::select("select * from receivables inner join users on user_id = id where CURRENT_TIMESTAMP <= rc_due_date and day(CURRENT_TIMESTAMP)+3 = day(rc_due_date) order by rc_due_date asc limit 1");
+                  $stock = Stock::select('st_id','item_name')->whereColumn('available','<','minimum')->where('user_id', Auth::user()->id)->get();
+                  $payable = Payable::select('py_name','due_date')->whereRaw('month(CURRENT_TIMESTAMP) = month(due_date) and day(CURRENT_TIMESTAMP)+3 = day(due_date) or day(CURRENT_TIMESTAMP)+1 = day(due_date)')->where('user_id', Auth::user()->id)->get();
+                  $receivable = Receivable::select('rc_name','rc_due_date')->whereRaw('month(CURRENT_TIMESTAMP) = month(rc_due_date) and day(CURRENT_TIMESTAMP)+3 = day(rc_due_date) or day(CURRENT_TIMESTAMP)+1 = day(rc_due_date)')->where('user_id', Auth::user()->id)->get();
+                  //dd($receivable);
+                  ?>
+              <div class="dropdown text-end" style="align-items: flex-end; left: 1200px;list-style: none;">
+                <li class="dropdown text-end notification-menu">
+                  <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" style="color: black">
+                    <i class="fa fa-bell"></i>
+                    <span class="label label-warning" style="color: red">{{ count($stock) + count($payable) + count($receivable) }}</span>
+                  </a>
+                  <ul class="dropdown-menu" style="width: 300px">
+                    @if ($stock==null && $payable==null && $receivable==null)
+                    <div class="header dropdown-item" style="text-align: center;background: rgb(216, 216, 216)">
+                      There is no new message
+                    </div>
+                    @else
+                    <div class="header dropdown-item" style="text-align: center;background: rgb(216, 216, 216)">
+                      You have new message
+                    </div>
+                    @endif
+                    <li><hr class="dropdown-divider"></li>
+                    @foreach ($payable as $payable)
+                      <li style="list-style: none;">
+                        <a class="dropdown-item" href="{{ url('/lending') }}">
+                          <i class="fa fa-warning text-yellow"></i> {{ $payable->py_name }} Payable near due date!
+                        </a>
+                      </li>
+                      @endforeach
+                      @foreach ($receivable as $receivable)
+                      <li style="list-style: none;">
+                        <a class="dropdown-item" href="{{ url('/lending') }}">
+                          <i class="fa fa-warning text-yellow"></i> {{ $receivable->rc_name }} Receivable near due date!
+                        </a>
+                      </li>
+                      @endforeach
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                      @foreach ($stock as $stock)
+                        <li style="list-style: none;">
+                          <a class="dropdown-item" href="/stock/{{ $stock->st_id }}">
+                            <i class="fa fa-warning text-yellow"></i> {{ $stock->item_name }} Stocks are low!
+                          </a>
+                        </li>
+                      @endforeach
+                      
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{{ url('/stock') }}" style="text-align: center">View All Stock</a></li>
+                  </ul>
+                </li>
+              </div>
+
                 <div class="dropdown text-end" style="align-items: flex-end; left: 1400px;">
                     <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                       <img src="https://github.com/mdo.png" alt="user" width="32" height="32" class="rounded-circle">
