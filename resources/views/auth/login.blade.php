@@ -11,16 +11,16 @@
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
                         <input type="text" placeholder="Email" id="email" name="email" required/>
-                        @if ($errors->has('email'))
+                        {{-- @if ($errors->has('email'))
                             <span class="text-danger">{{ $errors->first('email') }}</span>
-                        @endif
+                        @endif --}}
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Password" id="password" name="password" required/>
-                        @if ($errors->has('password'))
+                        {{-- @if ($errors->has('password'))
                             <span class="text-danger">{{ $errors->first('password') }}</span>
-                        @endif
+                        @endif --}}
                     </div>
                     <input type="submit" value="Submit" class="btn solid" />
                     <br>
@@ -30,32 +30,49 @@
                     </div>
                      @endif
                 </form>
-                <form action="{{ route('register.custom') }}" class="sign-up-form" method="POST">
+                <form action="{{ route('register.custom') }}" class="sign-up-form" method="POST" id="register">
                     @csrf
                     <h2 class="title">Register</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Full Name" id="name" name="name" required/>
-                        @if ($errors->has('name'))
+                        <input type="text" class="@error('name') is-invalid @enderror" placeholder="Full Name" id="name" name="name" required/>
+                        {{-- @if ($errors->has('name'))
                             <span class="text-danger">{{ $errors->first('name') }}</span>
-                        @endif
+                        @endif --}}
+                        
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email" id="email_address" name="email" required />
-                        @if ($errors->has('email'))
+                        <input type="email" class="@error('email') is-invalid @enderror" placeholder="Email" id="email_address" name="email" required />
+                        {{-- @if ($errors->has('email'))
                             <span class="text-danger">{{ $errors->first('email') }}</span>
-                        @endif
+                        @endif --}}
+                        
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" id="password" name="password" required />
-                        @if ($errors->has('password'))
+                        <input type="password" class="@error('password') is-invalid @enderror" placeholder="Password" id="password" name="password" required />
+                        {{-- @if ($errors->has('password'))
                             <span class="text-danger">{{ $errors->first('password') }}</span>
-                        @endif
+                        @endif --}}
+                        
                     </div>
                     <input type="submit" class="btn" value="Submit" />
                     <br>
+                    {{-- @if (session('status'))
+                    <div class="alert alert-success" style="color: red;">
+                        {{ session('status') }}
+                    </div>
+                     @endif --}}
+                    @error('name')
+                        <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
+                    @enderror
+                    @error('email')
+                        <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
+                    @enderror
+                    @error('password')
+                        <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
+                    @enderror
                 </form>
             </div>
         </div>

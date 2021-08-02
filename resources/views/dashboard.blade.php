@@ -41,19 +41,23 @@
             <thead>
               <tr align="center">
                 <th>Month</th>
-                @foreach ($type as $types)
-                  <th>Amount {{ $types }}</th>
-                @endforeach
+                  <th>Amount Income</th>
+                  <th>Amount Expense</th>
               </tr>
             </thead>
-            @foreach ($cashflow as $month => $values)
+            @if ($cashflow==null)
               <tr align="center">
-                <td>{{ \Carbon\Carbon::parse($month)->format('F Y') }}</td>
-                @foreach ($type as $types)
-                    <td align="right">Rp. {{ $cashflow[$month][$types]['amount'] ?? '0' }}</td>
-                @endforeach
+                <td colspan="3">No Data</td>
               </tr>
-            @endforeach
+            @else
+              @foreach ($cashflow as $month => $values)
+                <tr align="center">
+                  <td>{{ \Carbon\Carbon::parse($month)->format('F Y') }}</td>
+                  <td align="right">Rp. {{ $cashflow[$month]['Income']['amount'] ?? '0' }}</td>
+                  <td align="right">Rp. {{ $cashflow[$month]['Expense']['amount'] ?? '0' }}</td>
+                </tr>
+              @endforeach
+            @endif
             <tr>
               <td colspan="3"></td>
             </tr>

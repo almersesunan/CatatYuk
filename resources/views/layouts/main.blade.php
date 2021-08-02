@@ -97,8 +97,8 @@
                   // $payable = DB::select("select * from payables inner join users on user_id = id where CURRENT_TIMESTAMP <= due_date and day(CURRENT_TIMESTAMP)+3 = day(due_date) order by due_date asc limit 1");
                   // $receivable = DB::select("select * from receivables inner join users on user_id = id where CURRENT_TIMESTAMP <= rc_due_date and day(CURRENT_TIMESTAMP)+3 = day(rc_due_date) order by rc_due_date asc limit 1");
                   $stock = Stock::select('st_id','item_name')->whereColumn('available','<','minimum')->where('user_id', Auth::user()->id)->get();
-                  $payable = Payable::select('py_name','due_date')->whereRaw('month(CURRENT_TIMESTAMP) = month(due_date) and day(CURRENT_TIMESTAMP)+3 = day(due_date) or day(CURRENT_TIMESTAMP)+1 = day(due_date)')->where('user_id', Auth::user()->id)->get();
-                  $receivable = Receivable::select('rc_name','rc_due_date')->whereRaw('month(CURRENT_TIMESTAMP) = month(rc_due_date) and day(CURRENT_TIMESTAMP)+3 = day(rc_due_date) or day(CURRENT_TIMESTAMP)+1 = day(rc_due_date)')->where('user_id', Auth::user()->id)->get();
+                  $payable = Payable::select('py_name','due_date')->where('user_id', Auth::user()->id)->whereRaw('month(CURRENT_TIMESTAMP) = month(due_date) and day(CURRENT_TIMESTAMP)+3 = day(due_date) or day(CURRENT_TIMESTAMP)+1 = day(due_date)')->where('user_id', Auth::user()->id)->get(); //gatau kenapa musti where user_id 2x, kalo cuma sekali dia ngambil data dari user_id lain
+                  $receivable = Receivable::select('rc_name','rc_due_date')->where('user_id', Auth::user()->id)->whereRaw('month(CURRENT_TIMESTAMP) = month(rc_due_date) and day(CURRENT_TIMESTAMP)+3 = day(rc_due_date) or day(CURRENT_TIMESTAMP)+1 = day(rc_due_date)')->where('user_id', Auth::user()->id)->get(); //gatau kenapa musti where user_id 2x, kalo cuma sekali dia ngambil data dari user_id lain
                   //dd($receivable);
                   ?>
               <div class="dropdown text-end" style="align-items: flex-end; left: 1200px;list-style: none;">

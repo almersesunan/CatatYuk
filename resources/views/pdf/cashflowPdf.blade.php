@@ -45,17 +45,15 @@
       <thead>
         <tr>
           <th>Month</th>
-          @foreach ($type as $types)
-            <th>Amount {{ $types }}</th>
-          @endforeach
+            <th>Amount Income</th>
+            <th>Amount Expense</th>
         </tr>
       </thead>
       @foreach ($cashflow_summary as $month => $values)
         <tr>
           <td>{{ \Carbon\Carbon::parse($month)->format('F Y') }}</td>
-          @foreach ($type as $types)
-              <td align="right">Rp. {{ $cashflow_summary[$month][$types]['amount'] ?? '0' }}</td>
-          @endforeach
+              <td align="right">Rp. {{ $cashflow_summary[$month]['Income']['amount'] ?? '0' }}</td>
+              <td align="right">Rp. {{ $cashflow_summary[$month]['Expense']['amount'] ?? '0' }}</td>
         </tr>
       @endforeach
       <tr>
