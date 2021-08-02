@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cashflow;
+// use App\Models\Archive;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Contracts\Service\Attribute\Required;
@@ -45,7 +46,7 @@ class CashflowController extends Controller
             'category' => 'required|max:20',
             'description' => 'required|max:255',
             'tr_amount' => 'required|numeric|min:0',
-            'invoice' => 'mimes:jpeg,jpg,png|max:5048' //masih ngaco formatnya
+            'invoice' => 'mimes:jpeg,jpg,png|max:5048'
         ],[
             'tr_amount.required' => 'The amount field is required',
             'tr_amount.numeric' => 'The amount must be a number'
@@ -110,7 +111,7 @@ class CashflowController extends Controller
             'category_edit' => 'required|max:20',
             'description_edit' => 'required|max:255',
             'tr_amount_edit' => 'required|numeric|min:0',
-            'invoice_edit' => 'mimes:jpeg,jpg,png|max:5048' //masih ngaco formatnya
+            'invoice_edit' => 'mimes:jpeg,jpg,png|max:5048'
         ],[
             'tr_amount_edit.required' => 'The amount field is required',
             'tr_amount_edit.numeric' => 'The amount must be a number'
@@ -155,4 +156,30 @@ class CashflowController extends Controller
         Cashflow::destroy($cashflow->tr_id);
         return redirect('cashflow')->with('status','Delete data successfull!');
     }
+
+    //import your models
+    
+
+    //create a function which takes the id of the first table as a parameter
+    // public function archive()
+    // {
+    //     $first = auth()->user()->cashflow;//this will select the row with the given id
+
+    //     //now save the data in the variables;
+    //     $sn = $first->serialnumber;
+    //     $cust = $first->customer;
+    //     $lendon = $first->lend_on;
+    //     $first->delete();
+
+    //     $second = new Archive();
+    //     $second->serialnumber = $sn;
+    //     $second->customer = $cust;
+    //     $second->lend_on = $lendon;
+    //     $second->save();
+
+    //     //then return to your view or whatever you want to do
+    //     return view('someview');
+
+    // }
+
 }
