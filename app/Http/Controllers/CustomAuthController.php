@@ -80,12 +80,27 @@ class CustomAuthController extends Controller
     */
     public function changePassword(Request $request, User $user)
     {
-        $user = User::where('id', Auth::user()->id);
-        $user->update([
-            'password' => Hash::make($request->confirm_password)
+        $request->validate([
+            'old_password' => 'required',
+            'password' => 'required|confirmed'
         ]);
+        $current_password = auth()->user()->password;
+        $user = User::where('id', Auth::user()->id);
+        $old_password = request('old_password');
+
+        if (Hash::check($old_password, $current_password)) {
+            $user->update([
+                'password' => bcrypt(request('password'))
+            ]);
+            return redirect('signout');
+        } else{
+            return back()->withErrors(['old_password' => 'Make sure your old password filled correctly!']);
+        }
+        
+
+        
         //dd($user);
-        return redirect('login');
+        //return redirect('login');
     }
     
 
@@ -143,6 +158,9 @@ class CustomAuthController extends Controller
         return redirect('profile')->with('status','Your profile has been updated!');
     }
     
-
+    public function reset(){
+        
+        return view('auth.passwords.email');
+    }
 
 }

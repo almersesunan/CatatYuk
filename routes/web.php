@@ -68,8 +68,12 @@ Route::post('custom-registration', [CustomAuthController::class, 'customRegistra
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 Route::get('/changepw', [CustomAuthController::class, 'viewPassword']);
 
-//changepassword
+//Change Password
 Route::patch('/change-password/{id}', [CustomAuthController::class, 'changePassword']);
+
+//Reset Password
+Route::get('/reset-password', [CustomAuthController::class, 'reset']);
+
 
 //Profile
 Route::get('/profile', [CustomAuthController::class, 'profile']);

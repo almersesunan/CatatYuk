@@ -209,9 +209,9 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     @yield('container')
                 </div>
-                <div class="feedback-area" style="padding: 10px; text-align: right;">
+                {{-- <div class="feedback-area" style="padding: 10px; text-align: right;">
                     <a href="feedback"><button type="button" class="btn btn-link btn-sm" >Send us your feedback!</button></a>
-                </div>
+                </div> --}}
               </main>
             </div>
         </div>

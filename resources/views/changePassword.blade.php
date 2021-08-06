@@ -23,20 +23,34 @@
                           @method('patch')
                           @csrf
                           <div class="mb-3">
-                            <label class="form-label" for="new_password">New Password</label>
-                            <input type="password" name="new_password" class="form-control @error('new_password') is-invalid @enderror" id="new_password">
-                            @if($errors->has('new_password'))
+                            <label class="form-label" for="old_password">Old Password</label>
+                            <input type="password" name="old_password" class="form-control @error('old_password') is-invalid @enderror" id="old_password"> 
+                            @if($errors->has('old_password'))
                               <div class="text-danger">
-                                  {{ $errors->first('new_password')}}
+                                  {{ $errors->first('old_password')}}
+                              </div>
+                            @endif
+                            @if (session('error'))
+                              <div class="alert alert-danger">
+                                {{ session('error') }}
                               </div>
                             @endif
                           </div>
                           <div class="mb-3">
-                            <label class="form-label" for="confirm_password">Confirm Password</label>
-                            <input type="password" name="confirm_password" class="form-control @error('confirm_password') is-invalid @enderror" id="confirm_password">
-                            @if($errors->has('confirm_password'))
+                            <label class="form-label" for="password">New Password</label>
+                            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password">
+                            @if($errors->has('password'))
                               <div class="text-danger">
-                                  {{ $errors->first('confirm_password')}}
+                                  {{ $errors->first('password')}}
+                              </div>
+                            @endif
+                          </div>
+                          <div class="mb-3">
+                            <label class="form-label" for="password_confirmation">Confirm Password</label>
+                            <input type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation">
+                            @if($errors->has('password_confirmation'))
+                              <div class="text-danger">
+                                  {{ $errors->first('password_confirmation')}}
                               </div>
                             @endif
                           <br>

@@ -23,6 +23,7 @@
                         @endif --}}
                     </div>
                     <input type="submit" value="Submit" class="btn solid" />
+                    <a href="{{ url('/reset-password') }}">Change Password</a>
                     <br>
                     @if (session('status'))
                     <div class="alert alert-success" style="color: red;">
