@@ -73,7 +73,7 @@ Route::patch('/change-password/{id}', [CustomAuthController::class, 'changePassw
 
 //Reset Password
 Route::get('/reset-password', [CustomAuthController::class, 'reset']);
-
+//Route::post('/reset-password', [CustomAuthController::class, 'password']);
 
 //Profile
 Route::get('/profile', [CustomAuthController::class, 'profile']);

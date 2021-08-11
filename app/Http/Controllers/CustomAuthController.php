@@ -7,6 +7,9 @@ use Hash;
 use Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+// use Sentinel;
+// use Reminder;
+// use Mail;
 
 class CustomAuthController extends Controller
 {
@@ -158,9 +161,35 @@ class CustomAuthController extends Controller
         return redirect('profile')->with('status','Your profile has been updated!');
     }
     
-    public function reset(){
+
+    
+    // public function reset(){
+    //     return view('auth.passwords.email');
+    // }
+
+    // public function password(Request $request){
+    //     $user = User::where($request->email)->first();
+
+    //     if ($user==null) {
+    //         return redirect()->back()->withErrors(['email' => 'Email not exist!']);
+    //     }
+
+    //     $user = Sentinel::findById($user->id);
+    //     $reminder = Reminder::exists($user) ? : Reminder::create($user);
+    //     $this->sendEmail($user, $reminder->code);
+    //     return redirect()->back()->with(['success' => 'Reset code sent to your email.']);
         
-        return view('auth.passwords.email');
-    }
+    // }
+
+    // public function sendEmail($user, $code){
+    //     Mail::send(
+    //         'auth.passwords.forgotPassword',
+    //         ['user' => $user, 'code' => $code],
+    //         function($message) use ($user){
+    //             $message->to($user->email);
+    //             $message->subject("$user->name, reset your password");
+    //         }
+    //     );
+    // }
 
 }
