@@ -163,22 +163,22 @@ class CustomAuthController extends Controller
     
 
     
-    // public function reset(){
-    //     return view('auth.passwords.email');
-    // }
+    public function reset(){
+        return view('auth.passwords.email');
+    }
 
     // public function password(Request $request){
-    //     $user = User::where($request->email)->first();
+    //     $user = User::whereEmail($request->email)->first();
 
     //     if ($user==null) {
-    //         return redirect()->back()->withErrors(['email' => 'Email not exist!']);
+    //         return redirect()->back()->withErrors(['email' => 'Email does not exist!']);
     //     }
 
     //     $user = Sentinel::findById($user->id);
     //     $reminder = Reminder::exists($user) ? : Reminder::create($user);
     //     $this->sendEmail($user, $reminder->code);
+
     //     return redirect()->back()->with(['success' => 'Reset code sent to your email.']);
-        
     // }
 
     // public function sendEmail($user, $code){
@@ -187,7 +187,7 @@ class CustomAuthController extends Controller
     //         ['user' => $user, 'code' => $code],
     //         function($message) use ($user){
     //             $message->to($user->email);
-    //             $message->subject("$user->name, reset your password");
+    //             $message->subject("$user->name, reset your password.");
     //         }
     //     );
     // }
