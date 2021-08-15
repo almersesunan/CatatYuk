@@ -101,7 +101,7 @@
                   $receivable = Receivable::select('rc_name','rc_due_date')->where('user_id', Auth::user()->id)->whereRaw('month(CURRENT_TIMESTAMP) = month(rc_due_date) and day(CURRENT_TIMESTAMP)+3 = day(rc_due_date) or day(CURRENT_TIMESTAMP)+1 = day(rc_due_date)')->where('user_id', Auth::user()->id)->get(); //gatau kenapa musti where user_id 2x, kalo cuma sekali dia ngambil data dari user_id lain
                   //dd($receivable);
                   ?>
-              <div class="dropdown text-end" style="align-items: flex-end; left: 1200px;list-style: none;">
+              <div class="dropdown text-end" style="align-items: flex-end; left: 85%;list-style: none;">
                 <li class="dropdown text-end notification-menu">
                   <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" style="color: black">
                     <i class="fa fa-bell"></i>
@@ -149,9 +149,10 @@
                 </li>
               </div>
 
-                <div class="dropdown text-end" style="align-items: flex-end; left: 1400px;">
+                <div class="dropdown text-end" style="align-items: flex-end; left: 88%;">
                     <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                       <img src="https://github.com/mdo.png" alt="user" width="32" height="32" class="rounded-circle">
+                      <span class="font-weight-bold">Hi, {{ Auth::user()->name }} !</span>
                     </a>
                     <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                       <li><a class="dropdown-item" href="{{ url('/profile') }}">Profile</a></li>

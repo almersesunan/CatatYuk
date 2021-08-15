@@ -89,7 +89,7 @@
                         Register
                     </button>
                 </div>
-                <img src="img/log.svg" class="image" alt="" />
+                <img src="svg/log.svg" class="image" alt="" />
             </div>
             <div class="panel right-panel">
                 <div class="content">
@@ -99,7 +99,7 @@
                         Login
                     </button>
                 </div>
-                <img src="img/register.svg" class="image" alt="" />
+                <img src="svg/register.svg" class="image" alt="" />
             </div>
         </div>
     </div>
