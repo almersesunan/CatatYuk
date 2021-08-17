@@ -4,7 +4,7 @@
 
 @section('container')
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">   
-          <div class="card-body">
+          <div class="card-body" style="width:100%">
             @if (session('status'))
               <div class="alert alert-success">
                   {{ session('status') }}
@@ -12,6 +12,7 @@
             @endif
             <a type="button" class="btn btn-sm btn-outline-secondary" href="/lending_pdf" target="_blank" style="float: right">Download to PDF</a><br>
             <h1 class="h2">Payable</h1>
+            <div class="table-responsive">
             <table id="table" class="table table-striped table-bordered" style="width:100%">
               <thead>
                 <tr align="center">
@@ -45,10 +46,12 @@
                 @endforeach
               </tbody>
             </table>
+            </div>
             
             <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah">Add Payable</button>
             <br/><br/><br/><br/>
             <h1 class="h2">Receivable</h1>
+            <div class="table-responsive">
             <table id="table1" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                   <tr align="center">
@@ -82,6 +85,7 @@
                   @endforeach
                 </tbody>
               </table>
+              </div>
             <br><br><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah1">Add Receivable</button>
           </div>
   

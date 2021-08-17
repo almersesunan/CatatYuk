@@ -72,14 +72,11 @@
                                     @endif
                                     </div>
                                   <br>
-                                <div class="row">
-                                  <div class="col-10"></div>
-                                  <div class="col-1">
+                                  <div class="footer">
+                                    <span style="float: right">
                                     <a href="/lending" class="btn btn-secondary">Cancel</a>
-                                  </div>
-                                  <div class="col-1">
                                     <button type="submit" class="btn btn-primary">Save</button>
-                                  </div>
+                                    </span>
                                 </div>   
                             </form>
                         </div>

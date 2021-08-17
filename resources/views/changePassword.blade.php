@@ -14,7 +14,7 @@
             <h1 class="h2">Change Password</h1>
               <body>
                 <div class="container">
-                    <div class="card mt-5" style="width: 500px; margin: auto">
+                    <div class="card mt-5">
                         <div class="card-header text-center">Change Password
                         </div>
                         <div class="card-body">
@@ -54,14 +54,11 @@
                               </div>
                             @endif
                           <br>
-                          <div class="row">
-                            <div class="col-8"></div>
-                            <div class="col-2">
+                          <div class="footer">
+                            <span style="float: right">
                               <a href="/dashboard" class="btn btn-secondary">Cancel</a>
-                            </div>
-                            <div class="col-1">
                               <button type="submit" class="btn btn-primary">Save</button>
-                            </div>
+                            </span>
                           </div>
                         </form>
                       </div>   
