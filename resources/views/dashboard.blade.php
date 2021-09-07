@@ -17,7 +17,7 @@
         <div class="tools btn-group me-2">
           {{-- <button type="button" class="btn btn-sm btn-outline-secondary">Share</button> --}}
           <a type="button" class="btn btn-sm btn-outline-secondary" onclick="window.print()" target="_blank">Download to PDF</a>
-          {{-- <input type="text" id="calendar" class="btn btn-sm btn-outline-primary dropdown-toggle" placeholder="Year"> --}}
+          <input type="text" id="calendar" class="btn btn-sm btn-outline-primary dropdown-toggle" placeholder="Year">
         </div>
       </div>
     </div>

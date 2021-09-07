@@ -131,7 +131,7 @@
       <ul class="cd-side__list js-cd-side__list">
         <li class="cd-side__label"><span>Menu</span></li>
         <li class="cd-side__item cd-side__item--overview cd-side__item--selected">
-          <a href="{{ url('/dashboard') }}">Dashboard</a>
+          <a href="{{ url('/dashboard') }}"><span data-feather="bar-chart-2" style="margin-right: 10%"></span> Dashboard</a>
           
           {{-- <ul class="cd-side__sub-list">
             <li class="cd-side__sub-item"><a href="#0">All Data</a></li>
@@ -141,7 +141,7 @@
         </li>
 
         <li class="cd-side__item cd-side__item--notifications cd-side__item--selected">
-          <a href="{{ url('/cashflow') }}">Cashflow</a>
+          <a href="{{ url('/cashflow') }}"><span data-feather="file" style="margin-right: 10%"></span> Cashflow</a>
           
           {{-- <ul class="cd-side__sub-list">
             <li class="cd-side__sub-item"><a aria-current="page" href="#0">All Notifications</a></li>
@@ -151,7 +151,7 @@
         </li>
     
         <li class="cd-side__item cd-side__item--comments cd-side__item--selected">
-          <a href="{{ url('/stock') }}">Stock</a>
+          <a href="{{ url('/stock') }}"><span data-feather="box" style="margin-right: 10%"></span>Stock</a>
           
           {{-- <ul class="cd-side__sub-list">
             <li class="cd-side__sub-item"><a href="#0">All Comments</a></li>
@@ -161,7 +161,7 @@
         </li>
 
         <li class="cd-side__item cd-side__item--comments cd-side__item--selected">
-          <a href="{{ url('/lending') }}">Lending</a>
+          <a href="{{ url('/lending') }}"><span data-feather="users" style="margin-right: 10%"></span>Lending</a>
         </li>
       </ul>
     
